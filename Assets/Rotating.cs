@@ -23,8 +23,7 @@ public class Rotating : MonoBehaviour
     void Update()
     {
         if(anchored){
-            transform.LookAt(handle);
-            transform.rotation*=rotation;
+            transform.rotation=rotation*Quaternion.LookRotation(transform.position-handle.position,Vector3.up);
         }
             
     }
