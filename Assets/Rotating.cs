@@ -11,6 +11,7 @@ public class Rotating : MonoBehaviour
     [SerializeField]
     private Transform handle;
     private bool anchored=false;
+    private Vector3 forward=Vector3.zero;
     private Quaternion rotation=Quaternion.identity;
     void Start()
     {
@@ -23,13 +24,15 @@ public class Rotating : MonoBehaviour
     void Update()
     {
         if(anchored){
-            transform.rotation=rotation*Quaternion.LookRotation(transform.position-handle.position,Vector3.up);
+            // transform.rotation=rotation*Quaternion.LookRotation(transform.position-handle.position,Vector3.up);
+            transform.forward=(transform.position-handle.position).normalized+forward;
         }
             
     }
 
     void Anchor(InputAction.CallbackContext context){
         rotation=transform.rotation;
+        forward=transform.forward-(transform.position-handle.position).normalized;
         Debug.Log("Pressed");
         anchored=true;
     }
