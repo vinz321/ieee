@@ -16,8 +16,8 @@ public class Rotating : MonoBehaviour
     void Start()
     {
         abc=FindObjectOfType<ActionBasedController>();
-        abc.selectAction.action.performed+=Anchor;
-        abc.selectAction.action.canceled+=Detach;
+        abc.activateAction.action.performed+=Anchor;
+        abc.activateAction.action.canceled+=Detach;
     }
 
     // Update is called once per frame
