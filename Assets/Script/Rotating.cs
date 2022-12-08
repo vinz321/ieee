@@ -25,13 +25,14 @@ public class Rotating : MonoBehaviour
     {
         if(anchored){
             // transform.rotation=rotation*Quaternion.LookRotation(transform.position-handle.position,Vector3.up);
-            transform.forward=(transform.position-handle.position).normalized+forward;
+            transform.forward=(transform.position-handle.position).normalized+transform.TransformDirection(forward);
         }
     }
 
     void Anchor(InputAction.CallbackContext context){
         rotation=transform.rotation;
         forward=transform.forward-(transform.position-handle.position).normalized;
+        forward=transform.InverseTransformDirection(forward);
         Debug.Log("Pressed");
         anchored=true;
     }

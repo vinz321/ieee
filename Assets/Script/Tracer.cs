@@ -23,8 +23,8 @@ public class Tracer : MonoBehaviour
         InputAction a=GetComponent<ActionBasedController>().selectAction.action;
         InputAction b=GetComponent<ActionBasedController>().activateAction.action;
         a.started+=(context)=>{passStarted=true;};
-        a.canceled+=(context)=>{passStarted=false; PrintPassKeep();};
-
+        a.canceled+=(context)=>{passStarted=false; 
+                                PrintPassKeep();};
         b.started+=(context)=>{idColor++;
                                 idColor%=colorSpan.Count;
                                 };
