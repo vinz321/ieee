@@ -4,31 +4,35 @@ using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.InputSystem;
 
-public class Rotating : MonoBehaviour
+public class Rotator : MonoBehaviour
 {
     [SerializeField]
     private ActionBasedController abc;
     [SerializeField]
     private Transform handle;
     private bool anchored=false;
+    private Vector3 forward=Vector3.zero;
     private Quaternion rotation=Quaternion.identity;
     void Start()
     {
-        abc=FindObjectOfType<ActionBasedController>();
-        abc.selectAction.action.performed+=Anchor;
-        abc.selectAction.action.canceled+=Detach;
+        //abc=FindObjectOfType<ActionBasedController>();
+        abc.activateAction.action.performed+=Anchor;
+        abc.activateAction.action.canceled+=Detach;
     }
 
     // Update is called once per frame
     void Update()
     {
         if(anchored){
-            transform.rotation=rotation*Quaternion.LookRotation(transform.position-handle.position,Vector3.up);
+            // transform.rotation=rotation*Quaternion.LookRotation(transform.position-handle.position,Vector3.up);
+            transform.forward=(transform.position-handle.position).normalized+forward;
         }
+            
     }
 
     void Anchor(InputAction.CallbackContext context){
         rotation=transform.rotation;
+        forward=transform.forward-(transform.position-handle.position).normalized;
         Debug.Log("Pressed");
         anchored=true;
     }

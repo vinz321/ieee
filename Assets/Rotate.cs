@@ -2,35 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.InputSystem;
 
 public class Rotate : MonoBehaviour
 {
-    [SerializeField] private Transform t;
+    [SerializeField] private ActionBasedController abc;
+    [SerializeField] private Transform handle;
 
-    private XRGrabInteractable grabInteractable => GetComponent<XRGrabInteractable>();
-    private XRBaseInteractor interactor;
-    
-    private void OnEnabled()
+    void Start() 
     {
-        grabInteractable.selectEntered.AddListener(GrabStart);
-        grabInteractable.selectExited.AddListener(GrabEnd);
-    }
-    private void OnDisable()
-    {
-        grabInteractable.selectEntered.RemoveListener(GrabStart);
-        grabInteractable.selectExited.RemoveListener(GrabEnd);
+        abc.selectAction.action.performed+=Anchor;
+        abc.selectAction.action.canceled+=Detach;
     }
 
-    private void GrabStart(SelectEnterEventArgs arg0)
-    {
-        
+    void Anchor(InputAction.CallbackContext context){
+        Debug.Log("Pressed");
+    }
+    void Detach(InputAction.CallbackContext context){
+        Debug.Log("Detached");
     }
 
-    private void GrabEnd(SelectExitEventArgs arg0)
-    {
-        interactor = grabInteractable.selectingInteractor;
-        interactor.GetComponent<XRDirectInteractor>().hideControllerOnSelect = true;
-    }
-
-    public float GetInteractorRot() => interactor. GetComponent<Transform>().eulerAngles.z; 
 }
