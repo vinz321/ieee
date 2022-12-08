@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.InputSystem;
 
-public class Rotating : MonoBehaviour
+public class Rotator : MonoBehaviour
 {
     [SerializeField]
     private ActionBasedController abc;
@@ -27,6 +27,7 @@ public class Rotating : MonoBehaviour
             // transform.rotation=rotation*Quaternion.LookRotation(transform.position-handle.position,Vector3.up);
             transform.forward=(transform.position-handle.position).normalized+forward;
         }
+            
     }
 
     void Anchor(InputAction.CallbackContext context){
