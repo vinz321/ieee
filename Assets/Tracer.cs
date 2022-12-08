@@ -9,16 +9,25 @@ public class Tracer : MonoBehaviour
     // Start is called before the first frame update
     private Stack<Triangle> pass=new Stack<Triangle>();
     private XRRayInteractor xrri;
+    private XRInteractorLineVisual lv;
     private Triangle active=null;
     private RaycastHit hit;
     private bool passStarted;
+    [SerializeField]
+    private List<Color> colorSpan=new List<Color>();
+    private int idColor=0;
     void Start()
     {
         xrri=GetComponent<XRRayInteractor>();
-
+        lv=GetComponent<XRInteractorLineVisual>();
         InputAction a=GetComponent<ActionBasedController>().selectAction.action;
+        InputAction b=GetComponent<ActionBasedController>().activateAction.action;
         a.started+=(context)=>{passStarted=true;};
-        a.canceled+=(context)=>{passStarted=false; PrintPass();};
+        a.canceled+=(context)=>{passStarted=false; PrintPassKeep();};
+
+        b.started+=(context)=>{idColor++;
+                                idColor%=colorSpan.Count;
+                                };
     }
 
     void PrintPass(){
@@ -35,18 +44,33 @@ public class Tracer : MonoBehaviour
         
     }
 
+    void PrintPassKeep(){
+        List<Triangle> temp=new List<Triangle>(pass);
+        string p=active+" ";
+        pass.Push(active);
+        active=null;
+        for(int i=temp.Count-1;i>=0;i--){
+            p+=temp[i]+" ";
+
+        }
+        print(p);
+    }
     // Update is called once per frame
     void FixedUpdate()
     {
+        TracePath(colorSpan[idColor]);
+    }
+
+    void TracePath(Color color){
         if(passStarted && xrri.TryGetCurrent3DRaycastHit(out hit)){
             if(active==null){
                 active=hit.transform.GetComponent<Triangle>();
                 if(active!=null)
-                    active.TurnOn();
+                    active.TurnOn(color);
             }
             else{
                 Triangle temp=hit.transform.GetComponent<Triangle>();
-                if(temp!=null){
+                if(temp!=null && temp!=active){
                     if(pass.Count>0 && temp==pass.Peek()){
                         active.TurnOff();
                         active=pass.Pop();
@@ -54,7 +78,7 @@ public class Tracer : MonoBehaviour
                     else if(temp.isAdjacent(active)){
                         pass.Push(active);
                         active=temp;
-                        active.TurnOn();
+                        active.TurnOn(color);
                     }
                 }
 

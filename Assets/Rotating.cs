@@ -15,7 +15,7 @@ public class Rotating : MonoBehaviour
     private Quaternion rotation=Quaternion.identity;
     void Start()
     {
-        abc=FindObjectOfType<ActionBasedController>();
+        //abc=FindObjectOfType<ActionBasedController>();
         abc.activateAction.action.performed+=Anchor;
         abc.activateAction.action.canceled+=Detach;
     }
