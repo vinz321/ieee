@@ -16,7 +16,7 @@ public class Rotating : MonoBehaviour
     void Start()
     {
         //abc=FindObjectOfType<ActionBasedController>();
-        abc.activateAction.action.performed+=Anchor;
+        abc.activateAction.action.started+=Anchor;
         abc.activateAction.action.canceled+=Detach;
     }
 
@@ -24,15 +24,16 @@ public class Rotating : MonoBehaviour
     void Update()
     {
         if(anchored){
-            // transform.rotation=rotation*Quaternion.LookRotation(transform.position-handle.position,Vector3.up);
-            transform.forward=(transform.position-handle.position).normalized+transform.TransformDirection(forward);
+            transform.LookAt(handle.position);
         }
     }
 
     void Anchor(InputAction.CallbackContext context){
-        rotation=transform.rotation;
-        forward=transform.forward-(transform.position-handle.position).normalized;
-        forward=transform.InverseTransformDirection(forward);
+        Transform temp=transform.GetChild(0);
+        temp.parent=null;
+        transform.LookAt(handle.position,Vector3.up);
+        temp.parent=transform;
+        // forward=transform.InverseTransformDirection(forward);
         Debug.Log("Pressed");
         anchored=true;
     }

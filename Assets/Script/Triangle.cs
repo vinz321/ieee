@@ -26,14 +26,20 @@ public class Triangle : MonoBehaviour
     }
 
     public void TurnOn(Color color){
-        mr.enabled=true;
-
-        mr.material.SetColor("_EmissionColor",color+color);
+        if(mr.enabled)
+            mr.material.SetColor("_EmissionColor",this.color+2*color);
+        else{
+            mr.enabled=true;
+            mr.material.SetColor("_EmissionColor",color+color);
+            
+        }
         this.color=color;
     }
     public void TurnOff(){
         mr.enabled=false;
+
     }
+
 
     public bool isAdjacent(Triangle t){
         return((smallT<0 || t.smallT<0) && bigT==t.bigT) || (smallT==t.smallT && bigT!=t.bigT);
@@ -41,5 +47,11 @@ public class Triangle : MonoBehaviour
 
     public override string ToString(){
         return ""+bigT+smallT+color;
+    }
+
+    public bool isOn{
+        get{
+            return mr.enabled;
+        }
     }
 }

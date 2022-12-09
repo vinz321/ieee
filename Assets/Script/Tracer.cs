@@ -58,10 +58,10 @@ public class Tracer : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        TracePath(colorSpan[idColor]);
+        TracePath(colorSpan[idColor], false);
     }
 
-    void TracePath(Color color){
+    void TracePath(Color color, bool traceback){
         if(passStarted && xrri.TryGetCurrent3DRaycastHit(out hit)){
             if(active==null){
                 active=hit.transform.GetComponent<Triangle>();
@@ -75,7 +75,7 @@ public class Tracer : MonoBehaviour
                         active.TurnOff();
                         active=pass.Pop();
                     }
-                    else if(temp.isAdjacent(active)){
+                    else if(temp.isAdjacent(active) && !(traceback && temp.isOn)){
                         pass.Push(active);
                         active=temp;
                         active.TurnOn(color);
