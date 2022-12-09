@@ -1748,7 +1748,7 @@ MonoBehaviour:
   m_SphereCastRadius: 0.1
   m_RaycastMask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 768
   m_RaycastTriggerInteraction: 1
   m_HitClosestOnly: 0
   m_HoverToSelect: 0
@@ -1960,13 +1960,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 687683211}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9345b24897eab8f4094148e676aaf014, type: 3}
+  m_Script: {fileID: 11500000, guid: ba57ae5ee9536f14c832e350e6726d06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colorSpan:
-  - {r: 1, g: 0, b: 0, a: 0}
-  - {r: 0.9827336, g: 1, b: 0, a: 0}
-  - {r: 1, g: 0, b: 0.97531605, a: 0}
+  xrri: {fileID: 687683216}
 --- !u!1 &714501464
 GameObject:
   m_ObjectHideFlags: 0
@@ -2754,7 +2751,7 @@ MonoBehaviour:
   priority: 0
   blendDistance: 0
   weight: 1
-  sharedProfile: {fileID: 0}
+  sharedProfile: {fileID: 11400000, guid: a6560a915ef98420e9faacc1c7438823, type: 2}
 --- !u!64 &1176565725
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -4312,7 +4309,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1717048402}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6e804c1040be94247a8b9eefdc463e3c, type: 3}
   m_Name: 
@@ -4376,11 +4373,35 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 687683218}
+        m_TargetAssemblyTypeName: CubeTrace, Assembly-CSharp
+        m_MethodName: SetActive
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1717048403}
         m_TargetAssemblyTypeName: Rotate, Assembly-CSharp
+        m_MethodName: setUnActive
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 687683218}
+        m_TargetAssemblyTypeName: CubeTrace, Assembly-CSharp
         m_MethodName: setUnActive
         m_Mode: 1
         m_Arguments:
@@ -4459,6 +4480,20 @@ MonoBehaviour:
     m_Bits: 0
   faces: []
   indexes: 
+--- !u!114 &1717048411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1717048402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80cf227c7445eb84db15735a78e05d6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abc: {fileID: 1392850146}
+  handle: {fileID: 1179263334}
 --- !u!1 &1720162462
 GameObject:
   m_ObjectHideFlags: 0
