@@ -54,12 +54,12 @@ public class SphereTrace : MonoBehaviour
     {
         selected = inUse = false;
         
-        resetFaces();
+        clearFaces();
 
         faces.Clear();
     }
 
-    void resetFaces() 
+    void clearFaces() 
     {
         string sus = "[ ";
         foreach(GameObject c in faces)
