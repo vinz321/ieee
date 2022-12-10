@@ -12,8 +12,8 @@ public class SphereTrace : MonoBehaviour
     RaycastHit hit;
     bool selected = false, inUse = false;
     List<GameObject> faces;
-    int lastFaceId;
-    
+    int lastSideId, lastFaceId;
+
     private void Start()
     {
         faces = new List<GameObject>();
@@ -52,9 +52,7 @@ public class SphereTrace : MonoBehaviour
     public void setUnActive(InputAction.CallbackContext ctx)
     {
         selected = inUse = false;
-        
         clearFaces();
-
         faces.Clear();
     }
 
@@ -73,6 +71,29 @@ public class SphereTrace : MonoBehaviour
     }
     #endregion initialization
 
+    bool isAdjacent(GameObject current) 
+    {
+        bool adj = false;
+        Side oldSide = faces[faces.Count-2].GetComponent<Side>();
+        Side cSide = current.GetComponent<Side>();
+
+
+
+        if (lastSideId == cSide.SideId)
+        {
+            if (((oldSide.FaceId % 2 == 0) && (cSide.FaceId % 2 != 0)) || ((oldSide.FaceId % 2 != 0) && (cSide.FaceId % 2 == 0)))
+            {
+                adj = true;
+                Debug.Log("adjacent!");
+            }
+            else 
+            {
+                Debug.Log("NOT adjacent!");
+            }
+        }
+        return adj;
+    }
+
     void drawFaces()
     {
         if (selected && xrri.TryGetCurrent3DRaycastHit(out hit))
@@ -80,12 +101,9 @@ public class SphereTrace : MonoBehaviour
             string currentLayer = LayerMask.LayerToName(hit.transform.gameObject.layer);
             if (currentLayer == "Face")
             {
-                GameObject currentObj = hit.transform.gameObject;
-                if (currentObj.GetComponent<Side>())
-                {
-                    Debug.Log(currentObj.GetComponent<Side>().FaceId);
-                }                
+                GameObject currentObj = hit.transform.gameObject;            
                 MeshRenderer currentMeshRenderer = currentObj.GetComponent<MeshRenderer>();
+
                 currentMeshRenderer.enabled = true;
                 if (!faces.Contains(currentObj)) faces.Add(currentObj);
                 if (faces.Count > 1)
