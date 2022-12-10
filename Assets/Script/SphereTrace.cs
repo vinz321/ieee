@@ -6,15 +6,14 @@ using UnityEngine.InputSystem;
 
 public class SphereTrace : MonoBehaviour
 {
-
-    
     [SerializeField] private ActionBasedController abcLeft, abcRight;
     [SerializeField] private Material defaultMat;
     XRRayInteractor xrri;
     RaycastHit hit;
     bool selected = false, inUse = false;
     List<GameObject> faces;
-
+    int lastFaceId;
+    
     private void Start()
     {
         faces = new List<GameObject>();
@@ -82,6 +81,10 @@ public class SphereTrace : MonoBehaviour
             if (currentLayer == "Face")
             {
                 GameObject currentObj = hit.transform.gameObject;
+                if (currentObj.GetComponent<Side>())
+                {
+                    Debug.Log(currentObj.GetComponent<Side>().FaceId);
+                }                
                 MeshRenderer currentMeshRenderer = currentObj.GetComponent<MeshRenderer>();
                 currentMeshRenderer.enabled = true;
                 if (!faces.Contains(currentObj)) faces.Add(currentObj);
