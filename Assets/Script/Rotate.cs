@@ -6,65 +6,56 @@ using UnityEngine.InputSystem;
 
 public class Rotate : MonoBehaviour
 {
-    [SerializeField] private XRSimpleInteractable interactable;
     [SerializeField] private XRRayInteractor xrri;
-    [SerializeField] private GameObject hand;
-    [SerializeField] private Transform rotAnchor;
-    //[SerializeField] private Transform player;
-    private Camera cam;
+    [SerializeField] private ActionBasedController abc;
     bool grabbed = false, setup = false;
-
-    Vector3 startDir, oldDir, newDir;
-    Vector3 lookDir;
-    float xzAngle, yzAngle, xyAngle;
+    Vector3 oldDir, newDir;
     RaycastHit hit;
-    LayerMask mask;
 
-    private void Start()
+    void Start()
     {
-        cam = Camera.main;
+        abc.selectAction.action.started += SetActive;
+        abc.selectAction.action.canceled += setUnActive;
     }
 
     private void FixedUpdate()
     {
-        doRotate();
+        rotate();
     }
 
-    public void SetActive()
+    public void SetActive(InputAction.CallbackContext context)
     {
         grabbed = true;
-        xzAngle = 0f;
         setup = true;
     }
 
-    public void setUnActive()
+    public void setUnActive(InputAction.CallbackContext context)
     {
         grabbed = false;
-        oldDir = newDir;
+        //oldDir = newDir;
     }
 
-    void look()
-    {
-        lookDir = (rotAnchor.position - newDir).normalized;
-        rotAnchor.rotation = Quaternion.LookRotation(lookDir);
-    }
-
-    void doRotate()
+    void rotate()
     {
         if (grabbed && xrri.TryGetCurrent3DRaycastHit(out hit))
         {
             if (setup) 
             {
-                startDir = oldDir = (transform.position - hit.point).normalized;
+                oldDir = (transform.position - hit.point).normalized;
                 setup = false;
             }
-
+            // calculate new direction from hitpoint to sphere center
             newDir = (transform.position - hit.point).normalized;
 
-            Debug.DrawLine(transform.position, hit.point, Color.red, 0f, false);
-            
+            // Debug.DrawLine(transform.position, hit.point, Color.red, 0f, false);
+
+            // calculate 3D angle between old and new directions
             Quaternion newRot = Quaternion.FromToRotation(oldDir, newDir);
+
+            // apply first the *small rotation increment* and than apply *current sphere rotation*
             transform.rotation = newRot * transform.rotation;
+
+            // set old to new rot to prevent authomaitc rotation
             oldDir = newDir;
         }
     }

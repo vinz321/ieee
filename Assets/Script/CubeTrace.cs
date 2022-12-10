@@ -8,6 +8,7 @@ public class CubeTrace : MonoBehaviour
 {
 
     [SerializeField] private XRRayInteractor xrri;
+    [SerializeField] private ActionBasedController abc;
     RaycastHit hit;
     bool selected = false;
 
@@ -16,15 +17,16 @@ public class CubeTrace : MonoBehaviour
     private void Start()
     {
         faces = new List<GameObject>();
+        abc.activateAction.action.started += SetActive;
+        abc.activateAction.action.canceled += setUnActive;
     }
-    public void SetActive()
+    public void SetActive(InputAction.CallbackContext context)
     {
         //hand.GetComponent<MeshRenderer>().enabled = false;
         selected = true;
-        Debug.Log("Gnu");
     }
 
-    public void setUnActive()
+    public void setUnActive(InputAction.CallbackContext context)
     {
         //hand.GetComponent<MeshRenderer>().enabled = true;
         foreach(GameObject c in faces)
@@ -32,7 +34,6 @@ public class CubeTrace : MonoBehaviour
             c.GetComponent<MeshRenderer>().enabled = false;
         }
         selected = false;
-        Debug.Log("Gne");
     }
 
     // Update is called once per frame
