@@ -9,10 +9,10 @@ public class SphereTrace : MonoBehaviour
 
     
     [SerializeField] private ActionBasedController abcLeft, abcRight;
+    [SerializeField] private Material defaultMat;
     XRRayInteractor xrri;
     RaycastHit hit;
     bool selected = false, inUse = false;
-
     List<GameObject> faces;
 
     private void Start()
@@ -54,15 +54,23 @@ public class SphereTrace : MonoBehaviour
     {
         selected = inUse = false;
         
+        resetFaces();
+
+        faces.Clear();
+    }
+
+    void resetFaces() 
+    {
         string sus = "[ ";
         foreach(GameObject c in faces)
         {
-            c.GetComponent<MeshRenderer>().enabled = false;
+            MeshRenderer m = c.GetComponent<MeshRenderer>();
+            m.material = defaultMat;
+            m.enabled = false;
             sus += c.name + ", ";
         }
         sus += " ]";
         Debug.Log(sus);
-        faces.Clear();
     }
     #endregion initialization
 
@@ -74,14 +82,31 @@ public class SphereTrace : MonoBehaviour
             if (currentLayer == "Face")
             {
                 GameObject currentObj = hit.transform.gameObject;
-                currentObj.GetComponent<MeshRenderer>().enabled = true;
+                MeshRenderer currentMeshRenderer = currentObj.GetComponent<MeshRenderer>();
+                currentMeshRenderer.enabled = true;
                 if (!faces.Contains(currentObj)) faces.Add(currentObj);
                 if (faces.Count > 1)
                 {
                     if (currentObj == faces[faces.Count-2])
                     {
-                        faces[faces.Count-1].GetComponent<MeshRenderer>().enabled = false;
+                        
+                        MeshRenderer lastMeshRenderer = faces[faces.Count-1].GetComponent<MeshRenderer>();
+                        
+                        if (lastMeshRenderer.material.color != defaultMat.color)
+                        {
+                            lastMeshRenderer.material.color -= new Color(1.0f, 0.0f, 0.0f);
+                        }
+                        else 
+                        {
+                            lastMeshRenderer.enabled = false;
+                        }
+
                         faces.RemoveAt(faces.Count-1);
+                    }
+                    if (currentObj != faces[faces.Count-1] && currentObj != faces[faces.Count-2] && faces.Contains(currentObj))
+                    {
+                        faces.Add(currentObj);
+                        currentMeshRenderer.material.color += new Color(1.0f, 0.0f, 0.0f);
                     }
                 }
             }
