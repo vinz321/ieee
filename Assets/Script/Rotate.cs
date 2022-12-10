@@ -6,16 +6,16 @@ using UnityEngine.InputSystem;
 
 public class Rotate : MonoBehaviour
 {
-    [SerializeField] private XRRayInteractor xrri;
-    [SerializeField] private ActionBasedController abc;
-    bool grabbed = false, setup = false;
-    Vector3 oldDir, newDir;
+    [SerializeField] private ActionBasedController abcLeft, abcRight;
+    XRRayInteractor xrri;
     RaycastHit hit;
+    bool grabbed = false, setup = false, inUse = false;
+    Vector3 oldDir, newDir;
+    
 
     void Start()
     {
-        abc.selectAction.action.started += SetActive;
-        abc.selectAction.action.canceled += setUnActive;
+        initControllers();
     }
 
     private void FixedUpdate()
@@ -23,17 +23,36 @@ public class Rotate : MonoBehaviour
         rotate();
     }
 
-    public void SetActive(InputAction.CallbackContext context)
+    #region initialization
+    void initControllers()
     {
-        grabbed = true;
-        setup = true;
+        abcLeft.selectAction.action.started += SetActive;
+        abcLeft.selectAction.action.canceled += setUnActive;
+        abcRight.selectAction.action.started += SetActive;
+        abcRight.selectAction.action.canceled += setUnActive;
     }
 
-    public void setUnActive(InputAction.CallbackContext context)
+    void SetActive(InputAction.CallbackContext ctx)
     {
-        grabbed = false;
-        //oldDir = newDir;
+        if (!inUse) 
+        {
+            if (abcLeft.selectAction.action.IsPressed())
+            {
+                xrri = abcLeft.gameObject.GetComponent<XRRayInteractor>();
+            }
+            if (abcRight.selectAction.action.IsPressed())
+            {
+                xrri = abcRight.gameObject.GetComponent<XRRayInteractor>();
+            }
+            inUse = grabbed = setup = true;
+        }
     }
+
+    void setUnActive(InputAction.CallbackContext ctx)
+    {
+        grabbed = inUse = false;
+    }
+    #endregion initialization
 
     void rotate()
     {

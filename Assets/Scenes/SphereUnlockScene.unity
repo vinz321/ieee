@@ -3356,7 +3356,7 @@ MonoBehaviour:
   m_SphereCastRadius: 0.1
   m_RaycastMask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 768
   m_RaycastTriggerInteraction: 1
   m_HitClosestOnly: 0
   m_HoverToSelect: 0
@@ -3861,8 +3861,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e804c1040be94247a8b9eefdc463e3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xrri: {fileID: 0}
-  abc: {fileID: 0}
+  abcLeft: {fileID: 0}
+  abcRight: {fileID: 0}
 --- !u!64 &1487506704
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -4261,8 +4261,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e804c1040be94247a8b9eefdc463e3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xrri: {fileID: 687683216}
-  abc: {fileID: 687683217}
+  abcLeft: {fileID: 1392850146}
+  abcRight: {fileID: 687683217}
 --- !u!64 &1717048409
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -4289,8 +4289,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba57ae5ee9536f14c832e350e6726d06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xrri: {fileID: 687683216}
-  abc: {fileID: 687683217}
+  abcLeft: {fileID: 1392850146}
+  abcRight: {fileID: 687683217}
 --- !u!1 &1720162462
 GameObject:
   m_ObjectHideFlags: 0
