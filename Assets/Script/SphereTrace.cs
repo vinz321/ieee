@@ -47,17 +47,22 @@ public class SphereTrace : MonoBehaviour
                 xrri = abcRight.gameObject.GetComponent<XRRayInteractor>();
             }
             selected = inUse = true;
-            Debug.Log("YO");
         }
     }
 
     public void setUnActive(InputAction.CallbackContext ctx)
     {
         selected = inUse = false;
+        
+        string sus = "[ ";
         foreach(GameObject c in faces)
         {
             c.GetComponent<MeshRenderer>().enabled = false;
+            sus += c.name + ", ";
         }
+        sus += " ]";
+        Debug.Log(sus);
+        faces.Clear();
     }
     #endregion initialization
 
@@ -70,7 +75,15 @@ public class SphereTrace : MonoBehaviour
             {
                 GameObject currentObj = hit.transform.gameObject;
                 currentObj.GetComponent<MeshRenderer>().enabled = true;
-                faces.Add(currentObj);
+                if (!faces.Contains(currentObj)) faces.Add(currentObj);
+                if (faces.Count > 1)
+                {
+                    if (currentObj == faces[faces.Count-2])
+                    {
+                        faces[faces.Count-1].GetComponent<MeshRenderer>().enabled = false;
+                        faces.RemoveAt(faces.Count-1);
+                    }
+                }
             }
         }
     }
