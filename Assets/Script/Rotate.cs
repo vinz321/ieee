@@ -10,10 +10,12 @@ public class Rotate : MonoBehaviour
     [SerializeField] private XRRayInteractor xrri;
     [SerializeField] private GameObject hand;
     [SerializeField] private Transform rotAnchor;
+    //[SerializeField] private Transform player;
     private Camera cam;
     bool grabbed = false, setup = false;
 
-    Vector3 startDir, newDir;
+    Vector3 startDir, oldDir, newDir;
+    Vector3 lookDir;
     float xzAngle, yzAngle, xyAngle;
     RaycastHit hit;
     LayerMask mask;
@@ -25,30 +27,26 @@ public class Rotate : MonoBehaviour
 
     private void FixedUpdate()
     {
-        setAnchorRot();
         doRotate();
     }
 
     public void SetActive()
     {
-        //hand.GetComponent<MeshRenderer>().enabled = false;
         grabbed = true;
         xzAngle = 0f;
         setup = true;
-        //Debug.Log("grabbato");
     }
 
     public void setUnActive()
     {
-        //hand.GetComponent<MeshRenderer>().enabled = true;
         grabbed = false;
-        startDir = newDir;
-        //Debug.Log("lasciato");
+        oldDir = newDir;
     }
 
-    void setAnchorRot()
+    void look()
     {
-        rotAnchor.transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
+        lookDir = (rotAnchor.position - newDir).normalized;
+        rotAnchor.rotation = Quaternion.LookRotation(lookDir);
     }
 
     void doRotate()
@@ -57,28 +55,17 @@ public class Rotate : MonoBehaviour
         {
             if (setup) 
             {
-                startDir = hit.point - transform.position;
+                startDir = oldDir = (transform.position - hit.point).normalized;
                 setup = false;
             }
-            Debug.DrawLine(hit.point, transform.position, Color.red, 0f, false);
-            newDir = (hit.point - transform.position).normalized;
 
-            //Vector3 d = (cam.transform.position - transform.position).normalized;
-            //Vector3 r = Vector3.Cross(localUp, d);
+            newDir = (transform.position - hit.point).normalized;
 
-            Vector3 localUp = rotAnchor.InverseTransformDirection(rotAnchor.up);
-            Vector3 localRight = rotAnchor.InverseTransformDirection(rotAnchor.right);
-            Vector2 localForward = rotAnchor.InverseTransformDirection(rotAnchor.forward);
-
-                        
-
-            xzAngle = -Vector3.SignedAngle(new Vector3(newDir.x, 0, newDir.z), new Vector3(startDir.x, 0, startDir.z), localUp);
-            yzAngle = -Vector3.SignedAngle(new Vector3(0, newDir.y, newDir.z), new Vector3(0, startDir.y, startDir.z), localRight);
-            xyAngle = -Vector3.SignedAngle(new Vector3(newDir.x, newDir.y, 0), new Vector3(startDir.x, startDir.y, 0), localForward);
-            transform.Rotate(new Vector3(0, xzAngle, 0), Space.World);
-            transform.Rotate(new Vector3(yzAngle, 0, 0), Space.World);
-            transform.Rotate(new Vector3(0, 0, xyAngle), Space.World);
+            Debug.DrawLine(transform.position, hit.point, Color.red, 0f, false);
+            
+            Quaternion newRot = Quaternion.FromToRotation(oldDir, newDir);
+            transform.rotation = newRot * transform.rotation;
+            oldDir = newDir;
         }
-        startDir = newDir;
     }
 }
