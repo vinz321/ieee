@@ -91,9 +91,9 @@ public class SphereTrace : MonoBehaviour
                 Debug.Log("NOT adjacent!");
             }
         }
+        Debug.Log(adj);
         return adj;
     }
-
     void drawFaces()
     {
         if (selected && xrri.TryGetCurrent3DRaycastHit(out hit))
@@ -129,6 +129,7 @@ public class SphereTrace : MonoBehaviour
                         faces.Add(currentObj);
                         currentMeshRenderer.material.color += new Color(1.0f, 0.0f, 0.0f);
                     }
+                    isAdjacent(currentObj);
                 }
             }
         }
