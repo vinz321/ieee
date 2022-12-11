@@ -22,7 +22,7 @@ public class Side : MonoBehaviour
 
         //Horizontal Different BigFace
         else if(s.sideId<4 && sideId<4){
-            if((4+Mathf.Abs(sideId-s.sideId))%4!=1) return false;
+            if((sideId+s.sideId)%2==0) return false;
             if(s.y==y && Mathf.Abs(s.x-x)==2){
                 return true;
             }
@@ -36,14 +36,13 @@ public class Side : MonoBehaviour
                 Debug.Log("VSideCheck");
                 switch(hSide.sideId){
                     case 0:   //left
-                        
                         return vSide.faceId==vSide.GetFace(0,hSide.x);
                     case 1:   //down
                         return vSide.faceId==vSide.GetFace(hSide.x,2);
-                    case 2:   //left
-                        return vSide.sideId==vSide.GetFace(2,2-hSide.x);
-                    case 3:   //left
-                        return vSide.sideId==vSide.GetFace(2-hSide.x,0);    
+                    case 2:   //right
+                        return vSide.faceId==vSide.GetFace(2,2-hSide.x);
+                    case 3:   //up
+                        return vSide.faceId==vSide.GetFace(2-hSide.x,0);    
                 }
             }
         }
