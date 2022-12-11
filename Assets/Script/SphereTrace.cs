@@ -12,10 +12,12 @@ public class SphereTrace : MonoBehaviour
     RaycastHit hit;
     bool selected = false, inUse = false;
     List<GameObject> faces;
+    private int faceLayer;
     int lastSideId, lastFaceId;
 
     private void Start()
     {
+        faceLayer = LayerMask.NameToLayer("Face");
         faces = new List<GameObject>();
         initControllers();
     }
@@ -73,39 +75,45 @@ public class SphereTrace : MonoBehaviour
 
     bool isAdjacent(GameObject current) 
     {
+        if(faces.Count<1) return true;
         bool adj = false;
-        Side oldSide = faces[faces.Count-2].GetComponent<Side>();
+        Side oldSide = faces[faces.Count-1].GetComponent<Side>();
         Side cSide = current.GetComponent<Side>();
 
-
-
-        if (lastSideId == cSide.SideId)
-        {
-            if (((oldSide.FaceId % 2 == 0) && (cSide.FaceId % 2 != 0)) || ((oldSide.FaceId % 2 != 0) && (cSide.FaceId % 2 == 0)))
-            {
-                adj = true;
-                Debug.Log("adjacent!");
-            }
-            else 
-            {
-                Debug.Log("NOT adjacent!");
-            }
-        }
+        adj=oldSide.isAdjacent(cSide);
         Debug.Log(adj);
+        // if (lastSideId == cSide.SideId)
+        // {
+        //     if (((oldSide.FaceId % 2 == 0) && (cSide.FaceId % 2 != 0)) || ((oldSide.FaceId % 2 != 0) && (cSide.FaceId % 2 == 0)))
+        //     {
+        //         adj = true;
+        //         Debug.Log("adjacent!");
+        //     }
+        //     else 
+        //     {
+        //         Debug.Log("NOT adjacent!");
+        //     }
+        // }
+
+        // if(lastSideId==cSide.SideId)
+        // Debug.Log(adj);
         return adj;
     }
     void drawFaces()
     {
         if (selected && xrri.TryGetCurrent3DRaycastHit(out hit))
         {
-            string currentLayer = LayerMask.LayerToName(hit.transform.gameObject.layer);
-            if (currentLayer == "Face")
+            int currentLayer=hit.transform.gameObject.layer;
+            if (currentLayer == faceLayer)
             {
                 GameObject currentObj = hit.transform.gameObject;            
                 MeshRenderer currentMeshRenderer = currentObj.GetComponent<MeshRenderer>();
 
-                currentMeshRenderer.enabled = true;
-                if (!faces.Contains(currentObj)) faces.Add(currentObj);
+                
+                if (!faces.Contains(currentObj) && isAdjacent(currentObj)){ 
+                    faces.Add(currentObj);
+                    currentMeshRenderer.enabled = true;
+                }
                 if (faces.Count > 1)
                 {
                     if (currentObj == faces[faces.Count-2])
@@ -124,12 +132,12 @@ public class SphereTrace : MonoBehaviour
 
                         faces.RemoveAt(faces.Count-1);
                     }
-                    if (currentObj != faces[faces.Count-1] && currentObj != faces[faces.Count-2] && faces.Contains(currentObj))
+                    if (currentObj != faces[faces.Count-1] && currentObj != faces[faces.Count-2] && faces.Contains(currentObj) )
                     {
                         faces.Add(currentObj);
                         currentMeshRenderer.material.color += new Color(1.0f, 0.0f, 0.0f);
                     }
-                    isAdjacent(currentObj);
+                    //isAdjacent(currentObj);
                 }
             }
         }

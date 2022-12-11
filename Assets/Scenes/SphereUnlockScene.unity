@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1273174, g: 0.13414761, b: 0.12107885, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -927,7 +927,7 @@ GameObject:
   m_Component:
   - component: {fileID: 539697664}
   m_Layer: 9
-  m_Name: Face6
+  m_Name: Face5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -945,15 +945,15 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 543450653257691007}
-  - {fileID: 543450653397326613}
-  - {fileID: 543450653715418832}
-  - {fileID: 543450651720594278}
-  - {fileID: 543450652400351649}
-  - {fileID: 543450652731780808}
   - {fileID: 543450652916811274}
   - {fileID: 543450653203104521}
   - {fileID: 543450653260388389}
+  - {fileID: 543450651720594278}
+  - {fileID: 543450652400351649}
+  - {fileID: 543450652731780808}
+  - {fileID: 543450653257691007}
+  - {fileID: 543450653397326613}
+  - {fileID: 543450653715418832}
   m_Father: {fileID: 1123707271}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
@@ -967,7 +967,7 @@ GameObject:
   m_Component:
   - component: {fileID: 574297481}
   m_Layer: 9
-  m_Name: Face4
+  m_Name: Face2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2092,7 +2092,7 @@ GameObject:
   m_Component:
   - component: {fileID: 976258815}
   m_Layer: 9
-  m_Name: Face5
+  m_Name: Face4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2319,7 +2319,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1104535510}
   m_Layer: 9
-  m_Name: Side1
+  m_Name: Face1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4276,7 +4276,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2146214305}
   m_Layer: 9
-  m_Name: Face2
+  m_Name: Face0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4814,7 +4814,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 539697664}
-  m_RootOrder: 6
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &543450652987734266
 Transform:
@@ -4889,7 +4889,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 539697664}
-  m_RootOrder: 7
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &543450653257691007
 Transform:
@@ -4904,7 +4904,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 539697664}
-  m_RootOrder: 0
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &543450653260388389
 Transform:
@@ -4919,7 +4919,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 539697664}
-  m_RootOrder: 8
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &543450653397326613
 Transform:
@@ -4934,7 +4934,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 539697664}
-  m_RootOrder: 1
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &543450653432017792
 Transform:
@@ -5114,7 +5114,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 539697664}
-  m_RootOrder: 2
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &919132147506670450
 GameObject:
@@ -5130,7 +5130,7 @@ GameObject:
   - component: {fileID: 1707857447}
   - component: {fileID: 3469287838099029614}
   m_Layer: 9
-  m_Name: Face2
+  m_Name: Face1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5150,7 +5150,7 @@ GameObject:
   - component: {fileID: 1816953938}
   - component: {fileID: 3469287838110207895}
   m_Layer: 9
-  m_Name: Face8
+  m_Name: Face7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5170,7 +5170,7 @@ GameObject:
   - component: {fileID: 1644783067}
   - component: {fileID: 3469287838052978074}
   m_Layer: 9
-  m_Name: Face1
+  m_Name: Face0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5190,7 +5190,7 @@ GameObject:
   - component: {fileID: 1835970475}
   - component: {fileID: 3469287837971302378}
   m_Layer: 9
-  m_Name: Face3
+  m_Name: Face2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5210,7 +5210,7 @@ GameObject:
   - component: {fileID: 1847015240}
   - component: {fileID: 3469287837984448267}
   m_Layer: 9
-  m_Name: Face5
+  m_Name: Face4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5230,7 +5230,7 @@ GameObject:
   - component: {fileID: 1763936156}
   - component: {fileID: 3469287837899288535}
   m_Layer: 9
-  m_Name: Face8
+  m_Name: Face7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5250,7 +5250,7 @@ GameObject:
   - component: {fileID: 1988088977}
   - component: {fileID: 3469287837852875972}
   m_Layer: 9
-  m_Name: Face4
+  m_Name: Face3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5270,7 +5270,7 @@ GameObject:
   - component: {fileID: 2012526985}
   - component: {fileID: 3469287837860811212}
   m_Layer: 9
-  m_Name: Face3
+  m_Name: Face2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5290,7 +5290,7 @@ GameObject:
   - component: {fileID: 1943408780}
   - component: {fileID: 3469287837795645639}
   m_Layer: 9
-  m_Name: Face6
+  m_Name: Face5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5310,7 +5310,7 @@ GameObject:
   - component: {fileID: 2099693248}
   - component: {fileID: 3469287837698141939}
   m_Layer: 9
-  m_Name: Face1
+  m_Name: Face0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5330,7 +5330,7 @@ GameObject:
   - component: {fileID: 2145480862}
   - component: {fileID: 3469287837727398101}
   m_Layer: 9
-  m_Name: Face5
+  m_Name: Face4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5350,7 +5350,7 @@ GameObject:
   - component: {fileID: 2018689049}
   - component: {fileID: 3469287837619234908}
   m_Layer: 9
-  m_Name: Face1
+  m_Name: Face0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5370,7 +5370,7 @@ GameObject:
   - component: {fileID: 2044743309}
   - component: {fileID: 3469287837626672840}
   m_Layer: 9
-  m_Name: Face4
+  m_Name: Face3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5390,7 +5390,7 @@ GameObject:
   - component: {fileID: 2059539713}
   - component: {fileID: 3469287837645438132}
   m_Layer: 9
-  m_Name: Face4
+  m_Name: Face3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5410,7 +5410,7 @@ GameObject:
   - component: {fileID: 1500222870}
   - component: {fileID: 3469287838615129858}
   m_Layer: 9
-  m_Name: Face3
+  m_Name: Face2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5430,7 +5430,7 @@ GameObject:
   - component: {fileID: 1176565725}
   - component: {fileID: 3469287838654308248}
   m_Layer: 9
-  m_Name: Face6
+  m_Name: Face5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5450,7 +5450,7 @@ GameObject:
   - component: {fileID: 1308704426}
   - component: {fileID: 3469287838522234601}
   m_Layer: 9
-  m_Name: Face5
+  m_Name: Face4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5470,7 +5470,7 @@ GameObject:
   - component: {fileID: 1322666846}
   - component: {fileID: 3469287838517043989}
   m_Layer: 9
-  m_Name: Face3
+  m_Name: Face2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5490,7 +5490,7 @@ GameObject:
   - component: {fileID: 1341890126}
   - component: {fileID: 3469287838532105733}
   m_Layer: 9
-  m_Name: Face5
+  m_Name: Face4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5510,7 +5510,7 @@ GameObject:
   - component: {fileID: 1218443582}
   - component: {fileID: 3469287838412804469}
   m_Layer: 9
-  m_Name: Face7
+  m_Name: Face6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5530,7 +5530,7 @@ GameObject:
   - component: {fileID: 1852705837}
   - component: {fileID: 3469287838470728085}
   m_Layer: 9
-  m_Name: Face5
+  m_Name: Face4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5550,7 +5550,7 @@ GameObject:
   - component: {fileID: 1453334875}
   - component: {fileID: 3469287838377462042}
   m_Layer: 9
-  m_Name: Face2
+  m_Name: Face1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5570,7 +5570,7 @@ GameObject:
   - component: {fileID: 1819055620}
   - component: {fileID: 3469287838286735867}
   m_Layer: 9
-  m_Name: Face1
+  m_Name: Face0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5590,7 +5590,7 @@ GameObject:
   - component: {fileID: 1364146705}
   - component: {fileID: 3469287838308979268}
   m_Layer: 9
-  m_Name: Face8
+  m_Name: Face7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5610,7 +5610,7 @@ GameObject:
   - component: {fileID: 1829005437}
   - component: {fileID: 3469287838299364965}
   m_Layer: 9
-  m_Name: Face6
+  m_Name: Face5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5630,7 +5630,7 @@ GameObject:
   - component: {fileID: 1563509235}
   - component: {fileID: 3469287838233864610}
   m_Layer: 9
-  m_Name: Face9
+  m_Name: Face8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5650,7 +5650,7 @@ GameObject:
   - component: {fileID: 1574483675}
   - component: {fileID: 3469287838232272538}
   m_Layer: 9
-  m_Name: Face5
+  m_Name: Face4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5670,7 +5670,7 @@ GameObject:
   - component: {fileID: 1487506704}
   - component: {fileID: 3469287838143210819}
   m_Layer: 9
-  m_Name: Face7
+  m_Name: Face6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5690,7 +5690,7 @@ GameObject:
   - component: {fileID: 1246816094}
   - component: {fileID: 3469287837001062744}
   m_Layer: 9
-  m_Name: Face2
+  m_Name: Face1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5710,7 +5710,7 @@ GameObject:
   - component: {fileID: 602370629}
   - component: {fileID: 3469287836989331984}
   m_Layer: 9
-  m_Name: Face4
+  m_Name: Face3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5730,7 +5730,7 @@ GameObject:
   - component: {fileID: 993531189}
   - component: {fileID: 3469287836899903920}
   m_Layer: 9
-  m_Name: Face7
+  m_Name: Face0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5750,7 +5750,7 @@ GameObject:
   - component: {fileID: 1554059693}
   - component: {fileID: 3469287836802111512}
   m_Layer: 9
-  m_Name: Face6
+  m_Name: Face5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5770,7 +5770,7 @@ GameObject:
   - component: {fileID: 2038137813}
   - component: {fileID: 3469287836837394272}
   m_Layer: 9
-  m_Name: Face8
+  m_Name: Face7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5790,7 +5790,7 @@ GameObject:
   - component: {fileID: 1500712074}
   - component: {fileID: 3469287836693075245}
   m_Layer: 9
-  m_Name: Face4
+  m_Name: Face3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5810,7 +5810,7 @@ GameObject:
   - component: {fileID: 1493776006}
   - component: {fileID: 3469287836636358698}
   m_Layer: 9
-  m_Name: Face6
+  m_Name: Face5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5830,7 +5830,7 @@ GameObject:
   - component: {fileID: 1367848697}
   - component: {fileID: 3469287836542568825}
   m_Layer: 9
-  m_Name: Face9
+  m_Name: Face8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5850,7 +5850,7 @@ GameObject:
   - component: {fileID: 978837467}
   - component: {fileID: 3469287836575230713}
   m_Layer: 9
-  m_Name: Face2
+  m_Name: Face1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5870,7 +5870,7 @@ GameObject:
   - component: {fileID: 1001736487}
   - component: {fileID: 3469287836581568878}
   m_Layer: 9
-  m_Name: Face6
+  m_Name: Face5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5890,7 +5890,7 @@ GameObject:
   - component: {fileID: 1061614661}
   - component: {fileID: 3469287837579576202}
   m_Layer: 9
-  m_Name: Face1
+  m_Name: Face0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5910,7 +5910,7 @@ GameObject:
   - component: {fileID: 1799447743}
   - component: {fileID: 3469287837570988965}
   m_Layer: 9
-  m_Name: Face9
+  m_Name: Face8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5930,7 +5930,7 @@ GameObject:
   - component: {fileID: 170369461}
   - component: {fileID: 3469287837599122761}
   m_Layer: 9
-  m_Name: Face7
+  m_Name: Face6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5950,7 +5950,7 @@ GameObject:
   - component: {fileID: 1555160466}
   - component: {fileID: 3469287837473042096}
   m_Layer: 9
-  m_Name: Face9
+  m_Name: Face8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5970,7 +5970,7 @@ GameObject:
   - component: {fileID: 1385700406}
   - component: {fileID: 3469287837497966966}
   m_Layer: 9
-  m_Name: Face3
+  m_Name: Face8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5990,7 +5990,7 @@ GameObject:
   - component: {fileID: 1839285455}
   - component: {fileID: 3469287837536726526}
   m_Layer: 9
-  m_Name: Face8
+  m_Name: Face7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6010,7 +6010,7 @@ GameObject:
   - component: {fileID: 526435076}
   - component: {fileID: 3469287837523289783}
   m_Layer: 9
-  m_Name: Face9
+  m_Name: Face8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6030,7 +6030,7 @@ GameObject:
   - component: {fileID: 1761353015}
   - component: {fileID: 3469287837521618399}
   m_Layer: 9
-  m_Name: Face2
+  m_Name: Face1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6050,7 +6050,7 @@ GameObject:
   - component: {fileID: 1147941973}
   - component: {fileID: 3469287837525368107}
   m_Layer: 9
-  m_Name: Face7
+  m_Name: Face6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6070,7 +6070,7 @@ GameObject:
   - component: {fileID: 1831821539}
   - component: {fileID: 3469287837460433684}
   m_Layer: 9
-  m_Name: Face4
+  m_Name: Face3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6090,7 +6090,7 @@ GameObject:
   - component: {fileID: 1654087757}
   - component: {fileID: 3469287837215226918}
   m_Layer: 9
-  m_Name: Face7
+  m_Name: Face6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6110,7 +6110,7 @@ GameObject:
   - component: {fileID: 2039915864}
   - component: {fileID: 3469287837225482223}
   m_Layer: 9
-  m_Name: Face3
+  m_Name: Face2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6130,7 +6130,7 @@ GameObject:
   - component: {fileID: 2079397317}
   - component: {fileID: 3469287837247771825}
   m_Layer: 9
-  m_Name: Face2
+  m_Name: Face7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6150,7 +6150,7 @@ GameObject:
   - component: {fileID: 929500508}
   - component: {fileID: 3469287837188164781}
   m_Layer: 9
-  m_Name: Face8
+  m_Name: Face1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6170,7 +6170,7 @@ GameObject:
   - component: {fileID: 765217719}
   - component: {fileID: 3469287837109917569}
   m_Layer: 9
-  m_Name: Face9
+  m_Name: Face2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6190,7 +6190,7 @@ GameObject:
   - component: {fileID: 2034171261}
   - component: {fileID: 3469287837108527323}
   m_Layer: 9
-  m_Name: Face1
+  m_Name: Face6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8484,8 +8484,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c3da8567bee6974580a0318b609d802, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sideId: 4
-  faceId: 9
+  sideId: 2
+  faceId: 8
 --- !u!33 &3469287836575230712
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -8506,8 +8506,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c3da8567bee6974580a0318b609d802, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sideId: 0
-  faceId: 2
+  sideId: 1
+  faceId: 1
 --- !u!33 &3469287836581568877
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -8528,8 +8528,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c3da8567bee6974580a0318b609d802, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sideId: 6
-  faceId: 6
+  sideId: 5
+  faceId: 5
 --- !u!33 &3469287836636358697
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -8551,7 +8551,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sideId: 3
-  faceId: 6
+  faceId: 5
 --- !u!33 &3469287836693075244
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -8573,7 +8573,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sideId: 3
-  faceId: 4
+  faceId: 3
 --- !u!33 &3469287836802111511
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -8594,8 +8594,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c3da8567bee6974580a0318b609d802, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sideId: 5
-  faceId: 6
+  sideId: 4
+  faceId: 5
 --- !u!33 &3469287836837394271
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -8616,8 +8616,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c3da8567bee6974580a0318b609d802, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sideId: 2
-  faceId: 8
+  sideId: 0
+  faceId: 7
 --- !u!33 &3469287836899903919
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -8638,8 +8638,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c3da8567bee6974580a0318b609d802, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sideId: 6
-  faceId: 7
+  sideId: 5
+  faceId: 0
 --- !u!33 &3469287836989331983
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -8660,8 +8660,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c3da8567bee6974580a0318b609d802, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sideId: 5
-  faceId: 4
+  sideId: 4
+  faceId: 3
 --- !u!33 &3469287837001062743
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -8683,7 +8683,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sideId: 3
-  faceId: 2
+  faceId: 1
 --- !u!33 &3469287837108527322
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -8704,8 +8704,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c3da8567bee6974580a0318b609d802, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sideId: 6
-  faceId: 1
+  sideId: 5
+  faceId: 6
 --- !u!33 &3469287837109917568
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -8726,8 +8726,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c3da8567bee6974580a0318b609d802, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sideId: 6
-  faceId: 9
+  sideId: 5
+  faceId: 2
 --- !u!33 &3469287837188164780
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -8748,8 +8748,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c3da8567bee6974580a0318b609d802, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sideId: 6
-  faceId: 8
+  sideId: 5
+  faceId: 1
 --- !u!33 &3469287837215226917
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -8770,8 +8770,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c3da8567bee6974580a0318b609d802, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sideId: 5
-  faceId: 7
+  sideId: 4
+  faceId: 6
 --- !u!33 &3469287837225482222
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -8792,8 +8792,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c3da8567bee6974580a0318b609d802, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sideId: 5
-  faceId: 3
+  sideId: 4
+  faceId: 2
 --- !u!33 &3469287837247771824
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -8814,8 +8814,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c3da8567bee6974580a0318b609d802, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sideId: 6
-  faceId: 2
+  sideId: 5
+  faceId: 7
 --- !u!33 &3469287837460433683
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -8836,8 +8836,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c3da8567bee6974580a0318b609d802, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sideId: 2
-  faceId: 4
+  sideId: 0
+  faceId: 3
 --- !u!33 &3469287837473042095
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -8859,7 +8859,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sideId: 3
-  faceId: 9
+  faceId: 8
 --- !u!33 &3469287837497966965
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -8880,8 +8880,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c3da8567bee6974580a0318b609d802, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sideId: 6
-  faceId: 3
+  sideId: 5
+  faceId: 8
 --- !u!33 &3469287837521618398
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -8902,8 +8902,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c3da8567bee6974580a0318b609d802, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sideId: 4
-  faceId: 2
+  sideId: 2
+  faceId: 1
 --- !u!33 &3469287837523289782
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -8924,8 +8924,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c3da8567bee6974580a0318b609d802, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sideId: 5
-  faceId: 9
+  sideId: 4
+  faceId: 8
 --- !u!33 &3469287837525368106
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -8946,8 +8946,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c3da8567bee6974580a0318b609d802, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sideId: 2
-  faceId: 7
+  sideId: 0
+  faceId: 6
 --- !u!33 &3469287837536726525
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -8968,8 +8968,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c3da8567bee6974580a0318b609d802, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sideId: 4
-  faceId: 8
+  sideId: 2
+  faceId: 7
 --- !u!33 &3469287837570988964
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -8991,7 +8991,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sideId: 1
-  faceId: 9
+  faceId: 8
 --- !u!33 &3469287837579576201
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -9012,8 +9012,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c3da8567bee6974580a0318b609d802, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sideId: 2
-  faceId: 1
+  sideId: 0
+  faceId: 0
 --- !u!33 &3469287837599122760
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -9035,7 +9035,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sideId: 3
-  faceId: 7
+  faceId: 6
 --- !u!33 &3469287837619234907
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -9056,8 +9056,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c3da8567bee6974580a0318b609d802, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sideId: 4
-  faceId: 1
+  sideId: 2
+  faceId: 0
 --- !u!33 &3469287837626672839
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -9078,8 +9078,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c3da8567bee6974580a0318b609d802, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sideId: 4
-  faceId: 4
+  sideId: 2
+  faceId: 3
 --- !u!33 &3469287837645438131
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -9100,8 +9100,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c3da8567bee6974580a0318b609d802, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sideId: 0
-  faceId: 4
+  sideId: 1
+  faceId: 3
 --- !u!33 &3469287837698141938
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -9122,8 +9122,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c3da8567bee6974580a0318b609d802, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sideId: 5
-  faceId: 1
+  sideId: 4
+  faceId: 0
 --- !u!33 &3469287837727398100
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -9144,8 +9144,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c3da8567bee6974580a0318b609d802, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sideId: 5
-  faceId: 5
+  sideId: 4
+  faceId: 4
 --- !u!33 &3469287837795645638
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -9166,8 +9166,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c3da8567bee6974580a0318b609d802, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sideId: 4
-  faceId: 6
+  sideId: 2
+  faceId: 5
 --- !u!33 &3469287837852875971
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -9188,8 +9188,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c3da8567bee6974580a0318b609d802, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sideId: 6
-  faceId: 4
+  sideId: 5
+  faceId: 3
 --- !u!33 &3469287837860811211
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -9211,7 +9211,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sideId: 3
-  faceId: 3
+  faceId: 2
 --- !u!33 &3469287837899288534
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -9233,7 +9233,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sideId: 3
-  faceId: 8
+  faceId: 7
 --- !u!33 &3469287837971302377
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -9254,8 +9254,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c3da8567bee6974580a0318b609d802, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sideId: 0
-  faceId: 3
+  sideId: 1
+  faceId: 2
 --- !u!33 &3469287837984448266
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -9276,8 +9276,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c3da8567bee6974580a0318b609d802, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sideId: 0
-  faceId: 5
+  sideId: 1
+  faceId: 4
 --- !u!33 &3469287838052978073
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -9299,7 +9299,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sideId: 3
-  faceId: 1
+  faceId: 0
 --- !u!33 &3469287838099029613
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -9320,8 +9320,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c3da8567bee6974580a0318b609d802, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sideId: 5
-  faceId: 2
+  sideId: 4
+  faceId: 1
 --- !u!33 &3469287838110207894
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -9342,8 +9342,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c3da8567bee6974580a0318b609d802, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sideId: 5
-  faceId: 8
+  sideId: 4
+  faceId: 7
 --- !u!33 &3469287838143210818
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -9364,8 +9364,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c3da8567bee6974580a0318b609d802, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sideId: 0
-  faceId: 7
+  sideId: 1
+  faceId: 6
 --- !u!33 &3469287838232272537
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -9386,8 +9386,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c3da8567bee6974580a0318b609d802, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sideId: 2
-  faceId: 5
+  sideId: 0
+  faceId: 4
 --- !u!33 &3469287838233864609
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -9408,8 +9408,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c3da8567bee6974580a0318b609d802, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sideId: 2
-  faceId: 9
+  sideId: 0
+  faceId: 8
 --- !u!33 &3469287838286735866
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -9430,8 +9430,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c3da8567bee6974580a0318b609d802, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sideId: 0
-  faceId: 1
+  sideId: 1
+  faceId: 0
 --- !u!33 &3469287838299364964
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -9452,8 +9452,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c3da8567bee6974580a0318b609d802, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sideId: 2
-  faceId: 6
+  sideId: 0
+  faceId: 5
 --- !u!33 &3469287838308979267
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -9474,8 +9474,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c3da8567bee6974580a0318b609d802, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sideId: 0
-  faceId: 8
+  sideId: 1
+  faceId: 7
 --- !u!33 &3469287838377462041
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -9496,8 +9496,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c3da8567bee6974580a0318b609d802, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sideId: 2
-  faceId: 2
+  sideId: 0
+  faceId: 1
 --- !u!33 &3469287838412804468
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -9518,8 +9518,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c3da8567bee6974580a0318b609d802, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sideId: 4
-  faceId: 7
+  sideId: 2
+  faceId: 6
 --- !u!33 &3469287838470728084
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -9541,7 +9541,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sideId: 3
-  faceId: 5
+  faceId: 4
 --- !u!33 &3469287838517043988
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -9562,8 +9562,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c3da8567bee6974580a0318b609d802, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sideId: 2
-  faceId: 3
+  sideId: 0
+  faceId: 2
 --- !u!33 &3469287838522234600
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -9584,8 +9584,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c3da8567bee6974580a0318b609d802, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sideId: 4
-  faceId: 5
+  sideId: 2
+  faceId: 4
 --- !u!33 &3469287838532105732
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -9606,8 +9606,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c3da8567bee6974580a0318b609d802, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sideId: 6
-  faceId: 5
+  sideId: 5
+  faceId: 4
 --- !u!33 &3469287838615129857
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -9628,8 +9628,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c3da8567bee6974580a0318b609d802, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sideId: 4
-  faceId: 3
+  sideId: 2
+  faceId: 2
 --- !u!33 &3469287838654308247
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -9650,5 +9650,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c3da8567bee6974580a0318b609d802, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sideId: 0
-  faceId: 6
+  sideId: 1
+  faceId: 5
