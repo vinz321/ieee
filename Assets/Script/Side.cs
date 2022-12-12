@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class Side : MonoBehaviour
+public class Side : Facet
 {
     [SerializeField] private int sideId; //BigFace
     [SerializeField] private int faceId; //SmallFace
@@ -50,6 +50,10 @@ public class Side : MonoBehaviour
         return false;
     }
 
+    public override bool isAdjacent(Facet facet)
+    {
+        return isAdjacent((Side)facet);
+    }
     private int GetFace(int x1,int y1){
         return x1+3*y1;
     }
@@ -60,10 +64,17 @@ public class Side : MonoBehaviour
     private int y{
         get => faceId/3;
     }
+
+    public override string ToString()
+    {
+        return ""+sideId+""+faceId;
+    }
     public int SideId {
         get { return sideId; }
     }
     public int FaceId {
         get { return faceId; }
     }
+
+    public override bool isOn {get => mr.enabled;}
 }

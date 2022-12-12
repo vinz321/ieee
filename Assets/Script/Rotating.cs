@@ -7,17 +7,24 @@ using UnityEngine.InputSystem;
 public class Rotating : MonoBehaviour
 {
     [SerializeField]
-    private ActionBasedController abc;
+    private ActionBasedController abcLeft,abcRight;
     [SerializeField]
     private Transform handle;
     private bool anchored=false;
     private Vector3 forward=Vector3.zero;
     private Quaternion rotation=Quaternion.identity;
+
+
     void Start()
     {
-        //abc=FindObjectOfType<ActionBasedController>();
-        abc.activateAction.action.started+=Anchor;
-        abc.activateAction.action.canceled+=Detach;
+        //abcLeft=FindObjectOfType<ActionBasedController>();
+        
+        abcLeft.selectAction.action.started+=Anchor;
+        abcLeft.selectAction.action.started+=(context)=>handle=abcLeft.transform;
+        abcLeft.selectAction.action.canceled+=Detach;
+        abcRight.selectAction.action.started+=Anchor;
+        abcRight.selectAction.action.started+=(context)=>handle=abcRight.transform;
+        abcRight.selectAction.action.canceled+=Detach;
     }
 
     // Update is called once per frame
@@ -36,14 +43,10 @@ public class Rotating : MonoBehaviour
         // forward=transform.InverseTransformDirection(forward);
         Debug.Log("Pressed");
         anchored=true;
+
     }
     void Detach(InputAction.CallbackContext context){
         Debug.Log("Detached");
         anchored=false;
-    }
-
-    void FollowHandle(){
-        Vector3 position=abc.positionAction.action.ReadValue<Vector3>();
-        
     }
 }

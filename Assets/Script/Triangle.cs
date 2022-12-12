@@ -2,17 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Triangle : MonoBehaviour
+public class Triangle : Facet
 {
     [SerializeField]
     private int bigT, smallT;
-
-    private MeshRenderer mr;
-    private Color color;
+    //private Color color;
     // Start is called before the first frame update
-    void Start()
+    new void Start()
     {
-        mr=GetComponent<MeshRenderer>();
+        base.Start();
     }
 
     // Update is called once per frame
@@ -21,35 +19,21 @@ public class Triangle : MonoBehaviour
         
     }
 
-    public void TurnOn(){
-        mr.enabled=true;
-    }
-
-    public void TurnOn(Color color){
-        if(mr.enabled)
-            mr.material.SetColor("_EmissionColor",this.color+2*color);
-        else{
-            mr.enabled=true;
-            mr.material.SetColor("_EmissionColor",color+color);
-            
-        }
-        this.color=color;
-    }
-    public void TurnOff(){
-        mr.enabled=false;
-
-    }
-
+    
 
     public bool isAdjacent(Triangle t){
         return((smallT<0 || t.smallT<0) && bigT==t.bigT) || (smallT==t.smallT && bigT!=t.bigT);
+    }
+
+    public override bool isAdjacent(Facet facet){
+        return isAdjacent((Triangle) facet);
     }
 
     public override string ToString(){
         return ""+bigT+smallT+color;
     }
 
-    public bool isOn{
+    public override bool isOn{
         get{
             return mr.enabled;
         }
