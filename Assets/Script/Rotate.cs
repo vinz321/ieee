@@ -7,10 +7,14 @@ using UnityEngine.InputSystem;
 public class Rotate : MonoBehaviour
 {
     [SerializeField] private ActionBasedController abcLeft, abcRight;
+    [SerializeField] private Transform hitAnchor;
+    Transform currentHand;
     XRRayInteractor xrri;
     RaycastHit hit;
     bool grabbed = false, setup = false, inUse = false;
-    Vector3 oldDir, newDir;
+    Vector3 oldDir, newDir, oldControlPos, newControlPos;
+    float distance;
+
     
 
     void Start()
@@ -39,10 +43,12 @@ public class Rotate : MonoBehaviour
             if (abcLeft.selectAction.action.IsPressed())
             {
                 xrri = abcLeft.gameObject.GetComponent<XRRayInteractor>();
+                currentHand = abcLeft.transform;
             }
             if (abcRight.selectAction.action.IsPressed())
             {
                 xrri = abcRight.gameObject.GetComponent<XRRayInteractor>();
+                currentHand = abcRight.transform;
             }
             inUse = grabbed = setup = true;
         }
@@ -56,25 +62,40 @@ public class Rotate : MonoBehaviour
 
     void rotate()
     {
-        if (grabbed && xrri.TryGetCurrent3DRaycastHit(out hit))
+        if (grabbed)
         {
             if (setup) 
             {
-                oldDir = (transform.position - hit.point).normalized;
+                if (xrri.TryGetCurrent3DRaycastHit(out hit))
+                {
+                    hitAnchor.position = hit.point;
+                    distance = (transform.position - hitAnchor.position).magnitude;
+                }
+                oldControlPos = currentHand.position;
+                oldDir = (transform.position - hitAnchor.position).normalized;
                 setup = false;
-            }
-            // calculate new direction from hitpoint to sphere center
-            newDir = (transform.position - hit.point).normalized;
+            }       
+            // translate the anchor
+            newControlPos = currentHand.position;
+            Vector3 currentControlDisplacement = oldControlPos - newControlPos;
+            hitAnchor.position = hitAnchor.position - currentControlDisplacement;
+            Vector3 newHitAnchorDir = (hitAnchor.position - transform.position);
+            newHitAnchorDir = Vector3.ClampMagnitude(newHitAnchorDir, distance);
+            hitAnchor.position = transform.position + newHitAnchorDir;
 
-            // Debug.DrawLine(transform.position, hit.point, Color.red, 0f, false);
+            // // calculate new direction from hitpoint to sphere center
+            newDir = (transform.position - hitAnchor.position).normalized;
 
-            // calculate 3D angle between old and new directions
+            // // Debug.DrawLine(transform.position, hit.point, Color.red, 0f, false);
+
+            // // calculate 3D angle between old and new directions
             Quaternion newRot = Quaternion.FromToRotation(oldDir, newDir);
 
-            // apply first the *small rotation increment* and than apply *current sphere rotation*
+            // // apply first the *small rotation increment* and than apply *current sphere rotation*
             transform.rotation = newRot * transform.rotation;
 
-            // set old to new rot to prevent authomaitc rotation
+            // // set old to new rot to prevent authomaitc rotation
+            oldControlPos = newControlPos;
             oldDir = newDir;
         }
     }
