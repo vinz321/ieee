@@ -71,8 +71,13 @@ public class SphereTrace : MonoBehaviour
             {
                 sus += c.name + ", ";
             }
+            else 
+            {
+                sus += c.name;
+            }
+            i++;
         }
-        sus += faces[faces.Count-1].name + " ]";
+        sus += " ]";
         Debug.Log(sus);
     }
     #endregion initialization
@@ -124,7 +129,7 @@ public class SphereTrace : MonoBehaviour
 
                         faces.RemoveAt(faces.Count-1);
                     }
-                    else if (currentObj != faces[faces.Count-1] && currentObj != faces[faces.Count-2] && faces.Contains(currentObj) && isAdjacent(currentObj))
+                    if (currentObj != faces[faces.Count-1] && currentObj != faces[faces.Count-2] && faces.Contains(currentObj) && isAdjacent(currentObj))
                     {
                         faces.Add(currentObj);
                         currentMeshRenderer.material.color += new Color(1.0f, 0.0f, 0.0f);
