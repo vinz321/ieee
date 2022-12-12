@@ -60,20 +60,25 @@ public class SphereTrace : MonoBehaviour
 
     void clearFaces() 
     {
+        int i = 0;
         string sus = "[ ";
         foreach(GameObject c in faces)
         {
             MeshRenderer m = c.GetComponent<MeshRenderer>();
             m.material = defaultMat;
             m.enabled = false;
-            sus += c.name + ", ";
+            if (i < faces.Count-1)
+            {
+                sus += c.name + ", ";
+            }
         }
-        sus += " ]";
+        sus += faces[faces.Count-1].name + " ]";
         Debug.Log(sus);
     }
     #endregion initialization
 
-    bool isAdjacent(GameObject current) 
+    #region adjacent
+    bool isAdjacent(GameObject current)
     {
         if(faces.Count<1) return true;
         bool adj = false;
@@ -82,23 +87,10 @@ public class SphereTrace : MonoBehaviour
 
         adj=oldSide.isAdjacent(cSide);
         Debug.Log(adj);
-        // if (lastSideId == cSide.SideId)
-        // {
-        //     if (((oldSide.FaceId % 2 == 0) && (cSide.FaceId % 2 != 0)) || ((oldSide.FaceId % 2 != 0) && (cSide.FaceId % 2 == 0)))
-        //     {
-        //         adj = true;
-        //         Debug.Log("adjacent!");
-        //     }
-        //     else 
-        //     {
-        //         Debug.Log("NOT adjacent!");
-        //     }
-        // }
-
-        // if(lastSideId==cSide.SideId)
-        // Debug.Log(adj);
         return adj;
     }
+    #endregion adjacent
+
     void drawFaces()
     {
         if (selected && xrri.TryGetCurrent3DRaycastHit(out hit))
@@ -132,12 +124,11 @@ public class SphereTrace : MonoBehaviour
 
                         faces.RemoveAt(faces.Count-1);
                     }
-                    if (currentObj != faces[faces.Count-1] && currentObj != faces[faces.Count-2] && faces.Contains(currentObj) )
+                    else if (currentObj != faces[faces.Count-1] && currentObj != faces[faces.Count-2] && faces.Contains(currentObj) && isAdjacent(currentObj))
                     {
                         faces.Add(currentObj);
                         currentMeshRenderer.material.color += new Color(1.0f, 0.0f, 0.0f);
                     }
-                    //isAdjacent(currentObj);
                 }
             }
         }
