@@ -80,13 +80,13 @@ public class Rotate : MonoBehaviour
             Vector3 currentControlDisplacement = oldControlPos - newControlPos;
             hitAnchor.position = hitAnchor.position - currentControlDisplacement;
             Vector3 newHitAnchorDir = (hitAnchor.position - transform.position);
-            newHitAnchorDir = Vector3.ClampMagnitude(newHitAnchorDir, distance);
+            newHitAnchorDir = newHitAnchorDir.normalized * distance;
             hitAnchor.position = transform.position + newHitAnchorDir;
 
             // // calculate new direction from hitpoint to sphere center
             newDir = (transform.position - hitAnchor.position).normalized;
 
-            // // Debug.DrawLine(transform.position, hit.point, Color.red, 0f, false);
+            Debug.DrawLine(transform.position, hitAnchor.position, Color.red, 0f, false);
 
             // // calculate 3D angle between old and new directions
             Quaternion newRot = Quaternion.FromToRotation(oldDir, newDir);
