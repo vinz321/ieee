@@ -9,7 +9,7 @@ using System.IO;
 public class Validator 
 {
     [SerializeField]
-    private bool multiPath; 
+    private bool multiPattern; 
 
     private string fileContent;
 
@@ -20,8 +20,9 @@ public class Validator
     private string reference;
 
     private int errors;
-    public Validator(bool multiPath){
-        this.multiPath=multiPath;
+    private bool _completeMatch;
+    public Validator(bool multiPattern){
+        this.multiPattern=multiPattern;
         DateTimeFormatInfo d=new DateTimeFormatInfo();
         d.DateSeparator="_";
         d.TimeSeparator="_";
@@ -41,37 +42,32 @@ public class Validator
     public bool Validate(string pass){
         // //if valid
         fileContent+=pass;
-        if(GetReference() && !ValidatePartialPath()){
+        if(GetReference() && !ValidatePartialPattern()){
             Debug.Log("Error committed");
             errors++;
             fileContent="";
             timeStarted=false;
             return false;
         }
-        
-        if(!multiPath)
+        _completeMatch=ValidatePattern();
+
+        if(!multiPattern)
             WriteBack();
         return true;
     }
 
-    bool ValidatePartialPath(){
+    bool ValidatePartialPattern(){
         if(reference==null) return false;
 
         string r=(fileContent.Length<reference.Length)?reference.Substring(0,fileContent.Length):reference;
         return r.Equals(fileContent);
     }
 
-    bool ValidatePath(string path){
+    bool ValidatePattern(){
         if(reference==null) return false;
-
-        string[] r=reference.Split("stpth_");
-        string[] p=path.Split("stpth_");
-        bool res=true;
-        for(int i=0;i<p.Length;i++){
-            if(!r.Equals(p))
-                res=false;
-        }
-        return res;
+        if(fileContent.Length!=reference.Length)
+            return false;
+        return reference.Equals(fileContent);
     }
     public void StartTimer(){
         if(!timeStarted)
@@ -81,10 +77,14 @@ public class Validator
     public void WriteBack(){
         StreamWriter fs=new StreamWriter(filename,true);
         //fs.AutoFlush=true;
-        fs.Write("Completed with time: "+(Time.time-time)+" s, errors: "+errors+" path: \n"+fileContent+"\n");
+        fs.Write("Completed with time: "+(Time.time-time)+" s, errors: "+errors+" Pattern: \n"+fileContent+"\n");
         fs.Close();
         fileContent="";
         timeStarted=false;
         //File.WriteAllText(filename,fileContent);
+    }
+
+    public bool completeMatch{
+        get =>_completeMatch;
     }
 }

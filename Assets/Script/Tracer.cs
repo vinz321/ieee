@@ -49,8 +49,8 @@ public class Tracer : MonoBehaviour
         abcRight.activateAction.action.started+=startAction;
         abcRight.activateAction.action.started+=(context)=>{xrri=xrriRight; left=false;};
         abcRight.activateAction.action.canceled+=(context)=>{Validate(false);};
-        // iarLeft.action.started+=changeColor;
-        // iarRight.action.started+=changeColor;
+        iarLeft.action.started+=(context)=>ChangeColor();
+        iarRight.action.started+=(context)=>ChangeColor();
     }
 
 
@@ -69,7 +69,7 @@ public class Tracer : MonoBehaviour
             if(!multiPath){
                 Discard();
             }
-            else if(ChangeColor()){
+            else if(v.completeMatch){
                 Discard();
                 v.WriteBack();
             }
@@ -118,6 +118,11 @@ public class Tracer : MonoBehaviour
         return p;
     }
     // Update is called once per frame
+    void Update(){
+        if(Input.GetKeyDown(KeyCode.Escape)){
+            v.WriteBack();
+        }
+    }
     void FixedUpdate()
     {
         TracePath(colorSpan[idColor], traceback);
