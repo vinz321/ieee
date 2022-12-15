@@ -1,0 +1,355 @@
+﻿#include "pch-c.h"
+#ifndef _MSC_VER
+# include <alloca.h>
+#else
+# include <malloc.h>
+#endif
+
+
+#include "codegen/il2cpp-codegen-metadata.h"
+
+
+
+
+
+// 0x00000001 System.Void Click::Start()
+extern void Click_Start_m803B298A1BB8C51A09E0AD261DE1502FE2645236 (void);
+// 0x00000002 System.Void Click::Update()
+extern void Click_Update_m758B18006EB99727A40268AD1966F2AF91C020F5 (void);
+// 0x00000003 System.Void Click::rotateObj()
+extern void Click_rotateObj_mA0EB2F4925255CF7714287B9DF77E11D4E809CAF (void);
+// 0x00000004 System.Void Click::castRay()
+extern void Click_castRay_mB264B6D09E42D21C15613E0E3E75B6968A2E1DB3 (void);
+// 0x00000005 System.Int32 Click::addValue()
+extern void Click_addValue_m03CBC3E5DBF160DECB30453301E0B0E986156DB1 (void);
+// 0x00000006 System.Void Click::colorMesh()
+extern void Click_colorMesh_mCF5E9E7467C2B32015E8D972B35958AD502C9C42 (void);
+// 0x00000007 System.Void Click::.ctor()
+extern void Click__ctor_m395B5FD36F7BDEB48737455EB2A8A53C06C132E1 (void);
+// 0x00000008 System.Void Facet::Start()
+extern void Facet_Start_m6B109A9636EAED9A2279644261D4F6ED96F6C2BA (void);
+// 0x00000009 System.Void Facet::TurnOn()
+extern void Facet_TurnOn_m693B2C12EDAB3C3847ABB08066819331E2B7CB2C (void);
+// 0x0000000A System.Void Facet::TurnOn(UnityEngine.Color)
+extern void Facet_TurnOn_m275C2985D4E0EEFBB76CEF3DE9A9870D0CBC0B7E (void);
+// 0x0000000B System.Void Facet::TurnOff()
+extern void Facet_TurnOff_m8B0506FCD89FA63A548B3541BE12213A1AB8918D (void);
+// 0x0000000C System.Void Facet::TurnOff(UnityEngine.Color)
+extern void Facet_TurnOff_mEF88BA027ED7C723F7137970DF8CCD9E32E2AB61 (void);
+// 0x0000000D System.Boolean Facet::isAdjacent(Facet)
+// 0x0000000E System.Boolean Facet::get_isOn()
+// 0x0000000F System.Void Facet::.ctor()
+extern void Facet__ctor_mFE9D9D79F93658CFE3C8913F1CA14FE3474738E8 (void);
+// 0x00000010 System.Void Rotate::Start()
+extern void Rotate_Start_mD322E77A3CF2BEF28C4DF71D3F529107F511B1FB (void);
+// 0x00000011 System.Void Rotate::Awake()
+extern void Rotate_Awake_m37950270F7B1C4B3300A061D890B62DF9CF2D481 (void);
+// 0x00000012 System.Void Rotate::FixedUpdate()
+extern void Rotate_FixedUpdate_m9F61E1367C647FC604344A5CBA52B939F6948AC4 (void);
+// 0x00000013 System.Void Rotate::LateUpdate()
+extern void Rotate_LateUpdate_mC53B69F2A1A8E552A6CA257F3CC698D1968F665C (void);
+// 0x00000014 System.Void Rotate::initControllers()
+extern void Rotate_initControllers_m19B89D4C672DA59E215BBEFDCFD22B9F2469C61F (void);
+// 0x00000015 System.Void Rotate::SetActive(UnityEngine.InputSystem.InputAction/CallbackContext)
+extern void Rotate_SetActive_m94A729CEA4A776C3CD1DCA9F20DA7631A32323E1 (void);
+// 0x00000016 System.Void Rotate::setUnActive(UnityEngine.InputSystem.InputAction/CallbackContext)
+extern void Rotate_setUnActive_m7EFCE3DDDCC4E76B4E91A55489F7008EBB0A1AB0 (void);
+// 0x00000017 System.Void Rotate::rotate()
+extern void Rotate_rotate_m2FC51353C183691F053EAAC43C5D5EA8BE238FF5 (void);
+// 0x00000018 System.Void Rotate::.ctor()
+extern void Rotate__ctor_m0EE5CC8EB699542BFC438DC3D547D39E442E9EE4 (void);
+// 0x00000019 System.Void Rotating::Start()
+extern void Rotating_Start_m76DE940F63E90D09F398719674B8905D2B53916E (void);
+// 0x0000001A System.Void Rotating::Update()
+extern void Rotating_Update_m1C3AD46D92DE0407A4EC14F9AAA1FE87327714BA (void);
+// 0x0000001B System.Void Rotating::Anchor(UnityEngine.InputSystem.InputAction/CallbackContext)
+extern void Rotating_Anchor_mDFCF647263B33F3C18C9AC455406E8A5FBEDC467 (void);
+// 0x0000001C System.Void Rotating::Detach(UnityEngine.InputSystem.InputAction/CallbackContext)
+extern void Rotating_Detach_m9DEF88702D8BAE7C1B6E290B04A682A7B6506AB5 (void);
+// 0x0000001D System.Void Rotating::.ctor()
+extern void Rotating__ctor_mE4616007FC6FA2F54FAF07E7B93A46F611FA7A7A (void);
+// 0x0000001E System.Void Rotating::<Start>b__6_0(UnityEngine.InputSystem.InputAction/CallbackContext)
+extern void Rotating_U3CStartU3Eb__6_0_m0AC1DAF694865FB378E578F90597C32F87B9EE0C (void);
+// 0x0000001F System.Void Rotating::<Start>b__6_1(UnityEngine.InputSystem.InputAction/CallbackContext)
+extern void Rotating_U3CStartU3Eb__6_1_m647C921B37A6D9E9D1AAAFA8273F081706A77EC4 (void);
+// 0x00000020 System.Void Rotator::Start()
+extern void Rotator_Start_mE4B0451C7D2FC5AF3258D1E24B0A0CF1C58379C2 (void);
+// 0x00000021 System.Void Rotator::Update()
+extern void Rotator_Update_mEDB0F4729DEB6075BDB3177DB5A90104D8020D68 (void);
+// 0x00000022 System.Void Rotator::Anchor(UnityEngine.InputSystem.InputAction/CallbackContext)
+extern void Rotator_Anchor_m7FC1D1C3ED4CFEF5FD8785CF0C18C970B546BC92 (void);
+// 0x00000023 System.Void Rotator::Detach(UnityEngine.InputSystem.InputAction/CallbackContext)
+extern void Rotator_Detach_m7CC46DC73E2987D1E844EE5A9848B003B1A3A4EE (void);
+// 0x00000024 System.Void Rotator::FollowHandle()
+extern void Rotator_FollowHandle_m690036F4CA0205F4D3CE22CBC0DCD3602FA12D45 (void);
+// 0x00000025 System.Void Rotator::.ctor()
+extern void Rotator__ctor_m6DD9F22CD049D079A6246125410EFE63DE76FAF2 (void);
+// 0x00000026 System.Boolean Side::isAdjacent(Side)
+extern void Side_isAdjacent_m38040DE1907ACD243C5EB9A4BFE52E6C4914EA75 (void);
+// 0x00000027 System.Boolean Side::isAdjacent(Facet)
+extern void Side_isAdjacent_mC752963224E2AC7ADFC72A1FAC0FEE53E6D51AFC (void);
+// 0x00000028 System.Int32 Side::GetFace(System.Int32,System.Int32)
+extern void Side_GetFace_m362077FED1E587A7CBC3DEF0BE8370C02B94EF86 (void);
+// 0x00000029 System.Int32 Side::get_x()
+extern void Side_get_x_mCF0D47CCD4B7FD78BC448A472C4A582645AF2A00 (void);
+// 0x0000002A System.Int32 Side::get_y()
+extern void Side_get_y_mC93D18D2328FD6C50A3CB08EFE6BC3122DCFBB27 (void);
+// 0x0000002B System.String Side::ToString()
+extern void Side_ToString_mEABDCF21E33979F983AA9CBC9603FB6E7E6F0F6D (void);
+// 0x0000002C System.Int32 Side::get_SideId()
+extern void Side_get_SideId_m951AE44986640FCD823FB5A868802363A4E7E154 (void);
+// 0x0000002D System.Int32 Side::get_FaceId()
+extern void Side_get_FaceId_m61141BEB29E89109DB577B612E7CC727D2E5B09D (void);
+// 0x0000002E System.Boolean Side::get_isOn()
+extern void Side_get_isOn_m42AEADD7DC03C5ECE0E90ED04B343918529D1D73 (void);
+// 0x0000002F System.Void Side::.ctor()
+extern void Side__ctor_m8B64B75E4039B8763D92D47C5113A615CA1523E3 (void);
+// 0x00000030 System.Void SphereTrace::Start()
+extern void SphereTrace_Start_m654804E31A47FE65B507524E8D483B41B486573A (void);
+// 0x00000031 System.Void SphereTrace::Update()
+extern void SphereTrace_Update_m7F0300CE71A98BBF8D798F7351FA5EDC66B81CE8 (void);
+// 0x00000032 System.Void SphereTrace::initControllers()
+extern void SphereTrace_initControllers_m1F38794E450FC4B92215E513F5F647301F112FC9 (void);
+// 0x00000033 System.Void SphereTrace::SetActive(UnityEngine.InputSystem.InputAction/CallbackContext)
+extern void SphereTrace_SetActive_m12621CD85F762165C744140B81948E6C96633E3E (void);
+// 0x00000034 System.Void SphereTrace::setUnActive(UnityEngine.InputSystem.InputAction/CallbackContext)
+extern void SphereTrace_setUnActive_mE7EFD7E56CE62415340BB6465552EB63AB9C0B04 (void);
+// 0x00000035 System.Void SphereTrace::clearFaces()
+extern void SphereTrace_clearFaces_m0DE4FF5AE87EFDC1768CA648638C0583F5421E40 (void);
+// 0x00000036 System.Boolean SphereTrace::isAdjacent(UnityEngine.GameObject)
+extern void SphereTrace_isAdjacent_m9E22E839B3FDFFB5F63058FE6A9B0F10CBBC6BF0 (void);
+// 0x00000037 System.Void SphereTrace::drawFaces()
+extern void SphereTrace_drawFaces_m627AC146540FCE097B2A98BFDFE33ED642D56676 (void);
+// 0x00000038 System.Void SphereTrace::.ctor()
+extern void SphereTrace__ctor_m00741A404D8DC14D4BE8163312183DFF697EF9EC (void);
+// 0x00000039 System.Void Tracer::Start()
+extern void Tracer_Start_m8A913A30809F6096AB4EEF744155E311F5BAC19E (void);
+// 0x0000003A System.Void Tracer::PrintPass()
+extern void Tracer_PrintPass_mD7CEB56C784DB0A56E84894BDB29A724221DD318 (void);
+// 0x0000003B System.Void Tracer::PrintPassKeep()
+extern void Tracer_PrintPassKeep_mB562D9983476C861B07BA7F98972453E9D71237E (void);
+// 0x0000003C System.Void Tracer::FixedUpdate()
+extern void Tracer_FixedUpdate_mD692627B844B8F17B98A04FB5B9CC1B7C52671A7 (void);
+// 0x0000003D System.Void Tracer::TracePath(UnityEngine.Color,System.Boolean)
+extern void Tracer_TracePath_m0F7072BF89339F50BA6E590ADB995270282BECC4 (void);
+// 0x0000003E System.Void Tracer::.ctor()
+extern void Tracer__ctor_m52859CB46E5D334735348FA6CCA65A3E52B99B25 (void);
+// 0x0000003F System.Void Tracer::<Start>b__16_0(UnityEngine.InputSystem.InputAction/CallbackContext)
+extern void Tracer_U3CStartU3Eb__16_0_mA54E96DAE7291B7B3334A18249444C14937A21CB (void);
+// 0x00000040 System.Void Tracer::<Start>b__16_1(UnityEngine.InputSystem.InputAction/CallbackContext)
+extern void Tracer_U3CStartU3Eb__16_1_mDC6E2E15E7E087DEF33E52EB6EA7955EC0EDD1F8 (void);
+// 0x00000041 System.Void Tracer::<Start>b__16_2(UnityEngine.InputSystem.InputAction/CallbackContext)
+extern void Tracer_U3CStartU3Eb__16_2_mAFA3B6E4CD5BB46F8051013E0732A23A63873C98 (void);
+// 0x00000042 System.Void Tracer::<Start>b__16_3(UnityEngine.InputSystem.InputAction/CallbackContext)
+extern void Tracer_U3CStartU3Eb__16_3_m75A31422AE6E5D653DCD45AE6BCFCD82AEC09493 (void);
+// 0x00000043 System.Void Tracer::<Start>b__16_4(UnityEngine.InputSystem.InputAction/CallbackContext)
+extern void Tracer_U3CStartU3Eb__16_4_mE569D8DE257D2815C8AA426931E5F1F2814CC3A5 (void);
+// 0x00000044 System.Void TracerV2::Start()
+extern void TracerV2_Start_mE7D5CEC35B06D9A5D207AAF7D99683ABDB7011E6 (void);
+// 0x00000045 System.Void TracerV2::Update()
+extern void TracerV2_Update_mA946A119EFBB6CA950CC9D29F8B73B96E7A626E7 (void);
+// 0x00000046 System.Void TracerV2::.ctor()
+extern void TracerV2__ctor_mC562E75FAE20D520CA929FE1944AB6029325B63E (void);
+// 0x00000047 System.Void Triangle::Start()
+extern void Triangle_Start_m536E82967EF52A26343AF79FEA77273421355A02 (void);
+// 0x00000048 System.Void Triangle::Update()
+extern void Triangle_Update_mC18C5C55BB3499E5E80E369F770F829E5687D07E (void);
+// 0x00000049 System.Boolean Triangle::isAdjacent(Triangle)
+extern void Triangle_isAdjacent_m217B98C5DCBBD6827E17AD38971AA59C174AF515 (void);
+// 0x0000004A System.Boolean Triangle::isAdjacent(Facet)
+extern void Triangle_isAdjacent_mB647FA5550030670F9530DDF2B638CB981CA81FF (void);
+// 0x0000004B System.String Triangle::ToString()
+extern void Triangle_ToString_m665EF90FF13E632954B8CF2E647FE0D305C7EE55 (void);
+// 0x0000004C System.Boolean Triangle::get_isOn()
+extern void Triangle_get_isOn_mC2EC4F1540642B16522267462AEE04D9C17EA705 (void);
+// 0x0000004D System.Void Triangle::.ctor()
+extern void Triangle__ctor_mDEF6174BFF9D55A9F6EC7BC2BA298C69DFB8A53C (void);
+// 0x0000004E System.Void Readme::.ctor()
+extern void Readme__ctor_m69C325C4C171DCB0312B646A9034AA91EA8C39C6 (void);
+// 0x0000004F System.Void Readme/Section::.ctor()
+extern void Section__ctor_m5F732533E4DFC0167D965E5F5DB332E46055399B (void);
+static Il2CppMethodPointer s_methodPointers[79] = 
+{
+	Click_Start_m803B298A1BB8C51A09E0AD261DE1502FE2645236,
+	Click_Update_m758B18006EB99727A40268AD1966F2AF91C020F5,
+	Click_rotateObj_mA0EB2F4925255CF7714287B9DF77E11D4E809CAF,
+	Click_castRay_mB264B6D09E42D21C15613E0E3E75B6968A2E1DB3,
+	Click_addValue_m03CBC3E5DBF160DECB30453301E0B0E986156DB1,
+	Click_colorMesh_mCF5E9E7467C2B32015E8D972B35958AD502C9C42,
+	Click__ctor_m395B5FD36F7BDEB48737455EB2A8A53C06C132E1,
+	Facet_Start_m6B109A9636EAED9A2279644261D4F6ED96F6C2BA,
+	Facet_TurnOn_m693B2C12EDAB3C3847ABB08066819331E2B7CB2C,
+	Facet_TurnOn_m275C2985D4E0EEFBB76CEF3DE9A9870D0CBC0B7E,
+	Facet_TurnOff_m8B0506FCD89FA63A548B3541BE12213A1AB8918D,
+	Facet_TurnOff_mEF88BA027ED7C723F7137970DF8CCD9E32E2AB61,
+	NULL,
+	NULL,
+	Facet__ctor_mFE9D9D79F93658CFE3C8913F1CA14FE3474738E8,
+	Rotate_Start_mD322E77A3CF2BEF28C4DF71D3F529107F511B1FB,
+	Rotate_Awake_m37950270F7B1C4B3300A061D890B62DF9CF2D481,
+	Rotate_FixedUpdate_m9F61E1367C647FC604344A5CBA52B939F6948AC4,
+	Rotate_LateUpdate_mC53B69F2A1A8E552A6CA257F3CC698D1968F665C,
+	Rotate_initControllers_m19B89D4C672DA59E215BBEFDCFD22B9F2469C61F,
+	Rotate_SetActive_m94A729CEA4A776C3CD1DCA9F20DA7631A32323E1,
+	Rotate_setUnActive_m7EFCE3DDDCC4E76B4E91A55489F7008EBB0A1AB0,
+	Rotate_rotate_m2FC51353C183691F053EAAC43C5D5EA8BE238FF5,
+	Rotate__ctor_m0EE5CC8EB699542BFC438DC3D547D39E442E9EE4,
+	Rotating_Start_m76DE940F63E90D09F398719674B8905D2B53916E,
+	Rotating_Update_m1C3AD46D92DE0407A4EC14F9AAA1FE87327714BA,
+	Rotating_Anchor_mDFCF647263B33F3C18C9AC455406E8A5FBEDC467,
+	Rotating_Detach_m9DEF88702D8BAE7C1B6E290B04A682A7B6506AB5,
+	Rotating__ctor_mE4616007FC6FA2F54FAF07E7B93A46F611FA7A7A,
+	Rotating_U3CStartU3Eb__6_0_m0AC1DAF694865FB378E578F90597C32F87B9EE0C,
+	Rotating_U3CStartU3Eb__6_1_m647C921B37A6D9E9D1AAAFA8273F081706A77EC4,
+	Rotator_Start_mE4B0451C7D2FC5AF3258D1E24B0A0CF1C58379C2,
+	Rotator_Update_mEDB0F4729DEB6075BDB3177DB5A90104D8020D68,
+	Rotator_Anchor_m7FC1D1C3ED4CFEF5FD8785CF0C18C970B546BC92,
+	Rotator_Detach_m7CC46DC73E2987D1E844EE5A9848B003B1A3A4EE,
+	Rotator_FollowHandle_m690036F4CA0205F4D3CE22CBC0DCD3602FA12D45,
+	Rotator__ctor_m6DD9F22CD049D079A6246125410EFE63DE76FAF2,
+	Side_isAdjacent_m38040DE1907ACD243C5EB9A4BFE52E6C4914EA75,
+	Side_isAdjacent_mC752963224E2AC7ADFC72A1FAC0FEE53E6D51AFC,
+	Side_GetFace_m362077FED1E587A7CBC3DEF0BE8370C02B94EF86,
+	Side_get_x_mCF0D47CCD4B7FD78BC448A472C4A582645AF2A00,
+	Side_get_y_mC93D18D2328FD6C50A3CB08EFE6BC3122DCFBB27,
+	Side_ToString_mEABDCF21E33979F983AA9CBC9603FB6E7E6F0F6D,
+	Side_get_SideId_m951AE44986640FCD823FB5A868802363A4E7E154,
+	Side_get_FaceId_m61141BEB29E89109DB577B612E7CC727D2E5B09D,
+	Side_get_isOn_m42AEADD7DC03C5ECE0E90ED04B343918529D1D73,
+	Side__ctor_m8B64B75E4039B8763D92D47C5113A615CA1523E3,
+	SphereTrace_Start_m654804E31A47FE65B507524E8D483B41B486573A,
+	SphereTrace_Update_m7F0300CE71A98BBF8D798F7351FA5EDC66B81CE8,
+	SphereTrace_initControllers_m1F38794E450FC4B92215E513F5F647301F112FC9,
+	SphereTrace_SetActive_m12621CD85F762165C744140B81948E6C96633E3E,
+	SphereTrace_setUnActive_mE7EFD7E56CE62415340BB6465552EB63AB9C0B04,
+	SphereTrace_clearFaces_m0DE4FF5AE87EFDC1768CA648638C0583F5421E40,
+	SphereTrace_isAdjacent_m9E22E839B3FDFFB5F63058FE6A9B0F10CBBC6BF0,
+	SphereTrace_drawFaces_m627AC146540FCE097B2A98BFDFE33ED642D56676,
+	SphereTrace__ctor_m00741A404D8DC14D4BE8163312183DFF697EF9EC,
+	Tracer_Start_m8A913A30809F6096AB4EEF744155E311F5BAC19E,
+	Tracer_PrintPass_mD7CEB56C784DB0A56E84894BDB29A724221DD318,
+	Tracer_PrintPassKeep_mB562D9983476C861B07BA7F98972453E9D71237E,
+	Tracer_FixedUpdate_mD692627B844B8F17B98A04FB5B9CC1B7C52671A7,
+	Tracer_TracePath_m0F7072BF89339F50BA6E590ADB995270282BECC4,
+	Tracer__ctor_m52859CB46E5D334735348FA6CCA65A3E52B99B25,
+	Tracer_U3CStartU3Eb__16_0_mA54E96DAE7291B7B3334A18249444C14937A21CB,
+	Tracer_U3CStartU3Eb__16_1_mDC6E2E15E7E087DEF33E52EB6EA7955EC0EDD1F8,
+	Tracer_U3CStartU3Eb__16_2_mAFA3B6E4CD5BB46F8051013E0732A23A63873C98,
+	Tracer_U3CStartU3Eb__16_3_m75A31422AE6E5D653DCD45AE6BCFCD82AEC09493,
+	Tracer_U3CStartU3Eb__16_4_mE569D8DE257D2815C8AA426931E5F1F2814CC3A5,
+	TracerV2_Start_mE7D5CEC35B06D9A5D207AAF7D99683ABDB7011E6,
+	TracerV2_Update_mA946A119EFBB6CA950CC9D29F8B73B96E7A626E7,
+	TracerV2__ctor_mC562E75FAE20D520CA929FE1944AB6029325B63E,
+	Triangle_Start_m536E82967EF52A26343AF79FEA77273421355A02,
+	Triangle_Update_mC18C5C55BB3499E5E80E369F770F829E5687D07E,
+	Triangle_isAdjacent_m217B98C5DCBBD6827E17AD38971AA59C174AF515,
+	Triangle_isAdjacent_mB647FA5550030670F9530DDF2B638CB981CA81FF,
+	Triangle_ToString_m665EF90FF13E632954B8CF2E647FE0D305C7EE55,
+	Triangle_get_isOn_mC2EC4F1540642B16522267462AEE04D9C17EA705,
+	Triangle__ctor_mDEF6174BFF9D55A9F6EC7BC2BA298C69DFB8A53C,
+	Readme__ctor_m69C325C4C171DCB0312B646A9034AA91EA8C39C6,
+	Section__ctor_m5F732533E4DFC0167D965E5F5DB332E46055399B,
+};
+static const int32_t s_InvokerIndices[79] = 
+{
+	6532,
+	6532,
+	6532,
+	6532,
+	6381,
+	6532,
+	6532,
+	6532,
+	6532,
+	5054,
+	6532,
+	5054,
+	0,
+	0,
+	6532,
+	6532,
+	6532,
+	6532,
+	6532,
+	6532,
+	5363,
+	5363,
+	6532,
+	6532,
+	6532,
+	6532,
+	5363,
+	5363,
+	6532,
+	5363,
+	5363,
+	6532,
+	6532,
+	5363,
+	5363,
+	6532,
+	6532,
+	3634,
+	3634,
+	1978,
+	6381,
+	6381,
+	6412,
+	6381,
+	6381,
+	6312,
+	6532,
+	6532,
+	6532,
+	6532,
+	5363,
+	5363,
+	6532,
+	3634,
+	6532,
+	6532,
+	6532,
+	6532,
+	6532,
+	6532,
+	2333,
+	6532,
+	5363,
+	5363,
+	5363,
+	5363,
+	5363,
+	6532,
+	6532,
+	6532,
+	6532,
+	6532,
+	3634,
+	3634,
+	6412,
+	6312,
+	6532,
+	6532,
+	6532,
+};
+IL2CPP_EXTERN_C const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule;
+const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule = 
+{
+	"Assembly-CSharp.dll",
+	79,
+	s_methodPointers,
+	0,
+	NULL,
+	s_InvokerIndices,
+	0,
+	NULL,
+	0,
+	NULL,
+	0,
+	NULL,
+	NULL,
+	NULL, // module initializer,
+	NULL,
+	NULL,
+	NULL,
+};

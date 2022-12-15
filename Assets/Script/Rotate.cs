@@ -8,23 +8,37 @@ public class Rotate : MonoBehaviour
 {
     [SerializeField] private ActionBasedController abcLeft, abcRight;
     [SerializeField] private Transform hitAnchor;
-    Transform currentHand;
-    XRRayInteractor xrri;
-    RaycastHit hit;
-    bool grabbed = false, setup = false, inUse = false;
-    Vector3 oldDir, newDir, oldControlPos, newControlPos;
+    private Transform currentHand;
+    private XRRayInteractor xrri;
+    private RaycastHit hit;
+    private bool grabbed = false, setup = false, inUse = false;
+    private Vector3 oldDir, newDir, oldControlPos, newControlPos;
     float distance;
 
-    
+    private Transform camTsf; 
+    int initialized=0;
 
     void Start()
-    {
+    {   
         initControllers();
+        
+    }
+
+    void Awake(){
+        camTsf = Camera.main.transform;
+        
     }
 
     private void FixedUpdate()
     {
         rotate();
+    }
+
+    void LateUpdate(){
+        if(initialized<3){
+            transform.position=new Vector3(transform.position.x,camTsf.position.y-0.5f,transform.position.z);
+            initialized++;
+        }  
     }
 
     #region initialization
@@ -53,6 +67,8 @@ public class Rotate : MonoBehaviour
             inUse = grabbed = setup = true;
         }
     }
+
+
 
     void setUnActive(InputAction.CallbackContext ctx)
     {
