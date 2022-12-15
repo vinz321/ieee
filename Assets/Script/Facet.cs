@@ -48,4 +48,6 @@ public abstract class Facet : MonoBehaviour
     public abstract bool isAdjacent(Facet facet);
 
     public abstract bool isOn { get; }
+
+    public string colorFormat{ get => color.r+"_"+color.g+"_"+color.b;}
 }

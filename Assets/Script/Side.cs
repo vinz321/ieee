@@ -67,7 +67,8 @@ public class Side : Facet
 
     public override string ToString()
     {
-        return ""+sideId+""+faceId;
+        //Color c=mr.material.GetColor("_EmissionColor");
+        return "s"+sideId+"_"+faceId; //+"_"+c.r+"_"+c.g+"_"+c.b;
     }
     public int SideId {
         get { return sideId; }
@@ -75,6 +76,5 @@ public class Side : Facet
     public int FaceId {
         get { return faceId; }
     }
-
     public override bool isOn {get => mr.enabled;}
 }

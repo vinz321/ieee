@@ -22,7 +22,7 @@ public class Triangle : Facet
     
 
     public bool isAdjacent(Triangle t){
-        return((smallT<0 || t.smallT<0) && bigT==t.bigT) || (smallT==t.smallT && bigT!=t.bigT);
+        return((smallT<0 || t.smallT<0) && bigT==t.bigT) || (smallT>=0 && smallT==t.smallT && bigT!=t.bigT);
     }
 
     public override bool isAdjacent(Facet facet){
@@ -30,8 +30,9 @@ public class Triangle : Facet
     }
 
     public override string ToString(){
-        return ""+bigT+smallT+color;
+        return "t"+bigT+"_"+smallT; //+"_"+color.r+"_"+color.g+"_"+color.b;
     }
+
 
     public override bool isOn{
         get{

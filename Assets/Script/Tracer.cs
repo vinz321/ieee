@@ -10,6 +10,7 @@ public class Tracer : MonoBehaviour
     private Stack<Facet> pass=new Stack<Facet>();
     [SerializeField]
     private XRRayInteractor xrriLeft, xrriRight;
+    private bool left;
     [SerializeField]
     private ActionBasedController abcLeft,abcRight;
     private XRRayInteractor xrri;
@@ -23,57 +24,98 @@ public class Tracer : MonoBehaviour
     [SerializeField]
     private bool traceback;
     [SerializeField]
-    private bool keepPass;
+    private bool multiPath;
 
     [SerializeField] 
     private InputActionReference iarLeft,iarRight;
+
+    [SerializeField]
+    private Validator v;
+
+
     void Start()
     {
+        v=new Validator(multiPath);
         xrri=GetComponent<XRRayInteractor>();
         lv=GetComponent<XRInteractorLineVisual>();
         // InputAction a=GetComponent<ActionBasedController>().selectAction.action;
         Action<InputAction.CallbackContext> startAction=(context)=>{if(!passStarted) passStarted=true;
-                                                                    };
+                                                                    v.StartTimer();};
 
-        Action<InputAction.CallbackContext> stopAction=(context)=>{if(passStarted) passStarted=false; 
-                                if(keepPass) PrintPassKeep(); else PrintPass();};
-        Action<InputAction.CallbackContext> changeColor=(context)=>{idColor++;
-                                idColor%=colorSpan.Count;
-                                };
         abcLeft.activateAction.action.started+=startAction;
-        abcLeft.activateAction.action.started+=(context)=>{xrri=xrriLeft;};
-        abcLeft.activateAction.action.canceled+=stopAction;
+        abcLeft.activateAction.action.started+=(context)=>{xrri=xrriLeft; left=true;};
+        abcLeft.activateAction.action.canceled+=(context)=>{Validate(true);};
+
         abcRight.activateAction.action.started+=startAction;
-        abcRight.activateAction.action.started+=(context)=>{xrri=xrriRight;};
-        abcRight.activateAction.action.canceled+=stopAction;
-        iarLeft.action.started+=changeColor;
-        iarRight.action.started+=changeColor;
+        abcRight.activateAction.action.started+=(context)=>{xrri=xrriRight; left=false;};
+        abcRight.activateAction.action.canceled+=(context)=>{Validate(false);};
+        // iarLeft.action.started+=changeColor;
+        // iarRight.action.started+=changeColor;
     }
 
-    void PrintPass(){
+
+    void Validate(bool left){
+        if(!passStarted || this.left!=left)
+            return; 
+        passStarted=false; 
+
+        if(pass.Count<3){   //Too Short
+            Discard();
+            return;
+        }
+        
+
+        if(v.Validate(GetPass())){    //Read and if finished input write to file
+            if(!multiPath){
+                Discard();
+            }
+            else if(ChangeColor()){
+                Discard();
+                v.WriteBack();
+            }
+            active=null;
+        }else{
+            idColor=0;
+            Discard();
+        }
+
+        
+    }
+
+    bool ChangeColor(){
+        idColor++;
+        bool r=idColor>=colorSpan.Count;
+        idColor%=colorSpan.Count;
+        return r;
+    }
+
+    void Discard(){
+        if(active==null)
+            return;
         int count=pass.Count;
-        string p=active+" ";
+        //string p="stpsd_"+active.colorFormat+"_"+active+"_";
         active.TurnOff();
         active=null;
         for(int i=0;i<count;i++){
             pass.Peek().TurnOff();
-            p+=pass.Pop()+" ";
-
+            pass.Pop();
+            //p+=pass.Pop()+"_";
         }
-        print(p);
-        
+        //p+="psdend";
+        //print(p);
+        //return p;
     }
 
-    void PrintPassKeep(){
+    string GetPass(){
         List<Facet> temp=new List<Facet>(pass);
-        string p=active+" ";
+        string p="stpth_"+active.colorFormat+"_";
         pass.Push(active);
-        active=null;
         for(int i=temp.Count-1;i>=0;i--){
-            
-            p+=temp[i]+" ";
+            p+=temp[i]+"_";
         }
+        p+=active+"_endpth";
         print(p);
+        return p;
     }
     // Update is called once per frame
     void FixedUpdate()
