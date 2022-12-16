@@ -32,6 +32,8 @@ public class Tracer : MonoBehaviour
     [SerializeField]
     private Validator v;
 
+    private int startPointer=0;
+
 
     void Start()
     {
@@ -59,7 +61,7 @@ public class Tracer : MonoBehaviour
             return; 
         passStarted=false; 
 
-        if(pass.Count<3){   //Too Short
+        if((pass.Count-startPointer)<3){   //Too Short
             Discard();
             return;
         }
@@ -101,6 +103,7 @@ public class Tracer : MonoBehaviour
             pass.Pop();
             //p+=pass.Pop()+"_";
         }
+        startPointer=0;
         //p+="psdend";
         //print(p);
         //return p;
@@ -110,10 +113,11 @@ public class Tracer : MonoBehaviour
         List<Facet> temp=new List<Facet>(pass);
         string p="stpth_"+active.colorFormat+"_";
         pass.Push(active);
-        for(int i=temp.Count-1;i>=0;i--){
+        for(int i=temp.Count-1;i>=startPointer;i--){
             p+=temp[i]+"_";
         }
         p+=active+"_endpth";
+        startPointer=temp.Count+1;
         print(p);
         return p;
     }
