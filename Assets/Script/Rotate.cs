@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class Rotate : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class Rotate : MonoBehaviour
     private bool grabbed = false, setup = false, inUse = false;
     private Vector3 oldDir, newDir, oldControlPos, newControlPos;
     float distance;
+    public TextMeshProUGUI textAppData;
 
     private Transform camTsf; 
     int initialized=0;
@@ -21,7 +23,9 @@ public class Rotate : MonoBehaviour
     void Start()
     {   
         initControllers();
-        
+        textAppData.text = $"{Application.persistentDataPath}";
+
+
     }
 
     void Awake(){
@@ -36,7 +40,7 @@ public class Rotate : MonoBehaviour
 
     void LateUpdate(){
         if(initialized<3){
-            transform.position=new Vector3(transform.position.x,camTsf.position.y-0.5f,transform.position.z);
+            //transform.position=new Vector3(transform.position.x,camTsf.position.y-0.5f,transform.position.z);
             initialized++;
         }  
     }

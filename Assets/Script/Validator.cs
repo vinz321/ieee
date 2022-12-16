@@ -65,8 +65,11 @@ public class Validator
 
     bool ValidatePattern(){
         if(reference==null) return false;
-        if(fileContent.Length!=reference.Length)
-            return false;
+        if (fileContent.Length != reference.Length)
+        {
+            Debug.Log("Reference length is different "+fileContent.Length+" "+fileContent+" "+reference.Length+" "+reference);
+        }
+           //return false;
         return reference.Equals(fileContent);
     }
     public void StartTimer(){
