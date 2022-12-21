@@ -28,6 +28,7 @@ public class Tracer : MonoBehaviour
 
     [SerializeField] 
     private InputActionReference iarLeft,iarRight;
+    [SerializeField] private bool multiColor = false;
 
     [SerializeField]
     private Validator v;
@@ -52,8 +53,13 @@ public class Tracer : MonoBehaviour
         abcRight.activateAction.action.started+=startAction;
         abcRight.activateAction.action.started+=(context)=>{xrri=xrriRight; left=false;};
         abcRight.activateAction.action.canceled+=(context)=>{Validate(false);};
-        iarLeft.action.started+=(context)=>ChangeColor();
-        iarRight.action.started+=(context)=>ChangeColor();
+
+        iarLeft.action.started+=(context)=>{
+            if (!patternStarted) ChangeColor();
+        };
+        iarRight.action.started+=(context)=>{
+            if (!patternStarted) ChangeColor();
+        };
     }
 
 
@@ -63,6 +69,7 @@ public class Tracer : MonoBehaviour
         patternStarted=false; 
 
         if((pattern.Count-startPointer)<3){   //Too Short
+            SceneManager.Instance.ui.SetText("Short Pattern!");
             Discard();
             return;
         }
@@ -70,14 +77,17 @@ public class Tracer : MonoBehaviour
 
         if(v.Validate(Getpattern())){       //Read and if finished input write to file
             if(!multiPath && !v.recording){
+                SceneManager.Instance.ui.SetText("Right Pattern!"); // ui
                 Discard();
             }
             else if(v.completeMatch){
+                SceneManager.Instance.ui.SetText("Right Pattern!"); // ui
                 Discard();
                 v.WriteBack();
             }
             active=null;
         }else{
+            SceneManager.Instance.ui.SetText("Wrong Pattern!"); // ui
             idColor=0;
             Discard();
         }
@@ -86,6 +96,8 @@ public class Tracer : MonoBehaviour
     }
 
     bool ChangeColor(){
+        if (!multiColor) return true;
+
         idColor++;
         bool r=idColor>=colorSpan.Count;
         idColor%=colorSpan.Count;
@@ -93,6 +105,24 @@ public class Tracer : MonoBehaviour
     }
 
 //////PER L'UI//////
+    public void SetPattern()
+    {
+        if (v.CreateReference())
+        {
+            SceneManager.Instance.ui.SetText("Pattern Set!");
+        }
+        else 
+        {
+            SceneManager.Instance.ui.SetText("Already Set!");
+        }
+    }
+
+    public void ResetPattern()
+    {
+        SceneManager.Instance.ui.SetText("Trace new Pattern");
+        v.DeleteReference();
+        Discard();
+    }
     void Discard(){
         
         int count=pattern.Count;

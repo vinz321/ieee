@@ -310,6 +310,7 @@ MonoBehaviour:
   iarLeft: {fileID: 1574845746871804147, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   iarRight: {fileID: -1904025498865882144, guid: c348712bda248c246b8c49b3db54643f,
     type: 3}
+  multiColor: 1
   v:
     multiPattern: 0
 --- !u!1 &252297505
@@ -1073,6 +1074,7 @@ MonoBehaviour:
   multiPath: 0
   iarLeft: {fileID: 0}
   iarRight: {fileID: 0}
+  multiColor: 0
   v:
     multiPattern: 0
 --- !u!1 &638746922
