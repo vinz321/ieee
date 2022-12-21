@@ -78,6 +78,7 @@ public class Tracer : MonoBehaviour
             }
             active=null;
         }else{
+            SceneManager.Instance.ui.SetText("Wrong Pattern!"); // ui
             idColor=0;
             Discard();
         }
@@ -93,6 +94,24 @@ public class Tracer : MonoBehaviour
     }
 
 //////PER L'UI//////
+    public void SetPattern()
+    {
+        if (v.CreateReference())
+        {
+            SceneManager.Instance.ui.SetText("Pattern Set!");
+        }
+        else 
+        {
+            SceneManager.Instance.ui.SetText("Already Set!");
+        }
+    }
+
+    public void ResetPattern()
+    {
+        SceneManager.Instance.ui.SetText("Trace new Pattern");
+        v.DeleteReference();
+        Discard();
+    }
     void Discard(){
         
         int count=pattern.Count;

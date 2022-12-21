@@ -56,13 +56,15 @@ public class Validator
         }
     }
 
-    public void CreateReference(){
+    public bool CreateReference(){
         if(!File.Exists(refPath)){
             StreamWriter fs=new StreamWriter(refPath,true);
             fs.Write(fileContent);
             fs.Close();
             fileContent="";
+            return true;
         }
+        return false;
     }
 
 ////// FINE DA USARE PER L'UI //////////
