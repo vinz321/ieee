@@ -37,8 +37,10 @@ public class Validator
     public bool GetReference(){
         if(File.Exists(refPath))
             reference=File.ReadAllText(refPath);
-        else
+        else{
             return false;
+        }
+            
         return true;
     }
 
@@ -55,7 +57,6 @@ public class Validator
 
     public void CreateReference(){
         if(!File.Exists(refPath)){
-            
             StreamWriter fs=new StreamWriter(refPath,true);
             fs.Write(fileContent);
             fs.Close();
@@ -68,6 +69,7 @@ public class Validator
     public bool Validate(string pattern){
         // //if valid
         fileContent+=pattern;
+        
         if(GetReference() && !ValidatePartialPattern()){
             Debug.Log("Error committed");
             errors++;
@@ -75,22 +77,22 @@ public class Validator
             timeStarted=false;
             return false;
         }
-        _completeMatch=ValidatePattern();
+       _completeMatch=ValidatePattern();
 
-        if(!multiPattern)
+        if(!multiPattern && !recording)
             WriteBack();
         return true;
     }
 
     bool ValidatePartialPattern(){
-        if(reference==null) return false;
+        if(reference==null || reference=="") return false;
 
         string r=(fileContent.Length<reference.Length)?reference.Substring(0,fileContent.Length):reference;
         return r.Equals(fileContent);
     }
 
     bool ValidatePattern(){
-        if(reference==null) return false;
+        if(reference==null || reference=="") return false;
         if (fileContent.Length != reference.Length)
         {
             Debug.Log("Reference length is different "+fileContent.Length+" "+fileContent+" "+reference.Length+" "+reference);
@@ -106,7 +108,9 @@ public class Validator
     public void WriteBack(){
         StreamWriter fs=new StreamWriter(filename,true);
         //fs.AutoFlush=true;
-        fs.Write("Completed with time: "+(Time.time-time)+" s, errors: "+errors+" Pattern: \n"+fileContent+"\n");
+        fs.Write((multiPattern)?"Multipattern":"SinglePattern"+"\n"+
+                    "Completed with time: "+(Time.time-time)+" s, errors: "+errors+" Pattern: \n"+
+                    fileContent+"\n");
         fs.Close();
         fileContent="";
         timeStarted=false;
@@ -115,5 +119,9 @@ public class Validator
 
     public bool completeMatch{
         get =>_completeMatch;
+    }
+
+    public bool recording{
+        get=> reference==null;
     }
 }

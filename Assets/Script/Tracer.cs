@@ -42,6 +42,7 @@ public class Tracer : MonoBehaviour
         lv=GetComponent<XRInteractorLineVisual>();
         // InputAction a=GetComponent<ActionBasedController>().selectAction.action;
         Action<InputAction.CallbackContext> startAction=(context)=>{if(!patternStarted) patternStarted=true;
+                                                                    if(v.recording && !multiPath) Discard();
                                                                     v.StartTimer();};
 
         abcLeft.activateAction.action.started+=startAction;
@@ -57,7 +58,7 @@ public class Tracer : MonoBehaviour
 
 
     void Validate(bool left){
-        if(!patternStarted || this.left!=left)
+        if(!patternStarted || this.left!=left)  //Hand handler
             return; 
         patternStarted=false; 
 
@@ -67,8 +68,8 @@ public class Tracer : MonoBehaviour
         }
         
 
-        if(v.Validate(Getpattern())){    //Read and if finished input write to file
-            if(!multiPath){
+        if(v.Validate(Getpattern())){       //Read and if finished input write to file
+            if(!multiPath && !v.recording){
                 Discard();
             }
             else if(v.completeMatch){
@@ -91,11 +92,12 @@ public class Tracer : MonoBehaviour
         return r;
     }
 
+//////PER L'UI//////
     void Discard(){
         
         int count=pattern.Count;
         //string p="stpsd_"+active.colorFormat+"_"+active+"_";
-        if(active==null)
+        if(active!=null)
             active.TurnOff();
         active=null;
         for(int i=0;i<count;i++){
