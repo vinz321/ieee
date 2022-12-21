@@ -1,0 +1,6 @@
+SinglePattern
+Completed with time: 19,43033 s, errors: 1 Pattern: 
+stpth_0,7406906_1,679681_1,943396_t3_3_t3_-1_t3_2_t1_2_t1_-1_t1_3_endpth
+SinglePattern
+Completed with time: 1,322395 s, errors: 3 Pattern: 
+stpth_0,7406906_1,679681_1,943396_t3_3_t3_-1_t3_2_t1_2_t1_-1_t1_0_endpth

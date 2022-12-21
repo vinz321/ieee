@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class SceneManager : MonoBehaviour
 {    
-    [SerializeField] Validator validator;
-    
-    public void SetUp()
-    {
-        Debug.Log("Creazione della psw");
-        validator.CreateReference();
-    }
+    public static SceneManager Instance {get; private set;}
+    [SerializeField] public UI ui;
 
-    public void Reset()
+    private void Awake()
     {
-        Debug.Log("Eliminazione della psw");
-        validator.DeleteReference();
+        if (Instance != null && Instance != this) 
+        { 
+            Destroy(this); 
+        } 
+        else 
+        { 
+            Instance = this; 
+        } 
     }
 }
