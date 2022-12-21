@@ -21,6 +21,8 @@ public class Validator
 
     private int errors;
     private bool _completeMatch;
+
+    private const string refPath=@"./Test/Reference.txt";
     public Validator(bool multiPattern){
         this.multiPattern=multiPattern;
         DateTimeFormatInfo d=new DateTimeFormatInfo();
@@ -33,15 +35,39 @@ public class Validator
 
 
     public bool GetReference(){
-        if(File.Exists(@"./Test/Reference.txt"))
-            reference=File.ReadAllText(@"./Test/Reference.txt");
+        if(File.Exists(refPath))
+            reference=File.ReadAllText(refPath);
         else
             return false;
         return true;
     }
-    public bool Validate(string pass){
+
+     private void init(){
+        if(!Directory.Exists(@"./Test"))
+            Directory.CreateDirectory(@"./Test");
+    }
+//////// DA USARE PER L'UI /////////////
+    public void DeleteReference(){
+        if(File.Exists(refPath)){
+            File.Delete(refPath);
+        }
+    }
+
+    public void CreateReference(){
+        if(!File.Exists(refPath)){
+            
+            StreamWriter fs=new StreamWriter(refPath,true);
+            fs.Write(fileContent);
+            fs.Close();
+            fileContent="";
+        }
+    }
+
+////// FINE DA USARE PER L'UI //////////
+
+    public bool Validate(string pattern){
         // //if valid
-        fileContent+=pass;
+        fileContent+=pattern;
         if(GetReference() && !ValidatePartialPattern()){
             Debug.Log("Error committed");
             errors++;

@@ -7,7 +7,7 @@ using System;
 public class Tracer : MonoBehaviour
 {
     // Start is called before the first frame update
-    private Stack<Facet> pass=new Stack<Facet>();
+    private Stack<Facet> pattern=new Stack<Facet>();
     [SerializeField]
     private XRRayInteractor xrriLeft, xrriRight;
     private bool left;
@@ -17,7 +17,7 @@ public class Tracer : MonoBehaviour
     private XRInteractorLineVisual lv;
     private Facet active=null;
     private RaycastHit hit;
-    private bool passStarted;
+    private bool patternStarted;
     [SerializeField]
     private List<Color> colorSpan=new List<Color>();
     private int idColor=0;
@@ -41,7 +41,7 @@ public class Tracer : MonoBehaviour
         xrri=GetComponent<XRRayInteractor>();
         lv=GetComponent<XRInteractorLineVisual>();
         // InputAction a=GetComponent<ActionBasedController>().selectAction.action;
-        Action<InputAction.CallbackContext> startAction=(context)=>{if(!passStarted) passStarted=true;
+        Action<InputAction.CallbackContext> startAction=(context)=>{if(!patternStarted) patternStarted=true;
                                                                     v.StartTimer();};
 
         abcLeft.activateAction.action.started+=startAction;
@@ -57,17 +57,17 @@ public class Tracer : MonoBehaviour
 
 
     void Validate(bool left){
-        if(!passStarted || this.left!=left)
+        if(!patternStarted || this.left!=left)
             return; 
-        passStarted=false; 
+        patternStarted=false; 
 
-        if((pass.Count-startPointer)<3){   //Too Short
+        if((pattern.Count-startPointer)<3){   //Too Short
             Discard();
             return;
         }
         
 
-        if(v.Validate(GetPass())){    //Read and if finished input write to file
+        if(v.Validate(Getpattern())){    //Read and if finished input write to file
             if(!multiPath){
                 Discard();
             }
@@ -92,16 +92,16 @@ public class Tracer : MonoBehaviour
     }
 
     void Discard(){
-        if(active==null)
-            return;
-        int count=pass.Count;
+        
+        int count=pattern.Count;
         //string p="stpsd_"+active.colorFormat+"_"+active+"_";
-        active.TurnOff();
+        if(active==null)
+            active.TurnOff();
         active=null;
         for(int i=0;i<count;i++){
-            pass.Peek().TurnOff();
-            pass.Pop();
-            //p+=pass.Pop()+"_";
+            pattern.Peek().TurnOff();
+            pattern.Pop();
+            //p+=pattern.Pop()+"_";
         }
         startPointer=0;
         //p+="psdend";
@@ -109,10 +109,10 @@ public class Tracer : MonoBehaviour
         //return p;
     }
 
-    string GetPass(){
-        List<Facet> temp=new List<Facet>(pass);
+    string Getpattern(){
+        List<Facet> temp=new List<Facet>(pattern);
         string p="stpth_"+active.colorFormat+"_";
-        pass.Push(active);
+        pattern.Push(active);
         for(int i=temp.Count-1;i>=startPointer;i--){
             p+=temp[i]+"_";
         }
@@ -123,8 +123,12 @@ public class Tracer : MonoBehaviour
     }
     // Update is called once per frame
     void Update(){
-        if(Input.GetKeyDown(KeyCode.Escape)){
-            v.WriteBack();
+        if(Input.GetKeyDown(KeyCode.Return)){
+            v.CreateReference();
+        }
+        if(Input.GetKeyDown(KeyCode.Delete)){
+            v.DeleteReference();
+            Discard();
         }
     }
     void FixedUpdate()
@@ -133,7 +137,7 @@ public class Tracer : MonoBehaviour
     }
 
     void TracePath(Color color, bool traceback){
-        if(passStarted && xrri.TryGetCurrent3DRaycastHit(out hit)){
+        if(patternStarted && xrri.TryGetCurrent3DRaycastHit(out hit)){
             if(active==null){
                 active=hit.transform.GetComponent<Facet>();
                 if(active!=null)
@@ -142,12 +146,12 @@ public class Tracer : MonoBehaviour
             else{
                 Facet temp=hit.transform.GetComponent<Facet>();
                 if(temp!=null && temp!=active){
-                    if(pass.Count>0 && temp==pass.Peek()){
+                    if(pattern.Count>0 && temp==pattern.Peek()){
                         active.TurnOff(color);
-                        active=pass.Pop();
+                        active=pattern.Pop();
                     }
                     else if(temp.isAdjacent(active) ){
-                        pass.Push(active);
+                        pattern.Push(active);
                         active=temp;
                         active.TurnOn(color);
                     }
