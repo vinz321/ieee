@@ -80,7 +80,6 @@ public class Validator
             timeStarted=false;
             return false;
         }
-
        _completeMatch=ValidatePattern();
 
         if(!multiPattern && !recording)

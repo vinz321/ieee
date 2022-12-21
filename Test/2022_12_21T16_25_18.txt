@@ -1,9 +1,0 @@
-SinglePattern
-Completed with time: 2,819309 s, errors: 0 Pattern: 
-stpth_0,7406906_1,679681_1,943396_t3_3_t3_-1_t3_2_t1_2_t1_-1_t1_3_endpth
-SinglePattern
-Completed with time: 1,749031 s, errors: 0 Pattern: 
-stpth_0,7406906_1,679681_1,943396_t3_3_t3_-1_t3_2_t1_2_t1_-1_t1_3_endpth
-SinglePattern
-Completed with time: 11,17734 s, errors: 2 Pattern: 
-stpth_0,7406906_1,679681_1,943396_t3_3_t3_-1_t3_2_t1_2_t1_-1_t1_3_t3_3_t3_-1_t3_1_endpth
