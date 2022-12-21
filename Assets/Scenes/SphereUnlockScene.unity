@@ -3368,6 +3368,11 @@ PrefabInstance:
       propertyPath: abcRight
       value: 
       objectReference: {fileID: 687683217}
+    - target: {fileID: 5600396497763857448, guid: 9607556596409c14f90d8f3911d17719,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6519258775030764918, guid: 9607556596409c14f90d8f3911d17719,
         type: 3}
       propertyPath: m_Enabled
