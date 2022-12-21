@@ -34,7 +34,6 @@ public class Tracer : MonoBehaviour
 
     private int startPointer=0;
 
-
     void Start()
     {
         v=new Validator(multiPath);
@@ -63,6 +62,7 @@ public class Tracer : MonoBehaviour
         patternStarted=false; 
 
         if((pattern.Count-startPointer)<3){   //Too Short
+            SceneManager.Instance.ui.SetText("Short Pattern!");
             Discard();
             return;
         }
@@ -112,6 +112,7 @@ public class Tracer : MonoBehaviour
         v.DeleteReference();
         Discard();
     }
+
     void Discard(){
         
         int count=pattern.Count;
@@ -142,6 +143,8 @@ public class Tracer : MonoBehaviour
         print(p);
         return p;
     }
+
+
     // Update is called once per frame
     void Update(){
         if(Input.GetKeyDown(KeyCode.Return)){
