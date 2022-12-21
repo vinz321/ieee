@@ -23,7 +23,7 @@ public class Rotate : MonoBehaviour
     void Start()
     {   
         initControllers();
-        textAppData.text = $"{Application.persistentDataPath}";
+//        textAppData.text = $"{Application.persistentDataPath}";
 
 
     }

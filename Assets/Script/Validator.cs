@@ -38,6 +38,7 @@ public class Validator
         if(File.Exists(refPath))
             reference=File.ReadAllText(refPath);
         else{
+            reference="";
             return false;
         }
             
@@ -122,6 +123,6 @@ public class Validator
     }
 
     public bool recording{
-        get=> reference==null;
+        get=> reference==null || reference=="";
     }
 }
