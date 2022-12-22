@@ -103,6 +103,12 @@ public class Tracer : MonoBehaviour
         bool r=idColor>=colorSpan.Count;
         idColor%=colorSpan.Count;
 
+        xrriLeft.GetComponent<XRInteractorLineVisual>().invalidColorGradient
+        .SetKeys(new GradientColorKey[]{new GradientColorKey(colorSpan[idColor],0.0f),new GradientColorKey(colorSpan[idColor],1.0f)},
+        new GradientAlphaKey[]{new GradientAlphaKey(1.0f,0.0f)});
+        xrriRight.GetComponent<XRInteractorLineVisual>().invalidColorGradient
+        .SetKeys(new GradientColorKey[]{new GradientColorKey(colorSpan[idColor],0.0f),new GradientColorKey(colorSpan[idColor],1.0f)},
+        new GradientAlphaKey[]{new GradientAlphaKey(1.0f,0.0f)});
         SceneManager.Instance.ui.SetColorPickerColor(colorSpan[idColor]);
         return r;
     }
