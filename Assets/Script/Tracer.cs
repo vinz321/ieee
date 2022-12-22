@@ -60,6 +60,7 @@ public class Tracer : MonoBehaviour
         iarRight.action.started+=(context)=>{
             if (!patternStarted) ChangeColor();
         };
+        SceneManager.Instance.ui.SetColorPickerColor(colorSpan[0]);
     }
 
 
@@ -101,6 +102,8 @@ public class Tracer : MonoBehaviour
         idColor++;
         bool r=idColor>=colorSpan.Count;
         idColor%=colorSpan.Count;
+
+        SceneManager.Instance.ui.SetColorPickerColor(colorSpan[idColor]);
         return r;
     }
 
@@ -123,6 +126,12 @@ public class Tracer : MonoBehaviour
         v.DeleteReference();
         Discard();
     }
+
+    void SetColorPickerPosition()
+    {
+        SceneManager.Instance.ui.SetColorPickerPosition(abcRight.transform.position + Vector3.up * 0.1f);
+    }
+
     void Discard(){
         
         int count=pattern.Count;
@@ -155,6 +164,7 @@ public class Tracer : MonoBehaviour
     }
     // Update is called once per frame
     void Update(){
+        SetColorPickerPosition();
         if(Input.GetKeyDown(KeyCode.Return)){
             v.CreateReference();
         }
