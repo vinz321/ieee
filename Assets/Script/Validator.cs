@@ -21,16 +21,20 @@ public class Validator
 
     private int errors;
     private bool _completeMatch;
-
-    private const string refPath=@"./Test/Reference.txt";
+    private float totTime=0.0f;
+    private int totTries=0;
+    private const string folderPath=@"./Test/";
+    private const string refPath=folderPath+"Reference.txt";
+    private Action callback;
     public Validator(bool multiPattern){
         this.multiPattern=multiPattern;
         DateTimeFormatInfo d=new DateTimeFormatInfo();
         d.DateSeparator="_";
         d.TimeSeparator="_";
-        
+        init();
         DateTime date=DateTime.Now;
         filename=@"./Test/"+date.ToString("yyyy_MM_ddTHH_mm_ss")+".txt";
+        callback+=()=>{Debug.Log("Callback called");};
     }
 
 
@@ -46,8 +50,8 @@ public class Validator
     }
 
      private void init(){
-        if(!Directory.Exists(@"./Test"))
-            Directory.CreateDirectory(@"./Test");
+        if(!Directory.Exists(folderPath))
+            Directory.CreateDirectory(folderPath);
     }
 //////// DA USARE PER L'UI /////////////
     public void DeleteReference(){
@@ -76,14 +80,17 @@ public class Validator
         if(GetReference() && !ValidatePartialPattern()){
             Debug.Log("Error committed");
             errors++;
+            WriteTry(false);
             fileContent="";
             timeStarted=false;
             return false;
         }
        _completeMatch=ValidatePattern();
 
-        if(!multiPattern && !recording)
-            WriteBack();
+        if(!multiPattern && !recording){
+            WriteTry(true);
+        }
+            
         return true;
     }
 
@@ -118,6 +125,37 @@ public class Validator
         fileContent="";
         timeStarted=false;
         //File.WriteAllText(filename,fileContent);
+    }
+
+    public void WriteTry(bool correct){
+        StreamWriter fs=new StreamWriter(filename,true);
+        //fs.AutoFlush=true;
+        fs.Write(((multiPattern)?"Multipattern":"SinglePattern")+"\n"+
+                    ((correct)?"Correct":"Error")+"\n"+
+                    "Time: "+(Time.time-time)+" s, Pattern: \n"+
+                    fileContent+"\n");
+        fs.Close();
+        fileContent="";
+        timeStarted=false;
+        totTime+=(Time.time-time);
+        totTries++;
+        if(totTries>=4){
+            WriteTotal();
+        }
+    }
+
+    public void WriteTotal(){
+        StreamWriter fs=new StreamWriter(filename,true);
+        //fs.AutoFlush=true;
+        fs.Write("\n"+((multiPattern)?"Multipattern":"SinglePattern")+"\n"+
+                    "Total Time: "+(totTime)+" s, Total Errors:"+errors+" \n"+"\n");
+        fs.Close();
+        fileContent="";
+        timeStarted=false;
+        errors=0;
+        totTime=0;
+        totTries=0;
+        callback();
     }
 
     public bool completeMatch{

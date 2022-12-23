@@ -84,7 +84,7 @@ public class Tracer : MonoBehaviour
             else if(v.completeMatch){
                 SceneManager.Instance.ui.SetText("Right Pattern!"); // ui
                 Discard();
-                v.WriteBack();
+                v.WriteTry(true);
             }
             active=null;
         }else{
