@@ -8,6 +8,7 @@ using TMPro;
 public class UI
 {
     [SerializeField] TMP_Text uiText;
+    [SerializeField] GameObject uiMenu, surveyPanel, messagePanel;
     [SerializeField] Image colorPicker;
 
     public void SetText(string text)
@@ -23,5 +24,21 @@ public class UI
     public void SetColorPickerPosition(Vector3 position)
     {
         colorPicker.transform.position = position;
+    }
+
+    public void ShowSurvey()
+    {
+        uiMenu.SetActive(false);
+        messagePanel.SetActive(false);
+
+        surveyPanel.gameObject.SetActive(true);
+    }
+
+    public void HideSurvey()
+    {
+        uiMenu.SetActive(true);
+        messagePanel.SetActive(true);
+
+        surveyPanel.gameObject.SetActive(false);
     }
 }

@@ -1,0 +1,20 @@
+SinglePattern
+Error
+Time: 7,105761 s, Pattern: 
+stpth_0,7406906_1,679681_1,943396_t3_3_t3_-1_t3_2_t1_2_t1_-1_t1_0_endpth
+SinglePattern
+Error
+Time: 0,8732681 s, Pattern: 
+stpth_0,7406906_1,679681_1,943396_t3_3_t3_-1_t3_2_t1_2_t1_-1_endpth
+SinglePattern
+Error
+Time: 0,6734695 s, Pattern: 
+stpth_0,7406906_1,679681_1,943396_t3_-1_t3_2_t1_2_t1_-1_t1_3_endpth
+SinglePattern
+Error
+Time: 0,5792789 s, Pattern: 
+stpth_0,7406906_1,679681_1,943396_t3_3_t3_-1_t3_2_t1_2_t1_-1_endpth
+
+SinglePattern
+Total Time: 9,231777 s, Total Errors:4 
+

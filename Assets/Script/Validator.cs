@@ -35,6 +35,7 @@ public class Validator
         DateTime date=DateTime.Now;
         filename=@"./Test/"+date.ToString("yyyy_MM_ddTHH_mm_ss")+".txt";
         callback+=()=>{Debug.Log("Callback called");};
+        callback+=()=>SceneManager.Instance.ShowSurvey();
     }
 
 
@@ -61,7 +62,7 @@ public class Validator
     }
 
     public bool CreateReference(){
-        if(!File.Exists(refPath)){
+        if(!File.Exists(refPath) && fileContent != null){ // prevent to set empty pattern
             StreamWriter fs=new StreamWriter(refPath,true);
             fs.Write(fileContent);
             fs.Close();

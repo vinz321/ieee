@@ -60,7 +60,10 @@ public class Tracer : MonoBehaviour
         iarRight.action.started+=(context)=>{
             if (!patternStarted) ChangeColor();
         };
-        SceneManager.Instance.ui.SetColorPickerColor(colorSpan[0]);
+        SceneManager.Instance.ui.SetColorPickerColor(colorSpan[0]); // ui
+
+        // On start delete previous pattern
+        ResetPattern();
     }
 
 
@@ -113,6 +116,28 @@ public class Tracer : MonoBehaviour
         return r;
     }
 
+    public void SetVersion(int version) // versions 0, 1, 2 
+    {
+        ResetPattern();
+        switch(version)
+        {
+            case 0:
+                multiPath = false;
+                multiColor = false;
+                break;
+            case 1:
+                multiPath = true;
+                multiColor = false;
+                break;
+            case 2:
+                multiPath = true;
+                multiColor = true;
+                break;
+            default:
+                break;
+        }   
+    }
+
 //////PER L'UI//////
     public void SetPattern()
     {
@@ -120,7 +145,7 @@ public class Tracer : MonoBehaviour
         {
             SceneManager.Instance.ui.SetText("Pattern Set!");
         }
-        else 
+        else
         {
             SceneManager.Instance.ui.SetText("Already Set!");
         }
