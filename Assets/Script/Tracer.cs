@@ -38,12 +38,12 @@ public class Tracer : MonoBehaviour
 
     void Start()
     {
-        v=new Validator(multiPath);
+        v=new Validator(multiPattern);
         xrri=GetComponent<XRRayInteractor>();
         lv=GetComponent<XRInteractorLineVisual>();
         // InputAction a=GetComponent<ActionBasedController>().selectAction.action;
         Action<InputAction.CallbackContext> startAction=(context)=>{if(!patternStarted) patternStarted=true;
-                                                                    if(v.recording && !multiPath) Discard();
+                                                                    if(v.recording && !multiPattern) Discard();
                                                                     v.StartTimer();};
 
         abcLeft.activateAction.action.started+=startAction;
@@ -74,13 +74,13 @@ public class Tracer : MonoBehaviour
 
         if((pattern.Count-startPointer)<3){   //Too Short
             SceneManager.Instance.ui.SetText("Short Pattern!");
-            Discard();
+            DiscardPartially();
             return;
         }
         
 
         if(v.Validate(Getpattern())){       //Read and if finished input write to file
-            if(!multiPath && !v.recording){
+            if(!multiPattern && !v.recording){
                 SceneManager.Instance.ui.SetText("Right Pattern!"); // ui
                 Discard();
             }
@@ -122,15 +122,15 @@ public class Tracer : MonoBehaviour
         switch(version)
         {
             case 0:
-                multiPath = false;
+                multiPattern = false;
                 multiColor = false;
                 break;
             case 1:
-                multiPath = true;
+                multiPattern = true;
                 multiColor = false;
                 break;
             case 2:
-                multiPath = true;
+                multiPattern = true;
                 multiColor = true;
                 break;
             default:
@@ -144,6 +144,7 @@ public class Tracer : MonoBehaviour
         if (v.CreateReference())
         {
             SceneManager.Instance.ui.SetText("Pattern Set!");
+            Discard();
         }
         else
         {
@@ -179,6 +180,18 @@ public class Tracer : MonoBehaviour
         //p+="psdend";
         //print(p);
         //return p;
+    }
+
+    void DiscardPartially(){
+        int count=pattern.Count;
+        if(active!=null)
+            active.TurnOff();
+        active=null;
+        for(int i=startPointer;i<count;i++){
+            pattern.Peek().TurnOff();
+            pattern.Pop();
+            //p+=pattern.Pop()+"_";
+        }
     }
 
     string Getpattern(){
@@ -234,4 +247,8 @@ public class Tracer : MonoBehaviour
         }
     }
 
+    public bool multiPattern{
+        get => multiPath;
+        set {multiPath=value; v.multiPattern=value;}
+    }
 }

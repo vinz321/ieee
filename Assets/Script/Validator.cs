@@ -9,7 +9,7 @@ using System.IO;
 public class Validator 
 {
     [SerializeField]
-    private bool multiPattern; 
+    private bool multiPattern_; 
 
     private string fileContent;
 
@@ -165,5 +165,10 @@ public class Validator
 
     public bool recording{
         get=> reference==null || reference=="";
+    }
+
+    public bool multiPattern{
+        get=>multiPattern_;
+        set=>multiPattern_=value;
     }
 }
