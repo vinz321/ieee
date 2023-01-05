@@ -30,7 +30,7 @@ public abstract class Facet : MonoBehaviour
     }
     public void TurnOff(){
         mr.enabled=false;
-
+        
     }
 
     public void TurnOff(Color color){

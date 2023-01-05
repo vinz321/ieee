@@ -185,7 +185,7 @@ public class Tracer : MonoBehaviour
     void DiscardPartially(){
         int count=pattern.Count;
         if(active!=null)
-            active.TurnOff();
+            active.TurnOff(colorSpan[idColor]);
         active=null;
         for(int i=startPointer;i<count;i++){
             pattern.Peek().TurnOff();
