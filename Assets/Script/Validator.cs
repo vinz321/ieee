@@ -91,7 +91,6 @@ public class Validator
         if(!multiPattern && !recording){
             WriteTry(true);
         }
-            
         return true;
     }
 

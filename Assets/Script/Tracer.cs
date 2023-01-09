@@ -188,7 +188,7 @@ public class Tracer : MonoBehaviour
             active.TurnOff(colorSpan[idColor]);
         active=null;
         for(int i=startPointer;i<count;i++){
-            pattern.Peek().TurnOff();
+            pattern.Peek().TurnOff(colorSpan[idColor]);
             pattern.Pop();
             //p+=pattern.Pop()+"_";
         }
