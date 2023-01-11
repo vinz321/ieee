@@ -119,23 +119,23 @@ public class Tracer : MonoBehaviour
         return r;
     }
 
-    public void SetVersion(int version, bool isTest) // versions 0, 1, 2 
+    public void SetVersion(string model, int version, bool isTest) // versions 0, 1, 2 
     {
-        string path = "";
+        string path = "ref" + model;
         switch(version)
         {
             case 0:
-                path = isTest ? "refSingleTest.txt" : "refSingleTrain.txt";
+                path += isTest ? "SingleTest.txt" : "SingleTrain.txt";
                 multiPattern = false;
                 multiColor = false;
                 break;
             case 1:
-                path = isTest ? "refMultiTest.txt" : "refMultiTrain.txt";
+                path += isTest ? "MultiTest.txt" : "MultiTrain.txt";
                 multiPattern = true;
                 multiColor = false;
                 break;
             case 2:
-                path = isTest ? "refColorTest.txt" : "refColorTrain.txt";
+                path += isTest ? "ColorTest.txt" : "ColorTrain.txt";
                 multiPattern = true;
                 multiColor = true;
                 break;
@@ -143,7 +143,7 @@ public class Tracer : MonoBehaviour
                 break;
         }   
 
-        if (path != "") v.SetRef(path);
+        if (path != "") v.Ref = path;
     }
 
 //////PER L'UI//////
@@ -152,7 +152,7 @@ public class Tracer : MonoBehaviour
         if (v.CreateReference())
         {
             SceneManager.Instance.ui.SetText("Pattern Set!");
-            SaveList(new List<Facet>(pattern));
+            //SaveList(new List<Facet>(pattern));
             Discard();
         }
         else
@@ -228,10 +228,13 @@ public class Tracer : MonoBehaviour
         s.list = test;
         string json = JsonUtility.ToJson(s);
 
-        using StreamWriter w = new StreamWriter(@"./Test/test.json");
+        string path = v.Ref;
+        path = path.Substring(0, path.Length-4) + ".json";
+        
+        using StreamWriter w = new StreamWriter(path);
         w.Write(json);
-
-        //Debug.Log(json);
+        w.Close();
+        //
     }
     // Update is called once per frame
     void Update(){
@@ -274,12 +277,15 @@ public class Tracer : MonoBehaviour
         }
     }
 
-    // public void FormatCurrentRef()
-    // {
-    //     string str = v.GetCurrentReference();
-    //     str = str.Substring(34, 36);
-    //     print(str);
-    // }
+    public void SetTries(int val)
+    {
+        v.TriesLimit = val;
+    }
+
+    public void ResetTries()
+    {
+        v.TotTries = 0;
+    }
 
     public bool multiPattern{
         get => multiPath;

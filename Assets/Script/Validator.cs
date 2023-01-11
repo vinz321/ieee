@@ -22,7 +22,7 @@ public class Validator
     private int errors;
     private bool _completeMatch;
     private float totTime=0.0f;
-    private int totTries=0;
+    private int totTries=0, triesLimit = 4;
     private const string folderPath=@"./Test/";
     private string refPath=folderPath+"Reference.txt";
     private Action callback;
@@ -148,7 +148,7 @@ public class Validator
         timeStarted=false;
         totTime+=(Time.time-time);
         totTries++;
-        if(totTries>=4){
+        if(totTries>=triesLimit){
             WriteTotal();
         }
     }
@@ -187,5 +187,21 @@ public class Validator
     public bool multiPattern{
         get=>multiPattern_;
         set=>multiPattern_=value;
+    }
+
+    public int TriesLimit{
+        get=>triesLimit;
+        set=>triesLimit=value;
+    }
+
+    public int TotTries
+    {
+        get=>totTries;
+        set=>totTries = value;
+    }
+
+    public string Ref{
+        get=>refPath;
+        set=>refPath=folderPath+value;
     }
 }

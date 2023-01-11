@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 enum Versions {
-    Base,
+    Single,
     Multipattern,
     multiColor
 }
@@ -15,6 +16,8 @@ enum Model {
 
 public class SceneManager : MonoBehaviour
 {    
+    private const string folderPath=@"./Test/";
+    private string filename;
     public static SceneManager Instance {get; private set;}
     private Versions version;
     private Model model;
@@ -50,7 +53,8 @@ public class SceneManager : MonoBehaviour
         test = false;
         trainCount = 0;
         model = Model.Pyramid;
-        version = Versions.Base;
+        version = Versions.Single;
+        tracer.SetTries(3);
         NextVersion();
     }
 
@@ -84,9 +88,9 @@ public class SceneManager : MonoBehaviour
                 break;
         }
 
-        tracer.SetVersion(((int)version), test);
+        tracer.SetVersion(model.ToString(), ((int)version), test);
         // set new minPath
-        tracer.minPatternCount = version > Versions.Base ? 2 : 3;
+        tracer.minPatternCount = version > Versions.Single ? 2 : 3;
         //tracer.FormatCurrentRef();
         Debug.Log("Show Model " + model + " and version " + version + ". Min: " + tracer.minPatternCount);
     }
@@ -99,7 +103,7 @@ public class SceneManager : MonoBehaviour
             {
                 if (version > Versions.multiColor)
                 {
-                    version = Versions.Base;
+                    version = Versions.Single;
                     model++;
                 }
                     
@@ -117,8 +121,9 @@ public class SceneManager : MonoBehaviour
             if (trainCount >= trainMax)
             {
                 model = Model.Pyramid;
-                version = Versions.Base;
+                version = Versions.Single;
                 test = true;
+                tracer.SetTries(4);
                 NextVersion();
                 return;
             }
@@ -126,7 +131,7 @@ public class SceneManager : MonoBehaviour
             {
                 case 0:
                     model = Model.Pyramid;
-                    version = Versions.Base;
+                    version = Versions.Single;
                     break;
                 case 1:
                     model = Model.Sphere;
@@ -164,7 +169,7 @@ public class SceneManager : MonoBehaviour
         // if (model >= Model.Pyramid)
         // {
         //     version--;
-        //     if (version < Versions.Base)
+        //     if (version < Versions.Single)
         //     {
         //         model--;
         //         version = Versions.Multipattern;
@@ -188,7 +193,7 @@ public class SceneManager : MonoBehaviour
 
         //     tracer.SetVersion(((int)version), false);
         //     // set new minPath
-        //     tracer.minPatternCount = version > Versions.Base ? 2 : 3;
+        //     tracer.minPatternCount = version > Versions.Single ? 2 : 3;
         //     Debug.Log("Show Model " + model + " and version " + version + ". Min: " + tracer.minPatternCount);
         // }
     }
@@ -196,7 +201,39 @@ public class SceneManager : MonoBehaviour
     public void HideSurvey()
     {
         ui.HideSurvey();
+    }
+
+    public void closeSurvey()
+    {
+        ui.HideSurvey();
         NextVersion();
+    }
+
+    public void Read()
+    {
+        // string str = folderPath + "ref" + model + version;
+        // string o;
+        // string[] spt;
+        // str += test ? "Test.txt" : "Train.txt"; 
+        // //print(str);
+        // if (File.Exists(str))
+        // {
+        //     StreamReader sr = new StreamReader(str);
+        //     o = sr.ReadToEnd();
+        //     sr.Close();
+
+        //     GameObject[] facets = GameObject.FindGameObjectsWithTag(o[0] + "Face");
+
+
+        //     o = o.Substring(34, o.Length - 34 - 7);
+        //     spt = o.Split("t");
+
+            
+        // }
+        // else
+        // {
+        //     print("File: " + str + " NOT EXISTS!");
+        // }
     }
 
     public void EndScene()

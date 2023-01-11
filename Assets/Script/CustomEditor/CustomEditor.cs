@@ -21,6 +21,7 @@ public class CustomSceneManagerEditor : Editor
         if (GUILayout.Button("Next Method") && Application.isPlaying)
         {
             sm.NextVersion();
+            sm.HideSurvey();
         }
         // if (GUILayout.Button("Prev Method") && Application.isPlaying)
         // {
@@ -29,8 +30,12 @@ public class CustomSceneManagerEditor : Editor
         if (GUILayout.Button("Reset") && Application.isPlaying)
         {
             sm.ResetScene();
+            sm.HideSurvey();
         }
-
+        if (GUILayout.Button("Print Path") && Application.isPlaying)
+        {
+            sm.Read();
+        }
         EditorGUILayout.LabelField("UI Menu");
         if (GUILayout.Button("Show/Hide menu") )//&& Application.isPlaying)
         {
