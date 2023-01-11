@@ -16,6 +16,7 @@ public class Rotate : MonoBehaviour
     private Vector3 oldDir, newDir, oldControlPos, newControlPos;
     float distance;
     public TextMeshProUGUI textAppData;
+    
 
     private Transform camTsf; 
     int initialized=0;

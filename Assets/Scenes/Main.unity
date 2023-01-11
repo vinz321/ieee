@@ -314,6 +314,7 @@ MonoBehaviour:
   multiColor: 0
   v:
     multiPattern_: 0
+  minPattern: 3
 --- !u!1 &252297505
 GameObject:
   m_ObjectHideFlags: 0
@@ -1032,6 +1033,7 @@ MonoBehaviour:
   multiColor: 0
   v:
     multiPattern_: 0
+  minPattern: 3
 --- !u!1 &501515650
 GameObject:
   m_ObjectHideFlags: 0
@@ -4075,7 +4077,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Pattern Setup
+  m_text: Base
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5167,6 +5169,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1200617995766167438, guid: ae5e190ccbeacd549b4546896834924a,
         type: 3}
+      propertyPath: test
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1200617995766167438, guid: ae5e190ccbeacd549b4546896834924a,
+        type: 3}
       propertyPath: sphere
       value: 
       objectReference: {fileID: 1845159590}
@@ -5190,6 +5197,11 @@ PrefabInstance:
       propertyPath: ui.uiText
       value: 
       objectReference: {fileID: 874553588}
+    - target: {fileID: 1200617995766167438, guid: ae5e190ccbeacd549b4546896834924a,
+        type: 3}
+      propertyPath: ui.menuText
+      value: 
+      objectReference: {fileID: 1702010820}
     - target: {fileID: 1200617995766167438, guid: ae5e190ccbeacd549b4546896834924a,
         type: 3}
       propertyPath: ui.colorPicker

@@ -24,8 +24,11 @@ public class Validator
     private float totTime=0.0f;
     private int totTries=0;
     private const string folderPath=@"./Test/";
-    private const string refPath=folderPath+"Reference.txt";
+    private string refPath=folderPath+"Reference.txt";
     private Action callback;
+
+    
+
     public Validator(bool multiPattern){
         this.multiPattern=multiPattern;
         DateTimeFormatInfo d=new DateTimeFormatInfo();
@@ -73,6 +76,12 @@ public class Validator
     }
 
 ////// FINE DA USARE PER L'UI //////////
+
+    public void SetRef(string name)
+    {
+        refPath = folderPath + name;
+        Debug.Log(refPath);
+    }
 
     public bool Validate(string pattern){
         // //if valid
@@ -157,6 +166,15 @@ public class Validator
         totTries=0;
         callback();
     }
+
+    // public string GetCurrentReference()
+    // {
+    //     if (!File.Exists(refPath)) return "NaN";
+    //     StreamReader sr = new StreamReader(refPath);
+    //     string srt = sr.ReadToEnd();
+    //     sr.Close();
+    //     return srt;
+    // }
 
     public bool completeMatch{
         get =>_completeMatch;

@@ -7,13 +7,18 @@ using TMPro;
 [System.Serializable]
 public class UI
 {
-    [SerializeField] TMP_Text uiText;
+    [SerializeField] TMP_Text uiText, menuText;
     [SerializeField] GameObject uiMenu, surveyPanel, messagePanel;
     [SerializeField] Image colorPicker;
 
     public void SetText(string text)
     {
         uiText.text = text;
+    }
+
+    public void SetMenuText(string text)
+    {
+        menuText.text = text;
     }
 
     public void SetColorPickerColor(Color color)
@@ -28,7 +33,7 @@ public class UI
 
     public void ShowSurvey()
     {
-        uiMenu.SetActive(false);
+        //uiMenu.SetActive(false);
         messagePanel.SetActive(false);
 
         surveyPanel.gameObject.SetActive(true);
@@ -36,9 +41,14 @@ public class UI
 
     public void HideSurvey()
     {
-        uiMenu.SetActive(true);
+        //uiMenu.SetActive(true);
         messagePanel.SetActive(true);
 
         surveyPanel.gameObject.SetActive(false);
+    }
+
+    public void ShowMenu()
+    {
+        uiMenu.SetActive(!uiMenu.active);
     }
 }
