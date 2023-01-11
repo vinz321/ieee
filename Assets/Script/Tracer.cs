@@ -35,6 +35,8 @@ public class Tracer : MonoBehaviour
 
     private int startPointer=0;
 
+    [SerializeField]
+    private int minPattern=3;
 
     void Start()
     {
@@ -72,7 +74,7 @@ public class Tracer : MonoBehaviour
             return; 
         patternStarted=false; 
 
-        if((pattern.Count-startPointer)<3){   //Too Short
+        if((pattern.Count-startPointer)<minPattern){   //Too Short
             SceneManager.Instance.ui.SetText("Short Pattern!");
             DiscardPartially();
             return;
@@ -250,5 +252,10 @@ public class Tracer : MonoBehaviour
     public bool multiPattern{
         get => multiPath;
         set {multiPath=value; v.multiPattern=value;}
+    }
+
+    public int minPatternCount{
+        get=>  minPattern;
+        set => minPattern=value;
     }
 }
