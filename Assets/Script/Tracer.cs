@@ -69,7 +69,7 @@ public class Tracer : MonoBehaviour
     }
 
 
-    void Validate(bool left){
+    private void Validate(bool left){
         if(!patternStarted || this.left!=left)  //Hand handler
             return; 
         patternStarted=false; 
@@ -101,7 +101,7 @@ public class Tracer : MonoBehaviour
         
     }
 
-    bool ChangeColor(){
+    private bool ChangeColor(){
         if (!multiColor) return true;
 
         idColor++;
@@ -197,14 +197,20 @@ public class Tracer : MonoBehaviour
     }
 
     string Getpattern(){
-        List<Facet> temp=new List<Facet>(pattern);
-        string p="stpth_"+active.colorFormat+"_";
         pattern.Push(active);
-        for(int i=temp.Count-1;i>=startPointer;i--){
+        List<Facet> temp=new List<Facet>(pattern);
+        foreach(Facet f in temp){
+            Debug.Log(f);
+        }
+        Debug.Log(pattern.Peek());
+        string p="stpth_"+active.colorFormat+"_";
+        
+        Debug.Log(temp.Count);
+        for(int i=temp.Count-startPointer-1;i>=0;i--  ){     //for(int i=temp.Count-1;i>=startPointer;i--){
             p+=temp[i]+"_";
         }
-        p+=active+"_endpth";
-        startPointer=temp.Count+1;
+        p+="_endpth";
+        startPointer=temp.Count;
         print(p);
         return p;
     }
