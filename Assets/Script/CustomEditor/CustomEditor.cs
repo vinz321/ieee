@@ -32,10 +32,16 @@ public class CustomSceneManagerEditor : Editor
             sm.ResetScene();
             sm.HideSurvey();
         }
-        if (GUILayout.Button("Print Path") && Application.isPlaying)
+        EditorGUILayout.Separator();
+        if (GUILayout.Button("Read Path") )//&& Application.isPlaying)
         {
             sm.Read();
         }
+        if (GUILayout.Button("Create Anim") && Application.isPlaying)
+        {
+            sm.Create();
+        }
+        EditorGUILayout.Separator();
         EditorGUILayout.LabelField("UI Menu");
         if (GUILayout.Button("Show/Hide menu") )//&& Application.isPlaying)
         {

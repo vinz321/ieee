@@ -39,4 +39,12 @@ public class Triangle : Facet
             return mr.enabled;
         }
     }
+
+    public int BigT{
+        get => bigT;
+    }
+
+    public int SmallT{
+        get => smallT;
+    }
 }

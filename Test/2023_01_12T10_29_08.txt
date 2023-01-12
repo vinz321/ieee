@@ -1,0 +1,4 @@
+Multipattern
+Error
+Time: 2,96471 s, Pattern: 
+stpth_0,7406906_1,679681_1,943396_s1_7_s1_8_s1_5_s1_2_s1_1_s1_0_s1_3_s1_6_endpth

@@ -5,8 +5,8 @@ using UnityEngine;
 
 enum Versions {
     Single,
-    Multipattern,
-    multiColor
+    Multi,
+    Color
 }
 
 enum Model {
@@ -23,11 +23,18 @@ public class SceneManager : MonoBehaviour
     private Model model;
     [SerializeField] private GameObject pyramid, sphere;
     [SerializeField] private Tracer tracer;
+    // fixed lists of triangles and sides to animate
+    [SerializeField] private List<Triangle> trs;
+    [SerializeField] private List<Side> sds;
+    private List<Triangle> animTriangles, animTCopy;
+    private List<Side> animSide, animSCopy;
     [SerializeField] public UI ui;
     [SerializeField] public bool test = true; // flase : is training || true : is test 
-
+    [SerializeField] private Transform Anchor;
+    [SerializeField] private Material guideMat;
     private const int trainMax = 3;
     private int trainCount = 0;
+    private float time = 0;
     
 
     private void Awake()
@@ -39,8 +46,25 @@ public class SceneManager : MonoBehaviour
         else 
         { 
             Instance = this; 
+            animTriangles = new List<Triangle>();
+            animTCopy = new List<Triangle>();
+            animSide = new List<Side>();
+            animSCopy = new List<Side>();
         } 
         
+    }
+
+    private void Update()
+    {
+        time += Time.deltaTime;
+        if (animTCopy.Count > 0)
+        {
+
+            for(int i = 0; i < animTCopy.Count; i++)
+            {
+                animTCopy[i].GetComponent<MeshRenderer>().material.color = new Color(0.5f, 0.5f, 0.0f, -Mathf.Abs(Mathf.Sin(time + (animTCopy.Count - 1 - i)*0.1f))/0.5f);
+            }
+        }
     }
 
     private void Start()
@@ -101,7 +125,7 @@ public class SceneManager : MonoBehaviour
         {
             if (model <= Model.Sphere)
             {
-                if (version > Versions.multiColor)
+                if (version > Versions.Color)
                 {
                     version = Versions.Single;
                     model++;
@@ -135,11 +159,11 @@ public class SceneManager : MonoBehaviour
                     break;
                 case 1:
                     model = Model.Sphere;
-                    version = Versions.Multipattern;
+                    version = Versions.Multi;
                     break;
                 case 2:
                     model = Model.Pyramid;
-                    version = Versions.multiColor;
+                    version = Versions.Color;
                     break;
                 default:
                     break;
@@ -172,7 +196,7 @@ public class SceneManager : MonoBehaviour
         //     if (version < Versions.Single)
         //     {
         //         model--;
-        //         version = Versions.Multipattern;
+        //         version = Versions.Multi;
         //     }
 
         //     switch(model)
@@ -211,31 +235,89 @@ public class SceneManager : MonoBehaviour
 
     public void Read()
     {
-        // string str = folderPath + "ref" + model + version;
-        // string o;
-        // string[] spt;
-        // str += test ? "Test.txt" : "Train.txt"; 
-        // //print(str);
-        // if (File.Exists(str))
-        // {
-        //     StreamReader sr = new StreamReader(str);
-        //     o = sr.ReadToEnd();
-        //     sr.Close();
+        string str = folderPath + "ref" + model + version;
+        string o;
+        string[] spt;
+        str += test ? "Test.txt" : "Train.txt"; 
+        //print(str);
+        if (File.Exists(str))
+        {
+            animTriangles.Clear();
+            animSide.Clear();
+            foreach (Triangle t in animTCopy) Destroy(t);
+            foreach (Side s in animSCopy) Destroy(s);
+            animTCopy.Clear();
+            animSCopy.Clear();
+            
+            StreamReader sr = new StreamReader(str);
+            o = sr.ReadToEnd();
+            sr.Close();
+            // get substring with values
+            o = o.Substring(34, o.Length - 34 - 7);
 
-        //     GameObject[] facets = GameObject.FindGameObjectsWithTag(o[0] + "Face");
+            if (o[0] == 't') 
+            {
+                spt = o.Split("t");
+                for (int i = 1; i < spt.Length; i++)
+                {
+                    string[] parts = spt[i].Split("_");
+                    string a = parts[0];
+                    string b = parts[1];
 
+                    animTriangles.Add(trs.Find(x => (x.BigT.ToString() == a && x.SmallT.ToString() == b)));
+                }
+            }
+            else if (o[0] == 's') 
+            {
+                spt = o.Split("s");
+                for (int i = 1; i < spt.Length; i++)
+                {
+                    string[] parts = spt[i].Split("_");
+                    string a = parts[0];
+                    string b = parts[1];
 
-        //     o = o.Substring(34, o.Length - 34 - 7);
-        //     spt = o.Split("t");
+                    animSide.Add(sds.Find(x => (x.SideId.ToString() == a && x.FaceId.ToString() == b)));
+                }
+            }
+            else return;
 
             
-        // }
-        // else
-        // {
-        //     print("File: " + str + " NOT EXISTS!");
-        // }
+        }
+        else
+        {
+            print("File: " + str + " NOT EXISTS!");
+        }
     }
 
+    public void Create()
+    {
+        if (animSide.Count <= 0 && animTriangles.Count <= 0) return;
+
+        int index = 0;
+
+        if (animSide.Count <= 0)
+        {
+            // triangles
+            foreach (Triangle t in animTriangles)
+            {
+                Triangle copy = GameObject.Instantiate(t, Vector3.zero, Quaternion.identity);
+                copy.gameObject.layer = LayerMask.NameToLayer("Guide");
+                copy.transform.SetParent(Anchor);
+                copy.transform.position = t.transform.position;
+                copy.transform.rotation = t.transform.rotation;
+                copy.transform.localScale = new Vector3(.3f,.3f,.3f);
+                MeshRenderer mr = copy.GetComponent<MeshRenderer>();
+                mr.material = guideMat;
+                mr.enabled = true;
+                animTCopy.Add(copy);
+            }
+        }
+        else
+        {
+            // side
+
+        }
+    }
     public void EndScene()
     {
         Debug.Log("The scene is ended");
