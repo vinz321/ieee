@@ -33,7 +33,7 @@ public class CustomSceneManagerEditor : Editor
             sm.HideSurvey();
         }
         EditorGUILayout.Separator();
-        if (GUILayout.Button("Read Path") )//&& Application.isPlaying)
+        if (GUILayout.Button("Read Path")  && Application.isPlaying)//&& Application.isPlaying)
         {
             sm.Read();
         }

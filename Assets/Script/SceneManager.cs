@@ -35,6 +35,8 @@ public class SceneManager : MonoBehaviour
     private const int trainMax = 3;
     private int trainCount = 0;
     private float time = 0;
+
+    public float sinTime, offset, intensity;
     
 
     private void Awake()
@@ -59,10 +61,20 @@ public class SceneManager : MonoBehaviour
         time += Time.deltaTime;
         if (animTCopy.Count > 0)
         {
-
             for(int i = 0; i < animTCopy.Count; i++)
             {
-                animTCopy[i].GetComponent<MeshRenderer>().material.color = new Color(0.5f, 0.5f, 0.0f, -Mathf.Abs(Mathf.Sin(time + (animTCopy.Count - 1 - i)*0.1f))/0.5f);
+                if (i == 0) animTCopy[i].GetComponent<MeshRenderer>().material.color = new Color(1.0f, 0.0f, 0.0f, Mathf.Abs(Mathf.Sin(time/sinTime + (animTCopy.Count - 1 - i)*offset))/intensity);
+                else if (i == animTCopy.Count-1) animTCopy[i].GetComponent<MeshRenderer>().material.color = new Color(0f, 1f, 0.0f, Mathf.Abs(Mathf.Sin(time/sinTime + (animTCopy.Count - 1 - i)*offset))/intensity);
+                else animTCopy[i].GetComponent<MeshRenderer>().material.color = new Color(0.5f, 0.5f, 0.0f, Mathf.Abs(Mathf.Sin(time/sinTime + (animTCopy.Count - 1 - i)*offset))/intensity);
+            }
+        }
+        else if (animSCopy.Count > 0)
+        {
+            for(int i = 0; i < animSCopy.Count; i++)
+            {
+                if (i == 0) animSCopy[i].GetComponent<MeshRenderer>().material.color = new Color(1.0f, 0.0f, 0.0f, Mathf.Abs(Mathf.Sin(time/sinTime + (animSCopy.Count - 1 - i)*offset))/intensity);
+                else if (i == animSCopy.Count-1) animSCopy[i].GetComponent<MeshRenderer>().material.color = new Color(0f, 1f, 0.0f, Mathf.Abs(Mathf.Sin(time/sinTime + (animSCopy.Count - 1 - i)*offset))/intensity);
+                else animSCopy[i].GetComponent<MeshRenderer>().material.color = new Color(0.5f, 0.5f, 0.0f, Mathf.Abs(Mathf.Sin(time/sinTime + (animSCopy.Count - 1 - i)*offset))/intensity);
             }
         }
     }
@@ -244,8 +256,8 @@ public class SceneManager : MonoBehaviour
         {
             animTriangles.Clear();
             animSide.Clear();
-            foreach (Triangle t in animTCopy) Destroy(t);
-            foreach (Side s in animSCopy) Destroy(s);
+            foreach (Triangle t in animTCopy) Object.Destroy(t.gameObject);
+            foreach (Side s in animSCopy) Object.Destroy(s.gameObject);
             animTCopy.Clear();
             animSCopy.Clear();
             
@@ -315,7 +327,19 @@ public class SceneManager : MonoBehaviour
         else
         {
             // side
-
+            foreach (Side s in animSide)
+            {
+                Side copy = GameObject.Instantiate(s, Vector3.zero, Quaternion.identity);
+                copy.gameObject.layer = LayerMask.NameToLayer("Guide");
+                copy.transform.SetParent(Anchor);
+                copy.transform.position = s.transform.position;
+                copy.transform.rotation = s.transform.rotation;
+                copy.transform.localScale = s.transform.localScale * 0.26638f;
+                MeshRenderer mr = copy.GetComponent<MeshRenderer>();
+                mr.material = guideMat;
+                mr.enabled = true;
+                animSCopy.Add(copy);
+            }
         }
     }
     public void EndScene()

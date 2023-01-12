@@ -11624,6 +11624,11 @@ PrefabInstance:
       objectReference: {fileID: 818593139}
     - target: {fileID: 1200617995766167438, guid: ae5e190ccbeacd549b4546896834924a,
         type: 3}
+      propertyPath: offset
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1200617995766167438, guid: ae5e190ccbeacd549b4546896834924a,
+        type: 3}
       propertyPath: sphere
       value: 
       objectReference: {fileID: 82775571}
@@ -11639,9 +11644,19 @@ PrefabInstance:
       objectReference: {fileID: 6515076020969242403}
     - target: {fileID: 1200617995766167438, guid: ae5e190ccbeacd549b4546896834924a,
         type: 3}
+      propertyPath: sinTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1200617995766167438, guid: ae5e190ccbeacd549b4546896834924a,
+        type: 3}
       propertyPath: guideMat
       value: 
       objectReference: {fileID: 2100000, guid: f570cdc72da056c419485f37a182de66, type: 2}
+    - target: {fileID: 1200617995766167438, guid: ae5e190ccbeacd549b4546896834924a,
+        type: 3}
+      propertyPath: intensity
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1200617995766167438, guid: ae5e190ccbeacd549b4546896834924a,
         type: 3}
       propertyPath: ui.uiMenu
