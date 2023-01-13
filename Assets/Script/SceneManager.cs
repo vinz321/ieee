@@ -63,28 +63,54 @@ public class SceneManager : MonoBehaviour
 
     private void Update()
     {
-        time += Time.deltaTime;
+        //time += Time.deltaTime;
 
 
 
-        if (animTCopy.Count > 0)
-        {
-            Debug.Log(animTCopy.Count);
-            Debug.Log(counter);
-            animTCopy[counter].ChangeAlpha(time * 3);
-            if (time > 0.33)
-            {
-                time = 0;
-                counter++;
-                if (counter >= animTCopy.Count)
-                {
-                    foreach (Triangle t in animTCopy)
-                    {
-                        t.ChangeAlpha(0);
-                    }
-                    counter = 0;
-                }
-            }
+        //if (animTCopy.Count > 0)
+        //{
+        //    Debug.Log(animTCopy.Count);
+        //    Debug.Log(counter);
+        //    animTCopy[counter].ChangeAlpha(time * 3);
+        //    if (time > 0.33)
+        //    {
+        //        time = 0;
+        //        counter++;
+        //        if (counter >= animTCopy.Count)
+        //        {
+        //            foreach (Triangle t in animTCopy)
+        //            {
+        //                t.ChangeAlpha(0);
+        //            }
+        //            counter = 0;
+        //        }
+        //    }
+
+        //    //for(int i = 0; i < animTCopy.Count; i++)
+        //    //{
+        //    //    if (i == 0) animTCopy[i].GetComponent<MeshRenderer>().material.color = new Color(1.0f, 0.0f, 0.0f, Mathf.Abs(Mathf.Sin(time/sinTime + (animTCopy.Count - 1 - i)*offset))/intensity);
+        //    //    else if (i == animTCopy.Count-1) animTCopy[i].GetComponent<MeshRenderer>().material.color = new Color(0f, 1f, 0.0f, Mathf.Abs(Mathf.Sin(time/sinTime + (animTCopy.Count - 1 - i)*offset))/intensity);
+        //    //    else animTCopy[i].GetComponent<MeshRenderer>().material.color = new Color(0.5f, 0.5f, 0.0f, Mathf.Abs(Mathf.Sin(time/sinTime + (animTCopy.Count - 1 - i)*offset))/intensity);
+        //    //}
+        //}
+
+        //else if (animSCopy.Count > 0)
+        //{
+
+        //    animSCopy[counter].ChangeAlpha(time * 3);
+        //    if (time > 0.33)
+        //    {
+        //        time = 0;
+        //        counter++;
+        //        if (counter >= animSCopy.Count)
+        //        {
+        //            foreach (Side t in animSCopy)
+        //            {
+        //                t.ChangeAlpha(0);
+        //            }
+        //            counter = 0;
+        //        }
+        //    }
 
             //for(int i = 0; i < animTCopy.Count; i++)
             //{
@@ -92,33 +118,7 @@ public class SceneManager : MonoBehaviour
             //    else if (i == animTCopy.Count-1) animTCopy[i].GetComponent<MeshRenderer>().material.color = new Color(0f, 1f, 0.0f, Mathf.Abs(Mathf.Sin(time/sinTime + (animTCopy.Count - 1 - i)*offset))/intensity);
             //    else animTCopy[i].GetComponent<MeshRenderer>().material.color = new Color(0.5f, 0.5f, 0.0f, Mathf.Abs(Mathf.Sin(time/sinTime + (animTCopy.Count - 1 - i)*offset))/intensity);
             //}
-        }
-
-        else if (animSCopy.Count > 0)
-        {
-
-            animSCopy[counter].ChangeAlpha(time * 3);
-            if (time > 0.33)
-            {
-                time = 0;
-                counter++;
-                if (counter >= animSCopy.Count)
-                {
-                    foreach (Side t in animSCopy)
-                    {
-                        t.ChangeAlpha(0);
-                    }
-                    counter = 0;
-                }
-            }
-
-            //for(int i = 0; i < animTCopy.Count; i++)
-            //{
-            //    if (i == 0) animTCopy[i].GetComponent<MeshRenderer>().material.color = new Color(1.0f, 0.0f, 0.0f, Mathf.Abs(Mathf.Sin(time/sinTime + (animTCopy.Count - 1 - i)*offset))/intensity);
-            //    else if (i == animTCopy.Count-1) animTCopy[i].GetComponent<MeshRenderer>().material.color = new Color(0f, 1f, 0.0f, Mathf.Abs(Mathf.Sin(time/sinTime + (animTCopy.Count - 1 - i)*offset))/intensity);
-            //    else animTCopy[i].GetComponent<MeshRenderer>().material.color = new Color(0.5f, 0.5f, 0.0f, Mathf.Abs(Mathf.Sin(time/sinTime + (animTCopy.Count - 1 - i)*offset))/intensity);
-            //}
-        }
+        //}
         //else if (animSCopy.Count > 0)
         //{
         //    for(int i = 0; i < animSCopy.Count; i++)
@@ -185,6 +185,8 @@ public class SceneManager : MonoBehaviour
 
     public void NextVersion()
     {
+        tracer.ResetColor();
+        tracer.ResetTries();
         if (test)
         {
             if (model <= Model.Sphere)
@@ -195,9 +197,8 @@ public class SceneManager : MonoBehaviour
                     model++;
                 }
 
-                ShowVersion();
-
                 version++;
+                ShowVersion();
             }
             else
             {
@@ -212,7 +213,7 @@ public class SceneManager : MonoBehaviour
                 version = Versions.Single;
                 test = true;
                 tracer.SetTries(4);
-                NextVersion();
+                ShowVersion();
                 return;
             }
             switch (trainCount)
@@ -341,7 +342,7 @@ public class SceneManager : MonoBehaviour
         return output;
     }
 
-    private void readSinglePattern(string pattern,int offset)
+    private int readSinglePattern(string pattern,int offset)
     {
 
         string[] spt;
@@ -365,6 +366,7 @@ public class SceneManager : MonoBehaviour
                 animTriangles.Add(AddTri(spt[i]));
                 animTCopy.Add((Triangle)CreateAnimFacet(AddTri(spt[i]), refColor / 2,offset+i));
             }
+            return spt.Length - 1;
         }
         else if (o.Contains("s"))
         {
@@ -380,8 +382,10 @@ public class SceneManager : MonoBehaviour
                 animSide.Add(AddSide(spt[i]));
                 animSCopy.Add((Side)CreateAnimFacet(AddSide(spt[i]), refColor / 2,offset+i));
             }
+            return spt.Length - 1;
         }
-        else return;
+        else return -1;
+
     }
     public void Read()
     {
@@ -403,9 +407,8 @@ public class SceneManager : MonoBehaviour
             int accum = 0;
             for(int i= 0; i< spt.Length;i++)
             {
-                accum += i == 0 ? 0 : spt[i - 1].Length;
                 Debug.Log(spt[i]);
-                readSinglePattern(spt[i],accum);
+                accum+=readSinglePattern(spt[i],accum);
             }
         }
         else
@@ -441,13 +444,14 @@ public class SceneManager : MonoBehaviour
         mr.material = guideMat;
         mr.enabled = true;
         copy.SetColor(c);
-        copy.ChangeAlpha(0);
+        copy.ChangeAlpha(0.5f);
         //copy.transform.renderer.bounds.center
 
         //------- NUMBERS FACE-ALIGNED --------//
         Vector3 offset = (copy.transform.GetComponent<Renderer>().bounds.center-copy.transform.position).normalized;
         Transform temp = GameObject.Instantiate(number, copy.transform).transform;
         temp.position = copy.transform.GetComponent<Renderer>().bounds.center + offset*0.1f*0.3f;
+        temp.localScale = temp.localScale / copy.transform.localScale.x;
         RaycastHit hit;
         Physics.Raycast(temp.position, -offset, out hit, LayerMask.GetMask("Guide"));
         temp.position = hit.point;

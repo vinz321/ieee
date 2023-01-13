@@ -110,13 +110,8 @@ public class Tracer : MonoBehaviour
         bool r=idColor>=colorSpan.Count;
         idColor%=colorSpan.Count;
 
-        xrriLeft.GetComponent<XRInteractorLineVisual>().invalidColorGradient
-        .SetKeys(new GradientColorKey[]{new GradientColorKey(colorSpan[idColor],0.0f),new GradientColorKey(colorSpan[idColor],1.0f)},
-        new GradientAlphaKey[]{new GradientAlphaKey(1.0f,0.0f)});
-        xrriRight.GetComponent<XRInteractorLineVisual>().invalidColorGradient
-        .SetKeys(new GradientColorKey[]{new GradientColorKey(colorSpan[idColor],0.0f),new GradientColorKey(colorSpan[idColor],1.0f)},
-        new GradientAlphaKey[]{new GradientAlphaKey(1.0f,0.0f)});
-        SceneManager.Instance.ui.SetColorPickerColor(colorSpan[idColor]);
+        SetColor(idColor);
+
         return r;
     }
 
@@ -167,6 +162,7 @@ public class Tracer : MonoBehaviour
     {
         SceneManager.Instance.ui.SetText("Trace new Pattern");
         v.DeleteReference();
+        v.Clear();
         Discard();
     }
 
@@ -279,6 +275,22 @@ public class Tracer : MonoBehaviour
 
             }
         }
+    }
+
+    public void SetColor(int idColor)
+    {
+        xrriLeft.GetComponent<XRInteractorLineVisual>().invalidColorGradient
+        .SetKeys(new GradientColorKey[] { new GradientColorKey(colorSpan[idColor], 0.0f), new GradientColorKey(colorSpan[idColor], 1.0f) },
+        new GradientAlphaKey[] { new GradientAlphaKey(1.0f, 0.0f) });
+        xrriRight.GetComponent<XRInteractorLineVisual>().invalidColorGradient
+        .SetKeys(new GradientColorKey[] { new GradientColorKey(colorSpan[idColor], 0.0f), new GradientColorKey(colorSpan[idColor], 1.0f) },
+        new GradientAlphaKey[] { new GradientAlphaKey(1.0f, 0.0f) });
+        SceneManager.Instance.ui.SetColorPickerColor(colorSpan[idColor]);
+    }
+
+    public void ResetColor()
+    {
+        SetColor(0);
     }
 
     public void SetTries(int val)

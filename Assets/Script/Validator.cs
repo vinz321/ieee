@@ -84,6 +84,11 @@ public class Validator
         Debug.Log(refPath);
     }
 
+    public void Clear()
+    {
+        fileContent = "";
+    }
+
     public bool Validate(string pattern){
         // //if valid
         //fileContent = "";
