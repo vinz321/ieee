@@ -40,6 +40,7 @@ public class SceneManager : MonoBehaviour
     public float sinTime, offset, intensity;
     [SerializeField] private int SingleMinCount=3, MultipleMinCount=1;
     [SerializeField] private GameObject number;
+    private Quaternion bRotPyramid, bRotCube;
     //[SerializeField] private LightRefPattern lrp=new LightRefPattern();
 
     private int counter = 0;
@@ -60,6 +61,7 @@ public class SceneManager : MonoBehaviour
         }
 
     }
+
 
     private void Update()
     {
@@ -132,7 +134,10 @@ public class SceneManager : MonoBehaviour
 
     private void Start()
     {
+        bRotPyramid=pyramid.transform.rotation;
+        bRotCube=sphere.transform.rotation;
         init();
+        
     }
 
     private void init()
@@ -164,12 +169,12 @@ public class SceneManager : MonoBehaviour
             case Model.Pyramid:
                 sphere.SetActive(false);
                 pyramid.SetActive(true);
-                pyramid.transform.rotation = Quaternion.identity;
+                pyramid.transform.rotation = bRotPyramid;
                 break;
             case Model.Sphere:
                 pyramid.SetActive(false);
                 sphere.SetActive(true);
-                sphere.transform.rotation = Quaternion.identity;
+                sphere.transform.rotation = bRotCube;
                 break;
             default:
                 break;
@@ -313,10 +318,13 @@ public class SceneManager : MonoBehaviour
 
     private Color readColor(string[] pattern_fsplit, int offset)
     {
-        string[] components = pattern_fsplit[offset].Split("_");
-        Debug.Log(components);
+        string[] components = pattern_fsplit[offset].Replace(",",".").Split("_");
+        foreach(string s in components)
+            Debug.Log(s);
 
-        return new Color(float.Parse(components[0]), float.Parse(components[1]), float.Parse(components[2]));
+        return new Color(float.Parse(components[0]), 
+                        float.Parse(components[1]),
+                         float.Parse(components[2]));
     }
 
     private Triangle AddTri(string pattern_facet)
@@ -355,6 +363,7 @@ public class SceneManager : MonoBehaviour
             spt = o.Split("t");
             Debug.Log(/*pattern + "------------------" +*/ spt.Length);
             refColor = readColor(spt, 0);
+            Debug.Log(refColor);
             for (int i = 1; i < spt.Length; i++)
             {
                 Debug.Log(/*pattern + "------------------" + */spt[i]);

@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 1024122227829082119}
   - component: {fileID: 4150544417446070178}
   - component: {fileID: 2196988479635354472}
-  m_Layer: 0
+  - component: {fileID: 6515076020969242406}
+  m_Layer: 8
   m_Name: Piramide
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25,9 +26,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 395675828817875645}
-  m_LocalRotation: {x: 0.00000007183303, y: -0.4715934, z: -0.000000038416154, w: 0.88181615}
+  m_LocalRotation: {x: 0, y: -0.47159684, z: 0, w: 0.8818143}
   m_LocalPosition: {x: 3.286, y: 0.301, z: -0.25}
-  m_LocalScale: {x: 0.35477, y: 0.35477, z: 0.35477}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8766539616776878569}
@@ -100,6 +101,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &6515076020969242406
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 395675828817875645}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -4189402623894378333, guid: 0c3541bdf7847c44d90c96f4b2b9ca34, type: 3}
 --- !u!1 &690505671320489447
 GameObject:
   m_ObjectHideFlags: 0
@@ -113,9 +128,9 @@ GameObject:
   - component: {fileID: 6103241846860632043}
   - component: {fileID: 2790756915265897502}
   - component: {fileID: 5863883741434813421}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PyrFacet
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -226,9 +241,9 @@ GameObject:
   - component: {fileID: 8071706548887657443}
   - component: {fileID: 3284643454298751240}
   - component: {fileID: 8595256338475963542}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PyrFacet
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -339,9 +354,9 @@ GameObject:
   - component: {fileID: 8217339824276541755}
   - component: {fileID: 2252529033194167463}
   - component: {fileID: 5028001702727815578}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PyrFacet
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -452,9 +467,9 @@ GameObject:
   - component: {fileID: 2340583001715775354}
   - component: {fileID: 127439416401186225}
   - component: {fileID: 1138121827307491684}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PyrFacet
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -565,9 +580,9 @@ GameObject:
   - component: {fileID: 1928526791009783818}
   - component: {fileID: 3951392251603253192}
   - component: {fileID: 4095764160291602188}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PyrFacet
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -678,9 +693,9 @@ GameObject:
   - component: {fileID: 7797259557057281577}
   - component: {fileID: 400895339720390664}
   - component: {fileID: 5899944910470139060}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PyrFacet
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -791,9 +806,9 @@ GameObject:
   - component: {fileID: 5587260780866006753}
   - component: {fileID: 4368707613842608653}
   - component: {fileID: 9107353627818441798}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PyrFacet
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -904,9 +919,9 @@ GameObject:
   - component: {fileID: 2406765132603033614}
   - component: {fileID: 8464418419338415494}
   - component: {fileID: 6440246205502706832}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PyrFacet
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1017,9 +1032,9 @@ GameObject:
   - component: {fileID: 1569987886959467056}
   - component: {fileID: 8463216430011200776}
   - component: {fileID: 2622927448864799587}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PyrFacet
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1130,9 +1145,9 @@ GameObject:
   - component: {fileID: 6702691486853861957}
   - component: {fileID: 4180364142746270816}
   - component: {fileID: 8300723613918254340}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PyrFacet
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1243,9 +1258,9 @@ GameObject:
   - component: {fileID: 6091158300996854493}
   - component: {fileID: 3786195091129100379}
   - component: {fileID: 3777402192266498447}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PyrFacet
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1356,9 +1371,9 @@ GameObject:
   - component: {fileID: 4783137652325377501}
   - component: {fileID: 3347748628075942180}
   - component: {fileID: 7627011108428715000}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PyrFacet
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1469,9 +1484,9 @@ GameObject:
   - component: {fileID: 3177303992247106674}
   - component: {fileID: 3924834030877530736}
   - component: {fileID: 2601106257712671564}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PyrFacet
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1582,9 +1597,9 @@ GameObject:
   - component: {fileID: 8362573794203116876}
   - component: {fileID: 4880841137038094125}
   - component: {fileID: 1344042505222238365}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PyrFacet
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1695,9 +1710,9 @@ GameObject:
   - component: {fileID: 8709502776629532724}
   - component: {fileID: 2645420588662116350}
   - component: {fileID: 3501550231448900335}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PyrFacet
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1808,9 +1823,9 @@ GameObject:
   - component: {fileID: 5550629383845751794}
   - component: {fileID: 1804134763203375384}
   - component: {fileID: 8997675362120814158}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PyrFacet
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

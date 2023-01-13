@@ -1,0 +1,4 @@
+SinglePattern
+Error
+Time: 3.873158 s, Pattern: 
+stpth_0.7406906_1.679681_1.943396_t2_-1_t2_2_t1_2_t1_-1__endpth

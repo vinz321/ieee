@@ -44,6 +44,94 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96196bac52194764fbb7d38a5315f0aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pyramid: {fileID: 0}
+  sphere: {fileID: 0}
+  tracer: {fileID: 0}
+  trs:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  sds:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   ui:
     uiText: {fileID: 0}
+    menuText: {fileID: 0}
+    uiMenu: {fileID: 0}
+    surveyPanel: {fileID: 0}
+    messagePanel: {fileID: 0}
     colorPicker: {fileID: 0}
+  test: 0
+  Anchor: {fileID: 0}
+  guideMat: {fileID: 2100000, guid: f570cdc72da056c419485f37a182de66, type: 2}
+  sinTime: 2
+  offset: 0.5
+  intensity: 2
+  SingleMinCount: 3
+  MultipleMinCount: 1
+  number: {fileID: 0}
