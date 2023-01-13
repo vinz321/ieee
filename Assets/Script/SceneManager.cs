@@ -15,10 +15,10 @@ enum Model {
 }
 
 public class SceneManager : MonoBehaviour
-{    
-    private const string folderPath=@"./Test/";
+{
+    private const string folderPath = @"./Test/";
     private string filename;
-    public static SceneManager Instance {get; private set;}
+    public static SceneManager Instance { get; private set; }
     private Versions version;
     private Model model;
     [SerializeField] private GameObject pyramid, sphere;
@@ -37,46 +37,94 @@ public class SceneManager : MonoBehaviour
     private float time = 0;
 
     public float sinTime, offset, intensity;
-    
+    //[SerializeField] private LightRefPattern lrp=new LightRefPattern();
+
+    private int counter = 0;
 
     private void Awake()
     {
-        if (Instance != null && Instance != this) 
-        { 
-            Destroy(this); 
-        } 
-        else 
-        { 
-            Instance = this; 
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
             animTriangles = new List<Triangle>();
             animTCopy = new List<Triangle>();
             animSide = new List<Side>();
             animSCopy = new List<Side>();
-        } 
-        
+        }
+
     }
 
     private void Update()
     {
         time += Time.deltaTime;
+
+
+
         if (animTCopy.Count > 0)
         {
-            for(int i = 0; i < animTCopy.Count; i++)
+            Debug.Log(animTCopy.Count);
+            Debug.Log(counter);
+            animTCopy[counter].ChangeAlpha(time * 3);
+            if (time > 0.33)
             {
-                if (i == 0) animTCopy[i].GetComponent<MeshRenderer>().material.color = new Color(1.0f, 0.0f, 0.0f, Mathf.Abs(Mathf.Sin(time/sinTime + (animTCopy.Count - 1 - i)*offset))/intensity);
-                else if (i == animTCopy.Count-1) animTCopy[i].GetComponent<MeshRenderer>().material.color = new Color(0f, 1f, 0.0f, Mathf.Abs(Mathf.Sin(time/sinTime + (animTCopy.Count - 1 - i)*offset))/intensity);
-                else animTCopy[i].GetComponent<MeshRenderer>().material.color = new Color(0.5f, 0.5f, 0.0f, Mathf.Abs(Mathf.Sin(time/sinTime + (animTCopy.Count - 1 - i)*offset))/intensity);
+                time = 0;
+                counter++;
+                if (counter >= animTCopy.Count)
+                {
+                    foreach (Triangle t in animTCopy)
+                    {
+                        t.ChangeAlpha(0);
+                    }
+                    counter = 0;
+                }
             }
+
+            //for(int i = 0; i < animTCopy.Count; i++)
+            //{
+            //    if (i == 0) animTCopy[i].GetComponent<MeshRenderer>().material.color = new Color(1.0f, 0.0f, 0.0f, Mathf.Abs(Mathf.Sin(time/sinTime + (animTCopy.Count - 1 - i)*offset))/intensity);
+            //    else if (i == animTCopy.Count-1) animTCopy[i].GetComponent<MeshRenderer>().material.color = new Color(0f, 1f, 0.0f, Mathf.Abs(Mathf.Sin(time/sinTime + (animTCopy.Count - 1 - i)*offset))/intensity);
+            //    else animTCopy[i].GetComponent<MeshRenderer>().material.color = new Color(0.5f, 0.5f, 0.0f, Mathf.Abs(Mathf.Sin(time/sinTime + (animTCopy.Count - 1 - i)*offset))/intensity);
+            //}
         }
+
         else if (animSCopy.Count > 0)
         {
-            for(int i = 0; i < animSCopy.Count; i++)
+
+            animSCopy[counter].ChangeAlpha(time * 3);
+            if (time > 0.33)
             {
-                if (i == 0) animSCopy[i].GetComponent<MeshRenderer>().material.color = new Color(1.0f, 0.0f, 0.0f, Mathf.Abs(Mathf.Sin(time/sinTime + (animSCopy.Count - 1 - i)*offset))/intensity);
-                else if (i == animSCopy.Count-1) animSCopy[i].GetComponent<MeshRenderer>().material.color = new Color(0f, 1f, 0.0f, Mathf.Abs(Mathf.Sin(time/sinTime + (animSCopy.Count - 1 - i)*offset))/intensity);
-                else animSCopy[i].GetComponent<MeshRenderer>().material.color = new Color(0.5f, 0.5f, 0.0f, Mathf.Abs(Mathf.Sin(time/sinTime + (animSCopy.Count - 1 - i)*offset))/intensity);
+                time = 0;
+                counter++;
+                if (counter >= animSCopy.Count)
+                {
+                    foreach (Side t in animSCopy)
+                    {
+                        t.ChangeAlpha(0);
+                    }
+                    counter = 0;
+                }
             }
+
+            //for(int i = 0; i < animTCopy.Count; i++)
+            //{
+            //    if (i == 0) animTCopy[i].GetComponent<MeshRenderer>().material.color = new Color(1.0f, 0.0f, 0.0f, Mathf.Abs(Mathf.Sin(time/sinTime + (animTCopy.Count - 1 - i)*offset))/intensity);
+            //    else if (i == animTCopy.Count-1) animTCopy[i].GetComponent<MeshRenderer>().material.color = new Color(0f, 1f, 0.0f, Mathf.Abs(Mathf.Sin(time/sinTime + (animTCopy.Count - 1 - i)*offset))/intensity);
+            //    else animTCopy[i].GetComponent<MeshRenderer>().material.color = new Color(0.5f, 0.5f, 0.0f, Mathf.Abs(Mathf.Sin(time/sinTime + (animTCopy.Count - 1 - i)*offset))/intensity);
+            //}
         }
+        //else if (animSCopy.Count > 0)
+        //{
+        //    for(int i = 0; i < animSCopy.Count; i++)
+        //    {
+        //        if (i == 0) animSCopy[i].GetComponent<MeshRenderer>().material.color = new Color(1.0f, 0.0f, 0.0f, Mathf.Abs(Mathf.Sin(time/sinTime + (animSCopy.Count - 1 - i)*offset))/intensity);
+        //        else if (i == animSCopy.Count-1) animSCopy[i].GetComponent<MeshRenderer>().material.color = new Color(0f, 1f, 0.0f, Mathf.Abs(Mathf.Sin(time/sinTime + (animSCopy.Count - 1 - i)*offset))/intensity);
+        //        else animSCopy[i].GetComponent<MeshRenderer>().material.color = new Color(0.5f, 0.5f, 0.0f, Mathf.Abs(Mathf.Sin(time/sinTime + (animSCopy.Count - 1 - i)*offset))/intensity);
+        //    }
+        //}
     }
 
     private void Start()
@@ -108,7 +156,7 @@ public class SceneManager : MonoBehaviour
     {
         string currentV = "" + version;
         ui.SetMenuText(currentV);
-        switch(model)
+        switch (model)
         {
             case Model.Pyramid:
                 sphere.SetActive(false);
@@ -129,6 +177,7 @@ public class SceneManager : MonoBehaviour
         tracer.minPatternCount = version > Versions.Single ? 2 : 3;
         //tracer.FormatCurrentRef();
         Debug.Log("Show Model " + model + " and version " + version + ". Min: " + tracer.minPatternCount);
+        ClearGuide();
     }
 
     public void NextVersion()
@@ -142,12 +191,12 @@ public class SceneManager : MonoBehaviour
                     version = Versions.Single;
                     model++;
                 }
-                    
+
                 ShowVersion();
-                    
+
                 version++;
             }
-            else 
+            else
             {
                 EndScene();
             }
@@ -180,10 +229,11 @@ public class SceneManager : MonoBehaviour
                 default:
                     break;
             }
-            trainCount++;   
+            trainCount++;
             ShowVersion();
+
         }
-        
+
     }
 
     public string PrintModVers()
@@ -245,61 +295,159 @@ public class SceneManager : MonoBehaviour
         NextVersion();
     }
 
+    public void ClearGuide()
+    {
+        animTriangles.Clear();
+        animSide.Clear();
+        foreach (Triangle t in animTCopy) Object.Destroy(t.gameObject);
+        foreach (Side s in animSCopy) Object.Destroy(s.gameObject);
+        animTCopy.Clear();
+        animSCopy.Clear();
+    }
+
+
+
+    private Color readColor(string[] pattern_fsplit, int offset)
+    {
+        string[] components = pattern_fsplit[offset].Split("_");
+        Debug.Log(components);
+
+        return new Color(float.Parse(components[0]), float.Parse(components[1]), float.Parse(components[2]));
+    }
+
+    private Triangle AddTri(string pattern_facet)
+    {
+        string[] parts = pattern_facet.Split("_");
+        string a = parts[0];
+        string b = parts[1];
+
+        return trs.Find(x => (x.BigF.ToString() == a && x.SmallF.ToString() == b));
+    }
+    private Side AddSide(string pattern_facet)
+    {
+        string[] parts = pattern_facet.Split("_");
+        string a = parts[0];
+        string b = parts[1];
+
+        return sds.Find(x => (x.BigF.ToString() == a && x.SmallF.ToString() == b));
+    }
+
+    private string[] extractSinglePatterns(string pattern)
+    {
+        string[] output = pattern.Split("endpthstpth_");
+        return output;
+    }
+
+    private void readSinglePattern(string pattern)
+    {
+
+        string[] spt;
+        string o = pattern.Replace("stpth_", "").Replace("endpth", "");
+        Debug.Log(/*pattern + "------------------" +*/ o);
+        //o = o.Substring(34, o.Length - 34 - 7);
+        Color refColor;
+        if (o.Contains("t"))
+        {
+            spt = o.Split("t");
+            Debug.Log(/*pattern + "------------------" +*/ spt.Length);
+            refColor = readColor(spt, 0);
+            for (int i = 1; i < spt.Length; i++)
+            {
+                Debug.Log(/*pattern + "------------------" + */spt[i]);
+                //string[] parts = spt[i].Split("_");
+                //string a = parts[0];
+                //string b = parts[1];
+
+                //animTriangles.Add(trs.Find(x => (x.BigT.ToString() == a && x.SmallT.ToString() == b)));
+                animTriangles.Add(AddTri(spt[i]));
+                animTCopy.Add((Triangle)CreateAnimFacet(AddTri(spt[i]), refColor / 2));
+            }
+        }
+        else if (o.Contains("s"))
+        {
+            spt = o.Split("s");
+            refColor = readColor(spt, 0);
+            for (int i = 1; i < spt.Length; i++)
+            {
+                //string[] parts = spt[i].Split("_");
+                //string a = parts[0];
+                //string b = parts[1];
+
+                //animSide.Add(sds.Find(x => (x.SideId.ToString() == a && x.FaceId.ToString() == b)));
+                animSide.Add(AddSide(spt[i]));
+                animSCopy.Add((Side)CreateAnimFacet(AddSide(spt[i]), refColor / 2));
+            }
+        }
+        else return;
+    }
     public void Read()
     {
         string str = folderPath + "ref" + model + version;
         string o;
         string[] spt;
-        str += test ? "Test.txt" : "Train.txt"; 
+        str += test ? "Test.txt" : "Train.txt";
         //print(str);
+        ClearGuide();
         if (File.Exists(str))
         {
-            animTriangles.Clear();
-            animSide.Clear();
-            foreach (Triangle t in animTCopy) Object.Destroy(t.gameObject);
-            foreach (Side s in animSCopy) Object.Destroy(s.gameObject);
-            animTCopy.Clear();
-            animSCopy.Clear();
-            
+
+
             StreamReader sr = new StreamReader(str);
             o = sr.ReadToEnd();
             sr.Close();
             // get substring with values
-            o = o.Substring(34, o.Length - 34 - 7);
+            spt = extractSinglePatterns(o);
 
-            if (o[0] == 't') 
+            foreach (string s in spt)
             {
-                spt = o.Split("t");
-                for (int i = 1; i < spt.Length; i++)
-                {
-                    string[] parts = spt[i].Split("_");
-                    string a = parts[0];
-                    string b = parts[1];
-
-                    animTriangles.Add(trs.Find(x => (x.BigT.ToString() == a && x.SmallT.ToString() == b)));
-                }
+                Debug.Log(s);
+                readSinglePattern(s);
             }
-            else if (o[0] == 's') 
-            {
-                spt = o.Split("s");
-                for (int i = 1; i < spt.Length; i++)
-                {
-                    string[] parts = spt[i].Split("_");
-                    string a = parts[0];
-                    string b = parts[1];
-
-                    animSide.Add(sds.Find(x => (x.SideId.ToString() == a && x.FaceId.ToString() == b)));
-                }
-            }
-            else return;
-
-            
         }
         else
         {
             print("File: " + str + " NOT EXISTS!");
         }
     }
+
+    private Facet CreateAnimFacet(Facet f)
+    {
+        Facet copy = GameObject.Instantiate(f, Vector3.zero, Quaternion.identity);
+        copy.gameObject.layer = LayerMask.NameToLayer("Guide");
+        copy.transform.SetParent(Anchor);
+        copy.transform.position = f.transform.position;
+        copy.transform.rotation = f.transform.rotation;
+        copy.transform.localScale = new Vector3(.3f, .3f, .3f);
+        MeshRenderer mr = copy.GetComponent<MeshRenderer>();
+        mr.material = guideMat;
+        mr.enabled = true;
+        return copy;
+    }
+    private Facet CreateAnimFacet(Facet f, Color c)
+    {
+        //yield return new WaitForSeconds(0.2f);
+        Facet copy = GameObject.Instantiate(f, f.transform.parent); // Vector3.zero, Quaternion.identity
+        copy.gameObject.layer = LayerMask.NameToLayer("Guide");
+        //copy.transform.SetParent(Anchor,true);
+        //copy.transform.position = f.transform.position;
+        //copy.transform.rotation = f.transform.rotation;
+        copy.transform.localScale = copy.transform.localScale * 0.9999f;
+        MeshRenderer mr = copy.GetComponent<MeshRenderer>();
+        mr.material = guideMat;
+        mr.enabled = true;
+        copy.SetColor(c);
+        copy.ChangeAlpha(0);
+
+        return copy;
+    }
+
+    //IEnumerator AnimatorMesh(string f, Color c)
+    //{
+    //    yield return new WaitForSeconds(1f);
+    //    //CreateAnimFacet(f, c);
+    //    animSide.Add(AddSide(spt[i]));
+    //    animSCopy.Add((Side)CreateAnimFacet(AddSide(spt[i]), refColor / 2));
+    //}
 
     public void Create()
     {
@@ -312,16 +460,16 @@ public class SceneManager : MonoBehaviour
             // triangles
             foreach (Triangle t in animTriangles)
             {
-                Triangle copy = GameObject.Instantiate(t, Vector3.zero, Quaternion.identity);
-                copy.gameObject.layer = LayerMask.NameToLayer("Guide");
-                copy.transform.SetParent(Anchor);
-                copy.transform.position = t.transform.position;
-                copy.transform.rotation = t.transform.rotation;
-                copy.transform.localScale = new Vector3(.3f,.3f,.3f);
-                MeshRenderer mr = copy.GetComponent<MeshRenderer>();
-                mr.material = guideMat;
-                mr.enabled = true;
-                animTCopy.Add(copy);
+                //Triangle copy = GameObject.Instantiate(t, Vector3.zero, Quaternion.identity);
+                //copy.gameObject.layer = LayerMask.NameToLayer("Guide");
+                //copy.transform.SetParent(Anchor);
+                //copy.transform.position = t.transform.position;
+                //copy.transform.rotation = t.transform.rotation;
+                //copy.transform.localScale = new Vector3(.3f,.3f,.3f);
+                //MeshRenderer mr = copy.GetComponent<MeshRenderer>();
+                //mr.material = guideMat;
+                //mr.enabled = true;
+                animTCopy.Add((Triangle)CreateAnimFacet(t));
             }
         }
         else
@@ -329,16 +477,16 @@ public class SceneManager : MonoBehaviour
             // side
             foreach (Side s in animSide)
             {
-                Side copy = GameObject.Instantiate(s, Vector3.zero, Quaternion.identity);
-                copy.gameObject.layer = LayerMask.NameToLayer("Guide");
-                copy.transform.SetParent(Anchor);
-                copy.transform.position = s.transform.position;
-                copy.transform.rotation = s.transform.rotation;
-                copy.transform.localScale = s.transform.localScale * 0.26638f;
-                MeshRenderer mr = copy.GetComponent<MeshRenderer>();
-                mr.material = guideMat;
-                mr.enabled = true;
-                animSCopy.Add(copy);
+                //Side copy = GameObject.Instantiate(s, Vector3.zero, Quaternion.identity);
+                //copy.gameObject.layer = LayerMask.NameToLayer("Guide");
+                //copy.transform.SetParent(Anchor);
+                //copy.transform.position = s.transform.position;
+                //copy.transform.rotation = s.transform.rotation;
+                //copy.transform.localScale = s.transform.localScale * 0.26638f;
+                //MeshRenderer mr = copy.GetComponent<MeshRenderer>();
+                //mr.material = guideMat;
+                //mr.enabled = true;
+                animSCopy.Add((Side)CreateAnimFacet(s));
             }
         }
     }

@@ -85,7 +85,8 @@ public class Validator
 
     public bool Validate(string pattern){
         // //if valid
-        fileContent+=pattern;
+        fileContent = "";
+        fileContent +=pattern;
         
         if(GetReference() && !ValidatePartialPattern()){
             Debug.Log("Error committed");

@@ -77,4 +77,13 @@ public class Side : Facet
         get { return faceId; }
     }
     public override bool isOn {get => mr.enabled;}
+
+    public override int BigF
+    {
+        get => sideId;
+    }
+    public override int SmallF
+    {
+        get => faceId;
+    }
 }

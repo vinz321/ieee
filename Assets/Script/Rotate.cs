@@ -104,7 +104,8 @@ public class Rotate : MonoBehaviour
             newHitAnchorDir = newHitAnchorDir.normalized * distance;
             hitAnchor.position = transform.position + newHitAnchorDir;
 
-            // // calculate new direction from hitpoint to sphere center
+            // // calculate new direction from hitpoint to
+            // center
             newDir = (transform.position - hitAnchor.position).normalized;
 
             Debug.DrawLine(transform.position, hitAnchor.position, Color.red, 0f, false);

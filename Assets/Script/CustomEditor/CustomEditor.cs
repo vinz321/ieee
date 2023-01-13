@@ -41,6 +41,8 @@ public class CustomSceneManagerEditor : Editor
         {
             sm.Create();
         }
+
+        
         EditorGUILayout.Separator();
         EditorGUILayout.LabelField("UI Menu");
         if (GUILayout.Button("Show/Hide menu") )//&& Application.isPlaying)

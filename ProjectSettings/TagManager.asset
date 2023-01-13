@@ -6,6 +6,7 @@ TagManager:
   tags:
   - tFace
   - sFace
+  - Interactable
   layers:
   - Default
   - TransparentFX

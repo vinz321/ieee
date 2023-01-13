@@ -6,10 +6,34 @@ public abstract class Facet : MonoBehaviour
 {
     protected MeshRenderer mr;
     protected Color color;
+    protected Color matColor;
 
-    protected void Start(){
+    protected void Awake(){
 
         mr=GetComponent<MeshRenderer>();
+        matColor = mr.material.GetColor("_BaseColor");
+    }
+    protected void Start()
+    {
+        
+    }
+
+    public void ChangeAlpha(float value)
+    {
+        matColor.a = value;
+        mr.material.SetColor("_BaseColor", matColor);
+    }
+
+    public void SetColor(Color c)
+    {
+        matColor = c;
+        mr.material.SetColor("_BaseColor", c);
+    }
+
+    public void Fade(float multiplier)
+    {
+        color = multiplier * color;
+        mr.material.SetColor("_EmissionColor", color);
     }
 
     public void TurnOn(){
@@ -50,4 +74,13 @@ public abstract class Facet : MonoBehaviour
     public abstract bool isOn { get; }
 
     public string colorFormat{ get => color.r+"_"+color.g+"_"+color.b;}
+
+    public abstract int BigF
+    {
+        get;
+    }
+    public abstract int SmallF
+    {
+        get;
+    }
 }

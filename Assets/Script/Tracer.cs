@@ -65,6 +65,7 @@ public class Tracer : MonoBehaviour
         };
         SceneManager.Instance.ui.SetColorPickerColor(colorSpan[0]); // ui
 
+
         // On start delete previous pattern
     }
 
@@ -213,7 +214,7 @@ public class Tracer : MonoBehaviour
         temp.Add(active);
         p+=active+"_endpth";
         startPointer=temp.Count+1;
-        print(p);
+        Debug.Log(p);
         return p;
     }
 
@@ -253,7 +254,9 @@ public class Tracer : MonoBehaviour
     }
 
     void TracePath(Color color, bool traceback){
+        
         if(patternStarted && xrri.TryGetCurrent3DRaycastHit(out hit)){
+            Debug.Log("ho colpito qualcosa");
             if(active==null){
                 active=hit.transform.GetComponent<Facet>();
                 if(active!=null)

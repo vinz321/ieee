@@ -47,4 +47,13 @@ public class Triangle : Facet
     public int SmallT{
         get => smallT;
     }
+
+    public override int BigF
+    {
+        get => bigT;
+    }
+    public override int SmallF
+    {
+        get => smallT;
+    }
 }
