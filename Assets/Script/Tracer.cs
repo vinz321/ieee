@@ -290,7 +290,8 @@ public class Tracer : MonoBehaviour
 
     public void ResetColor()
     {
-        SetColor(0);
+        idColor = 0;
+        SetColor(idColor);
     }
 
     public void SetTries(int val)

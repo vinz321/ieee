@@ -1,0 +1,168 @@
+SinglePattern
+Correct
+Time: 9,02047 s, Pattern: 
+stpth_0,7406906_1,679681_1,943396_t0_-1_t0_1_t1_1_t2_1_t2_-1_t2_2_t3_2_t3_-1__endpth
+SinglePattern
+Error
+Time: 11,37354 s, Pattern: 
+stpth_0,7406906_1,679681_1,943396_t0_-1_t0_1_t1_1_t1_-1__endpth
+SinglePattern
+Correct
+Time: 14,70203 s, Pattern: 
+stpth_0,7406906_1,679681_1,943396_t0_-1_t0_1_t1_1_t2_1_t2_-1_t2_2_t3_2_t3_-1__endpth
+
+SinglePattern
+Total Time: 35,09604 s, Total Errors:1 
+
+Multipattern
+Error
+Time: 20,60426 s, Pattern: 
+stpth_0,7406906_1,679681_1,943396_s0_7_s5_3__endpthstpth_0,7406906_1,679681_1,943396_s5_8_s2_6_s1_8__endpth
+Multipattern
+Correct
+Time: 11,03979 s, Pattern: 
+stpth_0,7406906_1,679681_1,943396_s0_7_s5_3__endpthstpth_0,7406906_1,679681_1,943396_s5_8_s1_8_s2_6__endpthstpth_0,7406906_1,679681_1,943396_s5_2_s2_8_s3_6__endpth
+Multipattern
+Correct
+Time: 8,99295 s, Pattern: 
+stpth_0,7406906_1,679681_1,943396_s0_7_s5_3__endpthstpth_0,7406906_1,679681_1,943396_s5_8_s1_8_s2_6__endpthstpth_0,7406906_1,679681_1,943396_s5_2_s2_8_s3_6__endpth
+
+Multipattern
+Total Time: 40,637 s, Total Errors:1 
+
+Multipattern
+Error
+Time: 26,28391 s, Pattern: 
+stpth_0,7406906_1,679681_1,943396_t2_0_t0_0_t0_-1__endpthstpth_2_1,952488_0,7245282_t1_1_t0_1__endpth
+Multipattern
+Correct
+Time: 39,70459 s, Pattern: 
+stpth_0,7406906_1,679681_1,943396_t2_0_t0_0_t0_-1__endpthstpth_2_1,952488_0,7245282_t1_1_t2_1_t0_1__endpthstpth_1,962264_0,4702028_0,4702028_t2_2_t1_2__endpth
+Multipattern
+Error
+Time: 1,976242 s, Pattern: 
+stpth_0,7406906_1,679681_1,943396_t2_0_t0_0__endpth
+
+Multipattern
+Total Time: 67,96474 s, Total Errors:2 
+
+SinglePattern
+Correct
+Time: 33,80159 s, Pattern: 
+stpth_0,7406906_1,679681_1,943396_t0_3_t0_-1_t0_1_t2_1_t2_-1_t2_2_t3_2_t1_2__endpth
+SinglePattern
+Correct
+Time: 10,94528 s, Pattern: 
+stpth_0,7406906_1,679681_1,943396_t0_3_t0_-1_t0_1_t2_1_t2_-1_t2_2_t3_2_t1_2__endpth
+SinglePattern
+Correct
+Time: 12,30655 s, Pattern: 
+stpth_0,7406906_1,679681_1,943396_t0_3_t0_-1_t0_1_t2_1_t2_-1_t2_2_t3_2_t1_2__endpth
+SinglePattern
+Correct
+Time: 12,0842 s, Pattern: 
+stpth_0,7406906_1,679681_1,943396_t0_3_t0_-1_t0_1_t2_1_t2_-1_t2_2_t3_2_t1_2__endpth
+
+SinglePattern
+Total Time: 69,13762 s, Total Errors:0 
+
+Multipattern
+Correct
+Time: 34,69751 s, Pattern: 
+stpth_0,7406906_1,679681_1,943396_t3_0_t2_0_t0_0__endpthstpth_0,7406906_1,679681_1,943396_t3_3_t0_3_t1_3__endpthstpth_0,7406906_1,679681_1,943396_t1_1_t2_1__endpth
+Multipattern
+Correct
+Time: 11,97305 s, Pattern: 
+stpth_0,7406906_1,679681_1,943396_t3_0_t2_0_t0_0__endpthstpth_0,7406906_1,679681_1,943396_t3_3_t0_3_t1_3__endpthstpth_0,7406906_1,679681_1,943396_t1_1_t2_1__endpth
+Multipattern
+Correct
+Time: 16,6228 s, Pattern: 
+stpth_0,7406906_1,679681_1,943396_t3_0_t2_0_t0_0__endpthstpth_0,7406906_1,679681_1,943396_t3_3_t0_3_t1_3__endpthstpth_0,7406906_1,679681_1,943396_t1_1_t2_1__endpth
+Multipattern
+Error
+Time: 6,92276 s, Pattern: 
+stpth_0,7406906_1,679681_1,943396_t3_0_t2_0_t0_0__endpthstpth_1,481381_3,359362_3,886792_t3_3_t1_3_t0_3_t3_3__endpth
+
+Multipattern
+Total Time: 70,21613 s, Total Errors:1 
+
+Multipattern
+Correct
+Time: 36,61444 s, Pattern: 
+stpth_0,7406906_1,679681_1,943396_t1_3_t3_3_t3_-1__endpthstpth_2_1,952488_0,7245282_t2_-1_t2_0__endpthstpth_1,962264_0,4702028_0,4702028_t0_-1_t0_1_t1_1__endpth
+Multipattern
+Correct
+Time: 30,22473 s, Pattern: 
+stpth_0,7406906_1,679681_1,943396_t1_3_t3_3_t3_-1__endpthstpth_2_1,952488_0,7245282_t2_-1_t2_0__endpthstpth_1,962264_0,4702028_0,4702028_t0_-1_t0_1_t1_1__endpth
+Multipattern
+Error
+Time: 2,867157 s, Pattern: 
+stpth_0,7406906_1,679681_1,943396_t1_3_t3_3__endpth
+Multipattern
+Correct
+Time: 27,89923 s, Pattern: 
+stpth_0,7406906_1,679681_1,943396_t1_3_t3_3_t3_-1__endpthstpth_2_1,952488_0,7245282_t2_-1_t2_0__endpthstpth_1,962264_0,4702028_0,4702028_t0_-1_t0_1_t1_1__endpth
+
+Multipattern
+Total Time: 97,60556 s, Total Errors:1 
+
+SinglePattern
+Correct
+Time: 208,4644 s, Pattern: 
+stpth_0,7406906_1,679681_1,943396_s1_4_s1_5_s1_2_s4_8_s4_5_s2_1_s2_2_s3_0__endpth
+SinglePattern
+Correct
+Time: 7,335876 s, Pattern: 
+stpth_0,7406906_1,679681_1,943396_s1_4_s1_5_s1_2_s4_8_s4_5_s2_1_s2_2_s3_0__endpth
+SinglePattern
+Correct
+Time: 5,777588 s, Pattern: 
+stpth_0,7406906_1,679681_1,943396_s1_4_s1_5_s1_2_s4_8_s4_5_s2_1_s2_2_s3_0__endpth
+SinglePattern
+Correct
+Time: 4,983887 s, Pattern: 
+stpth_0,7406906_1,679681_1,943396_s1_4_s1_5_s1_2_s4_8_s4_5_s2_1_s2_2_s3_0__endpth
+
+SinglePattern
+Total Time: 226,5617 s, Total Errors:0 
+
+Multipattern
+Correct
+Time: 17,06787 s, Pattern: 
+stpth_0,7406906_1,679681_1,943396_s1_6_s1_7_s1_8__endpthstpth_0,7406906_1,679681_1,943396_s2_8_s5_2_s3_6__endpthstpth_0,7406906_1,679681_1,943396_s3_2_s4_0__endpth
+Multipattern
+Correct
+Time: 7,23999 s, Pattern: 
+stpth_0,7406906_1,679681_1,943396_s1_6_s1_7_s1_8__endpthstpth_0,7406906_1,679681_1,943396_s2_8_s5_2_s3_6__endpthstpth_0,7406906_1,679681_1,943396_s3_2_s4_0__endpth
+Multipattern
+Correct
+Time: 9,33136 s, Pattern: 
+stpth_0,7406906_1,679681_1,943396_s1_6_s1_7_s1_8__endpthstpth_0,7406906_1,679681_1,943396_s2_8_s5_2_s3_6__endpthstpth_0,7406906_1,679681_1,943396_s3_2_s4_0__endpth
+Multipattern
+Correct
+Time: 8,435913 s, Pattern: 
+stpth_0,7406906_1,679681_1,943396_s1_6_s1_7_s1_8__endpthstpth_0,7406906_1,679681_1,943396_s2_8_s5_2_s3_6__endpthstpth_0,7406906_1,679681_1,943396_s3_2_s4_0__endpth
+
+Multipattern
+Total Time: 42,07513 s, Total Errors:0 
+
+Multipattern
+Correct
+Time: 21,03607 s, Pattern: 
+stpth_0,7406906_1,679681_1,943396_s1_0_s1_1_s1_4__endpthstpth_2_1,952488_0,7245282_s4_3_s0_1__endpthstpth_1,962264_0,4702028_0,4702028_s3_7_s5_1_s5_2__endpth
+Multipattern
+Correct
+Time: 8,673157 s, Pattern: 
+stpth_0,7406906_1,679681_1,943396_s1_0_s1_1_s1_4__endpthstpth_2_1,952488_0,7245282_s4_3_s0_1__endpthstpth_1,962264_0,4702028_0,4702028_s3_7_s5_1_s5_2__endpth
+Multipattern
+Correct
+Time: 22,40039 s, Pattern: 
+stpth_0,7406906_1,679681_1,943396_s1_0_s1_1_s1_4__endpthstpth_2_1,952488_0,7245282_s4_3_s0_1__endpthstpth_1,962264_0,4702028_0,4702028_s3_7_s5_1_s5_2__endpth
+Multipattern
+Error
+Time: 0,8222656 s, Pattern: 
+stpth_0,7406906_1,679681_1,943396_s1_0_s1_1__endpth
+
+Multipattern
+Total Time: 52,93188 s, Total Errors:1 
+

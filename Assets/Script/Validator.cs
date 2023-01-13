@@ -158,6 +158,7 @@ public class Validator
         if(totTries>=triesLimit){
             WriteTotal();
         }
+        SceneManager.Instance.ResetRot();
     }
 
     public void WriteTotal(){
