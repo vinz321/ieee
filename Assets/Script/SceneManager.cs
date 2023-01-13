@@ -191,13 +191,13 @@ public class SceneManager : MonoBehaviour
         {
             if (model <= Model.Sphere)
             {
+                version++;
                 if (version > Versions.Color)
                 {
                     version = Versions.Single;
                     model++;
                 }
 
-                version++;
                 ShowVersion();
             }
             else
