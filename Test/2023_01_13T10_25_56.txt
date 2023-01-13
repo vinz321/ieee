@@ -1,0 +1,8 @@
+SinglePattern
+Correct
+Time: 7,965996 s, Pattern: 
+stpth_0,7406906_1,679681_1,943396_t0_0_t0_-1_t0_1_t1_1__endpth
+SinglePattern
+Correct
+Time: 34,85979 s, Pattern: 
+stpth_0,7406906_1,679681_1,943396_t0_0_t0_-1_t0_1_t1_1__endpth

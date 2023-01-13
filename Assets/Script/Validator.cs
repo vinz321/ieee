@@ -67,6 +67,7 @@ public class Validator
     public bool CreateReference(){
         if(!File.Exists(refPath) && fileContent != null){ // prevent to set empty pattern
             StreamWriter fs=new StreamWriter(refPath,true);
+            Debug.Log(fileContent);
             fs.Write(fileContent);
             fs.Close();
             fileContent="";
@@ -85,9 +86,9 @@ public class Validator
 
     public bool Validate(string pattern){
         // //if valid
-        fileContent = "";
+        //fileContent = "";
         fileContent +=pattern;
-        
+       
         if(GetReference() && !ValidatePartialPattern()){
             Debug.Log("Error committed");
             errors++;

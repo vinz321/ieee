@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using TMPro;
 
 enum Versions {
     Single,
@@ -37,6 +38,8 @@ public class SceneManager : MonoBehaviour
     private float time = 0;
 
     public float sinTime, offset, intensity;
+    [SerializeField] private int SingleMinCount=3, MultipleMinCount=1;
+    [SerializeField] private GameObject number;
     //[SerializeField] private LightRefPattern lrp=new LightRefPattern();
 
     private int counter = 0;
@@ -174,7 +177,7 @@ public class SceneManager : MonoBehaviour
 
         tracer.SetVersion(model.ToString(), ((int)version), test);
         // set new minPath
-        tracer.minPatternCount = version > Versions.Single ? 2 : 3;
+        tracer.minPatternCount = version > Versions.Single ? MultipleMinCount : SingleMinCount;
         //tracer.FormatCurrentRef();
         Debug.Log("Show Model " + model + " and version " + version + ". Min: " + tracer.minPatternCount);
         ClearGuide();
@@ -338,7 +341,7 @@ public class SceneManager : MonoBehaviour
         return output;
     }
 
-    private void readSinglePattern(string pattern)
+    private void readSinglePattern(string pattern,int offset)
     {
 
         string[] spt;
@@ -360,7 +363,7 @@ public class SceneManager : MonoBehaviour
 
                 //animTriangles.Add(trs.Find(x => (x.BigT.ToString() == a && x.SmallT.ToString() == b)));
                 animTriangles.Add(AddTri(spt[i]));
-                animTCopy.Add((Triangle)CreateAnimFacet(AddTri(spt[i]), refColor / 2));
+                animTCopy.Add((Triangle)CreateAnimFacet(AddTri(spt[i]), refColor / 2,offset+i));
             }
         }
         else if (o.Contains("s"))
@@ -375,7 +378,7 @@ public class SceneManager : MonoBehaviour
 
                 //animSide.Add(sds.Find(x => (x.SideId.ToString() == a && x.FaceId.ToString() == b)));
                 animSide.Add(AddSide(spt[i]));
-                animSCopy.Add((Side)CreateAnimFacet(AddSide(spt[i]), refColor / 2));
+                animSCopy.Add((Side)CreateAnimFacet(AddSide(spt[i]), refColor / 2,offset+i));
             }
         }
         else return;
@@ -397,17 +400,19 @@ public class SceneManager : MonoBehaviour
             sr.Close();
             // get substring with values
             spt = extractSinglePatterns(o);
-
-            foreach (string s in spt)
+            int accum = 0;
+            for(int i= 0; i< spt.Length;i++)
             {
-                Debug.Log(s);
-                readSinglePattern(s);
+                accum += i == 0 ? 0 : spt[i - 1].Length;
+                Debug.Log(spt[i]);
+                readSinglePattern(spt[i],accum);
             }
         }
         else
         {
             print("File: " + str + " NOT EXISTS!");
         }
+        time = 0.0f;
     }
 
     private Facet CreateAnimFacet(Facet f)
@@ -423,7 +428,7 @@ public class SceneManager : MonoBehaviour
         mr.enabled = true;
         return copy;
     }
-    private Facet CreateAnimFacet(Facet f, Color c)
+    private Facet CreateAnimFacet(Facet f, Color c,int n)
     {
         //yield return new WaitForSeconds(0.2f);
         Facet copy = GameObject.Instantiate(f, f.transform.parent); // Vector3.zero, Quaternion.identity
@@ -431,13 +436,25 @@ public class SceneManager : MonoBehaviour
         //copy.transform.SetParent(Anchor,true);
         //copy.transform.position = f.transform.position;
         //copy.transform.rotation = f.transform.rotation;
-        copy.transform.localScale = copy.transform.localScale * 0.9999f;
+        copy.transform.localScale = copy.transform.localScale * 0.999f;
         MeshRenderer mr = copy.GetComponent<MeshRenderer>();
         mr.material = guideMat;
         mr.enabled = true;
         copy.SetColor(c);
         copy.ChangeAlpha(0);
+        //copy.transform.renderer.bounds.center
 
+        //------- NUMBERS FACE-ALIGNED --------//
+        Vector3 offset = (copy.transform.GetComponent<Renderer>().bounds.center-copy.transform.position).normalized;
+        Transform temp = GameObject.Instantiate(number, copy.transform).transform;
+        temp.position = copy.transform.GetComponent<Renderer>().bounds.center + offset*0.1f*0.3f;
+        RaycastHit hit;
+        Physics.Raycast(temp.position, -offset, out hit, LayerMask.GetMask("Guide"));
+        temp.position = hit.point;
+        temp.forward = -hit.normal;
+        temp.position -= temp.forward * 0.01f;
+        temp.GetComponent<TextMeshPro>().text = n.ToString();
+        //------- NUMBERS FACE-ALIGNED --------//
         return copy;
     }
 

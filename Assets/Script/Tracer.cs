@@ -123,6 +123,7 @@ public class Tracer : MonoBehaviour
     public void SetVersion(string model, int version, bool isTest) // versions 0, 1, 2 
     {
         string path = "ref" + model;
+
         switch(version)
         {
             case 0:
@@ -205,16 +206,16 @@ public class Tracer : MonoBehaviour
     }
 
     string Getpattern(){
-        List<Facet> temp=new List<Facet>(pattern);
-        string p="stpth_"+active.colorFormat+"_";
         pattern.Push(active);
-        for(int i=temp.Count-1;i>=startPointer;i--){
+        List<Facet> temp=new List<Facet>(pattern);
+
+        string p="stpth_"+active.colorFormat+"_";
+        
+        for(int i=temp.Count-startPointer-1;i>=0;i--){
             p+=temp[i]+"_";
         }
-        temp.Add(active);
-        p+=active+"_endpth";
-        startPointer=temp.Count+1;
-        Debug.Log(p);
+        p+="_endpth";
+        startPointer=temp.Count;
         return p;
     }
 
