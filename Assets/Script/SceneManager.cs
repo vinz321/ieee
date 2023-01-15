@@ -319,8 +319,12 @@ public class SceneManager : MonoBehaviour
     private Color readColor(string[] pattern_fsplit, int offset)
     {
         string[] components = pattern_fsplit[offset].Replace(",",".").Split("_");
+<<<<<<< Updated upstream
         foreach(string s in components)
             Debug.Log(s);
+=======
+        Debug.Log(components);
+>>>>>>> Stashed changes
 
         return new Color(float.Parse(components[0]), 
                         float.Parse(components[1]),

@@ -43,8 +43,9 @@ public class Validator
 
 
     public bool GetReference(){
-        if(File.Exists(refPath))
+        if(File.Exists(refPath)){
             reference=File.ReadAllText(refPath);
+            reference=reference.Replace(",",".");}
         else{
             reference="";
             return false;
@@ -96,6 +97,7 @@ public class Validator
        
         if(GetReference() && !ValidatePartialPattern()){
             Debug.Log("Error committed");
+            Debug.Log(fileContent);
             errors++;
             WriteTry(false);
             fileContent="";
@@ -112,7 +114,7 @@ public class Validator
 
     bool ValidatePartialPattern(){
         if(reference==null || reference=="") return false;
-
+        fileContent=fileContent.Replace(",",".");
         string r=(fileContent.Length<reference.Length)?reference.Substring(0,fileContent.Length):reference;
         return r.Equals(fileContent);
     }
@@ -124,6 +126,7 @@ public class Validator
             Debug.Log("Reference length is different "+fileContent.Length+" "+fileContent+" "+reference.Length+" "+reference);
         }
            //return false;
+        fileContent=fileContent.Replace(",",".");
         return reference.Equals(fileContent);
     }
     public void StartTimer(){
