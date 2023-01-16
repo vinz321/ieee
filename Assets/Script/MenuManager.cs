@@ -44,6 +44,9 @@ public class MenuManager : MonoBehaviour
     private Quaternion bRotPyramid, bRotCube;
     [SerializeField]
     private bool enableVersionChange=false;
+    [SerializeField]
+    private int nextScene=1;
+
     //[SerializeField] private LightRefPattern lrp=new LightRefPattern();
 
     private int counter = 0;
@@ -140,7 +143,6 @@ public class MenuManager : MonoBehaviour
         bRotPyramid=pyramid.transform.rotation;
         bRotCube=Cube.transform.rotation;
         init();
-        tracer.onRightPattern+=ChangeScene;
     }
 
     private void init()
@@ -534,7 +536,13 @@ public class MenuManager : MonoBehaviour
     }
 
     public void ChangeScene(){
-        Debug.Log("The scene is being loaded");
+        SceneManager.LoadSceneAsync(nextScene);
+        Debug.Log("The scene is being loaded "+nextScene);
+    }
+
+    public int NextScene{
+        get=>nextScene;
+        set{nextScene=value;}
     }
 }
 

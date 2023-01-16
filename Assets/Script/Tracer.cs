@@ -40,7 +40,7 @@ public class Tracer : MonoBehaviour
     private int minPattern=3;
 
     public Action onRightPattern;
-
+    
     void Start()
     {
         v=new Validator(multiPattern);
@@ -68,6 +68,7 @@ public class Tracer : MonoBehaviour
 
         MenuManager.Instance.ui.SetColorPickerColor(colorSpan[0]); // ui
 
+        onRightPattern+=()=>{GetComponentInChildren<Animator>().Play("FadeOut");};
 
         // On start delete previous pattern
     }
