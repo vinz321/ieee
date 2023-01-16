@@ -9,7 +9,15 @@ public class PatternSetMenu : MonoBehaviour
     private List<MeshRenderer> singlePath1, singlePath2, singlePath3;
     [SerializeField]
     private List<Material> materials;
+    private bool multiPattern,multiColor;
+    private Model shape;
+    [SerializeField]
+    private GameObject pyramid,cube;
+    [SerializeField]
+    private Tracer tracer;
+    
     public void turnOnPath(bool multiPattern){
+        this.multiPattern=multiPattern;
         foreach(MeshRenderer mr in singlePath1){
             mr.enabled=true;
             mr.material=materials[0];
@@ -25,6 +33,7 @@ public class PatternSetMenu : MonoBehaviour
     }
 
     public void turnOnMultiColor(bool multiColor){
+        this.multiColor=multiColor;
         foreach(MeshRenderer mr in singlePath2){
                 if(multiColor)
                     mr.material=materials[1];
@@ -39,4 +48,18 @@ public class PatternSetMenu : MonoBehaviour
             }
     }
 
+    public void SetMethod(){
+        tracer.enabled=true;
+        tracer.multiPattern=multiPattern;
+        tracer.MultiColor=multiColor;
+        pyramid.SetActive(shape==Model.Pyramid);
+        cube.SetActive(shape==Model.Cube);
+    }
+
+    public void SetPyramidShape(){
+        this.shape=Model.Pyramid;
+    }
+    public void SetCubeShape(){
+        this.shape=Model.Cube;
+    }
 }

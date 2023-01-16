@@ -23,10 +23,13 @@ public class Validator
     private bool _completeMatch;
     private float totTime=0.0f;
     private int totTries=0, triesLimit = 4;
-    private const string folderPath=@"./Test/";
-    private string refPath=folderPath+"Reference.txt";
+    private string folderPath=@"./Test/";
+    private string refPath;
     private bool patternStarted = false;
+    
     private Action callback;
+    [SerializeField]
+    private bool finalBuild=false;
 
     
 
@@ -35,11 +38,17 @@ public class Validator
         DateTimeFormatInfo d=new DateTimeFormatInfo();
         d.DateSeparator="_";
         d.TimeSeparator="_";
+        
         init();
         DateTime date=DateTime.Now;
+        if(finalBuild){
+            folderPath=Application.dataPath;
+        }
+        refPath=folderPath+"Reference.txt";
         filename=@"./Test/"+date.ToString("yyyy_MM_ddTHH_mm_ss")+".txt";
         callback+=()=>{Debug.Log("Callback called");};
-        callback+=()=>SceneManager.Instance.ShowSurvey();
+        if(!finalBuild)
+            callback+=()=>MenuManager.Instance.ShowSurvey();
     }
 
 
@@ -153,35 +162,39 @@ public class Validator
     }
 
     public void WriteTry(bool correct){
-        StreamWriter fs=new StreamWriter(filename,true);
-        //fs.AutoFlush=true;
-        fs.Write(((multiPattern)?"Multipattern":"SinglePattern")+"\n"+
-                    ((correct)?"Correct":"Error")+"\n"+
-                    "Time: "+(Time.time-time)+" s, Pattern: \n"+
-                    fileContent+"\n");
-        fs.Close();
-        fileContent="";
-        timeStarted=false;
-        totTime+=(Time.time-time);
-        totTries++;
-        patternStarted = false;
-        if(totTries>=triesLimit){
-            WriteTotal();
+        if(!finalBuild){
+            StreamWriter fs=new StreamWriter(filename,true);
+            //fs.AutoFlush=true;
+            fs.Write(((multiPattern)?"Multipattern":"SinglePattern")+"\n"+
+                        ((correct)?"Correct":"Error")+"\n"+
+                        "Time: "+(Time.time-time)+" s, Pattern: \n"+
+                        fileContent+"\n");
+            fs.Close();
+            fileContent="";
+            timeStarted=false;
+            totTime+=(Time.time-time);
+            totTries++;
+            patternStarted = false;
+            if(totTries>=triesLimit){
+                WriteTotal();
+            }
         }
-        SceneManager.Instance.ResetRot();
+        MenuManager.Instance.ResetRot();
     }
 
     public void WriteTotal(){
-        StreamWriter fs=new StreamWriter(filename,true);
-        //fs.AutoFlush=true;
-        fs.Write("\n"+((multiPattern)?"Multipattern":"SinglePattern")+"\n"+
-                    "Total Time: "+(totTime)+" s, Total Errors:"+errors+" \n"+"\n");
-        fs.Close();
-        fileContent="";
-        timeStarted=false;
-        errors=0;
-        totTime=0;
-        totTries=0;
+        if(!finalBuild){
+            StreamWriter fs=new StreamWriter(filename,true);
+            //fs.AutoFlush=true;
+            fs.Write("\n"+((multiPattern)?"Multipattern":"SinglePattern")+"\n"+
+                        "Total Time: "+(totTime)+" s, Total Errors:"+errors+" \n"+"\n");
+            fs.Close();
+            fileContent="";
+            timeStarted=false;
+            errors=0;
+            totTime=0;
+            totTries=0;
+        }
         callback();
     }
 

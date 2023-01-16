@@ -13,22 +13,26 @@ public class UI
 
     public void SetText(string text)
     {
-        uiText.text = text;
+        if(uiText!=null)
+            uiText.text = text;
     }
 
     public void SetMenuText(string text)
     {
-        menuText.text = text;
+        if(menuText!=null)
+            menuText.text = text;
     }
 
     public void SetColorPickerColor(Color color)
     {
-        colorPicker.color = color;
+        if(colorPicker!=null)
+            colorPicker.color = color;
     }
 
     public void SetColorPickerPosition(Vector3 position)
     {
-        colorPicker.transform.position = position;
+        if(colorPicker!=null)
+            colorPicker.transform.position = position;
     }
 
     public void ShowSurvey()
@@ -42,13 +46,15 @@ public class UI
     public void HideSurvey()
     {
         //uiMenu.SetActive(true);
-        messagePanel.SetActive(true);
-
-        surveyPanel.gameObject.SetActive(false);
+        if(messagePanel!=null && surveyPanel!=null){
+            messagePanel.SetActive(true);
+            surveyPanel.gameObject.SetActive(false);
+        }
     }
 
     public void ShowMenu()
     {
-        uiMenu.SetActive(!uiMenu.active);
+        if(uiMenu!=null)
+            uiMenu.SetActive(!uiMenu.activeSelf);
     }
 }

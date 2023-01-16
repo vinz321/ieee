@@ -2,27 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 
-enum Versions {
+public enum Versions {
     Single,
     Multi,
     Color
 }
 
-enum Model {
+public enum Model {
     Pyramid,
-    Sphere
+    Cube
 }
 
-public class SceneManager : MonoBehaviour
+public class MenuManager : MonoBehaviour
 {
     private const string folderPath = @"./Test/";
     private string filename;
-    public static SceneManager Instance { get; private set; }
+    public static MenuManager Instance { get; private set; }
     private Versions version;
     private Model model;
-    [SerializeField] private GameObject pyramid, sphere;
+    [SerializeField] private GameObject pyramid, Cube;
     [SerializeField] private Tracer tracer;
     // fixed lists of triangles and sides to animate
     [SerializeField] private List<Triangle> trs;
@@ -41,6 +42,8 @@ public class SceneManager : MonoBehaviour
     [SerializeField] private int SingleMinCount=3, MultipleMinCount=1;
     [SerializeField] private GameObject number;
     private Quaternion bRotPyramid, bRotCube;
+    [SerializeField]
+    private bool enableVersionChange=false;
     //[SerializeField] private LightRefPattern lrp=new LightRefPattern();
 
     private int counter = 0;
@@ -135,9 +138,9 @@ public class SceneManager : MonoBehaviour
     private void Start()
     {
         bRotPyramid=pyramid.transform.rotation;
-        bRotCube=sphere.transform.rotation;
+        bRotCube=Cube.transform.rotation;
         init();
-        
+        tracer.onRightPattern+=ChangeScene;
     }
 
     private void init()
@@ -147,7 +150,8 @@ public class SceneManager : MonoBehaviour
         model = Model.Pyramid;
         version = Versions.Single;
         tracer.SetTries(3);
-        NextVersion();
+        if(enableVersionChange)
+            NextVersion();
     }
 
 
@@ -168,14 +172,14 @@ public class SceneManager : MonoBehaviour
         switch (model)
         {
             case Model.Pyramid:
-                sphere.SetActive(false);
+                Cube.SetActive(false);
                 pyramid.SetActive(true);
                 pyramid.transform.rotation = bRotPyramid;
                 break;
-            case Model.Sphere:
+            case Model.Cube:
                 pyramid.SetActive(false);
-                sphere.SetActive(true);
-                sphere.transform.rotation = bRotCube;
+                Cube.SetActive(true);
+                Cube.transform.rotation = bRotCube;
                 break;
             default:
                 break;
@@ -195,7 +199,7 @@ public class SceneManager : MonoBehaviour
         tracer.ResetTries();
         if (test)
         {
-            if (model <= Model.Sphere)
+            if (model <= Model.Cube)
             {
                 version++;
                 if (version > Versions.Color)
@@ -229,7 +233,7 @@ public class SceneManager : MonoBehaviour
                     version = Versions.Single;
                     break;
                 case 1:
-                    model = Model.Sphere;
+                    model = Model.Cube;
                     version = Versions.Multi;
                     break;
                 case 2:
@@ -261,7 +265,7 @@ public class SceneManager : MonoBehaviour
     {
         // hide everything
         pyramid.SetActive(false);
-        sphere.SetActive(false);
+        Cube.SetActive(false);
         ui.ShowSurvey();
     }
 
@@ -279,14 +283,14 @@ public class SceneManager : MonoBehaviour
         //     switch(model)
         //     {
         //         case Model.Pyramid:
-        //             sphere.SetActive(false);
+        //             Cube.SetActive(false);
         //             pyramid.SetActive(true);
         //             pyramid.transform.rotation = Quaternion.identity;
         //             break;
-        //         case Model.Sphere:
+        //         case Model.Cube:
         //             pyramid.SetActive(false);
-        //             sphere.SetActive(true);
-        //             sphere.transform.rotation = Quaternion.identity;
+        //             Cube.SetActive(true);
+        //             Cube.transform.rotation = Quaternion.identity;
         //         break;
         //         default:
         //             break;
@@ -527,6 +531,10 @@ public class SceneManager : MonoBehaviour
     public void EndScene()
     {
         Debug.Log("The scene is ended");
+    }
+
+    public void ChangeScene(){
+        Debug.Log("The scene is being loaded");
     }
 }
 

@@ -1,8 +1,8 @@
 using UnityEditor;
 using UnityEngine;
 
-[CustomEditor(typeof(SceneManager))]
-public class CustomSceneManagerEditor : Editor
+[CustomEditor(typeof(MenuManager))]
+public class CustomMenuManagerEditor : Editor
 {
     public override void OnInspectorGUI()
     {
@@ -10,7 +10,7 @@ public class CustomSceneManagerEditor : Editor
         base.OnInspectorGUI();
 
 
-        SceneManager sm = (SceneManager)target;
+        MenuManager sm = (MenuManager)target;
         EditorGUILayout.Separator();
         EditorGUILayout.LabelField(sm.test ? "CURRENT: IS TEST" : "CURRENT: IS TRAINING");
         EditorGUILayout.Separator();

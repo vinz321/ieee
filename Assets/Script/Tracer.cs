@@ -39,6 +39,8 @@ public class Tracer : MonoBehaviour
     [SerializeField]
     private int minPattern=3;
 
+    public Action onRightPattern;
+
     void Start()
     {
         v=new Validator(multiPattern);
@@ -63,7 +65,8 @@ public class Tracer : MonoBehaviour
         iarRight.action.started+=(context)=>{
             if (!patternStarted) ChangeColor();
         };
-        SceneManager.Instance.ui.SetColorPickerColor(colorSpan[0]); // ui
+
+        MenuManager.Instance.ui.SetColorPickerColor(colorSpan[0]); // ui
 
 
         // On start delete previous pattern
@@ -77,26 +80,29 @@ public class Tracer : MonoBehaviour
         patternStarted=false; 
 
         if((pattern.Count-startPointer)<minPattern){   //Too Short
-            SceneManager.Instance.ui.SetText("Short Pattern!");
+            Debug.Log((pattern.Count)+" single pattern length");
+            MenuManager.Instance.ui.SetText("Short Pattern!");
             DiscardPartially();
             v.StopTimer();
             return;
         }
-        
+        Debug.Log((pattern.Count)+" single pattern length");
 
         if(v.Validate(Getpattern())){       //Read and if finished input write to file
             if(!multiPattern && !v.recording){
-                SceneManager.Instance.ui.SetText("Right Pattern!"); // ui
+                MenuManager.Instance.ui.SetText("Right Pattern!"); // ui
+                onRightPattern();
                 Discard();
             }
             else if(v.completeMatch){
-                SceneManager.Instance.ui.SetText("Right Pattern!"); // ui
+                MenuManager.Instance.ui.SetText("Right Pattern!"); // ui
+                onRightPattern();
                 Discard();
                 v.WriteTry(true);
             }
             active=null;
         }else{
-            SceneManager.Instance.ui.SetText("Wrong Pattern!"); // ui
+            MenuManager.Instance.ui.SetText("Wrong Pattern!"); // ui
             idColor=0;
             Discard();
         }
@@ -147,29 +153,34 @@ public class Tracer : MonoBehaviour
 //////PER L'UI//////
     public void SetPattern()
     {
+        if(multiPattern && pattern.Count<4){
+            MenuManager.Instance.ui.SetText("Short Pattern");
+            return;
+        }
         if (v.CreateReference())
         {
-            SceneManager.Instance.ui.SetText("Pattern Set!");
+            MenuManager.Instance.ui.SetText("Pattern Set!\n Insert it again to Continue");
             //SaveList(new List<Facet>(pattern));
             Discard();
         }
         else
         {
-            SceneManager.Instance.ui.SetText("Already Set!");
+            MenuManager.Instance.ui.SetText("Already Set!\n Insert it again to Continue");
         }
     }
 
     public void ResetPattern()
     {
-        SceneManager.Instance.ui.SetText("Trace new Pattern");
+        MenuManager.Instance.ui.SetText("Trace new Pattern");
         v.DeleteReference();
         v.Clear();
         Discard();
+        Debug.Log(pattern.Count);
     }
 
     void SetColorPickerPosition()
     {
-        SceneManager.Instance.ui.SetColorPickerPosition(abcRight.transform.position + Vector3.up * 0.1f);
+        MenuManager.Instance.ui.SetColorPickerPosition(abcRight.transform.position + Vector3.up * 0.1f);
     }
 
     void Discard(){
@@ -254,7 +265,6 @@ public class Tracer : MonoBehaviour
     void TracePath(Color color, bool traceback){
         
         if(patternStarted && xrri.TryGetCurrent3DRaycastHit(out hit)){
-            Debug.Log("ho colpito qualcosa");
             if(active==null){
                 active=hit.transform.GetComponent<Facet>();
                 if(active!=null)
@@ -286,7 +296,7 @@ public class Tracer : MonoBehaviour
         xrriRight.GetComponent<XRInteractorLineVisual>().invalidColorGradient
         .SetKeys(new GradientColorKey[] { new GradientColorKey(colorSpan[idColor], 0.0f), new GradientColorKey(colorSpan[idColor], 1.0f) },
         new GradientAlphaKey[] { new GradientAlphaKey(1.0f, 0.0f) });
-        SceneManager.Instance.ui.SetColorPickerColor(colorSpan[idColor]);
+        MenuManager.Instance.ui.SetColorPickerColor(colorSpan[idColor]);
     }
 
     public void ResetColor()
@@ -308,6 +318,11 @@ public class Tracer : MonoBehaviour
     public bool multiPattern{
         get => multiPath;
         set {multiPath=value; v.multiPattern=value;}
+    }
+
+    public bool MultiColor{
+        get => multiColor;
+        set {multiColor=value; ResetColor();}
     }
 
     public int minPatternCount{
