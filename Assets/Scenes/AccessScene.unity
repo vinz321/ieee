@@ -1309,8 +1309,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 24.786, y: 10}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 24.786, y: 24.34}
+  m_SizeDelta: {x: 200, y: 21.32}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &177469101
 MonoBehaviour:
@@ -1395,7 +1395,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 30.261997}
+  m_margin: {x: 0, y: 0, z: 0, w: -1.3797626}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -3433,7 +3433,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_SendPointerHoverToParent: 1
   m_ClickSpeed: 0.3
-  m_MoveDeadzone: 0.6
+  m_MoveDeadzone: 0.3
   m_RepeatDelay: 0.5
   m_RepeatRate: 0.1
   m_TrackedDeviceDragThresholdMultiplier: 1.4
@@ -4883,8 +4883,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 24.786, y: 71.5}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 24.786, y: 84.820045}
+  m_SizeDelta: {x: 200, y: 23.36}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &690545027
 MonoBehaviour:
@@ -4969,7 +4969,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 29.937492}
+  m_margin: {x: 0, y: 0, z: 0, w: 5.4433737}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -7269,8 +7269,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 24.786, y: 131.5}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 24.786, y: 144.48}
+  m_SizeDelta: {x: 200, y: 24.05}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1108031724
 MonoBehaviour:
@@ -7355,7 +7355,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 31.700495}
+  m_margin: {x: 0, y: 0, z: 0, w: -0.16222143}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -13086,7 +13086,7 @@ PrefabInstance:
     - target: {fileID: 6598815579406187037, guid: 9f5a24a380916d14db9775daab4fe333,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f5a24a380916d14db9775daab4fe333, type: 3}
