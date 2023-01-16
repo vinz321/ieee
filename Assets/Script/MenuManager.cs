@@ -536,7 +536,7 @@ public class MenuManager : MonoBehaviour
     }
 
     public void ChangeScene(){
-        SceneManager.LoadSceneAsync(nextScene);
+        SceneManager.LoadScene(nextScene);
         Debug.Log("The scene is being loaded "+nextScene);
     }
 
