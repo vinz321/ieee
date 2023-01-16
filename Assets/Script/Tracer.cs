@@ -79,6 +79,7 @@ public class Tracer : MonoBehaviour
         if((pattern.Count-startPointer)<minPattern){   //Too Short
             SceneManager.Instance.ui.SetText("Short Pattern!");
             DiscardPartially();
+            v.StopTimer();
             return;
         }
         
@@ -290,7 +291,8 @@ public class Tracer : MonoBehaviour
 
     public void ResetColor()
     {
-        SetColor(0);
+        idColor = 0;
+        SetColor(idColor);
     }
 
     public void SetTries(int val)

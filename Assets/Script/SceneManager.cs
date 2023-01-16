@@ -162,6 +162,7 @@ public class SceneManager : MonoBehaviour
 
     public void ShowVersion()
     {
+        Anchor.rotation = Quaternion.identity;
         string currentV = "" + version;
         ui.SetMenuText(currentV);
         switch (model)
@@ -196,13 +197,13 @@ public class SceneManager : MonoBehaviour
         {
             if (model <= Model.Sphere)
             {
+                version++;
                 if (version > Versions.Color)
                 {
                     version = Versions.Single;
                     model++;
                 }
 
-                version++;
                 ShowVersion();
             }
             else
@@ -249,6 +250,11 @@ public class SceneManager : MonoBehaviour
     {
         string print = "Model: " + model + " | Version: " + version + " | MinPath: " + tracer.minPatternCount;
         return print;
+    }
+
+    public void ResetRot()
+    {
+        Anchor.rotation = Quaternion.identity;
     }
 
     public void ShowSurvey()

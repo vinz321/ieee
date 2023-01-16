@@ -25,6 +25,7 @@ public class Validator
     private int totTries=0, triesLimit = 4;
     private const string folderPath=@"./Test/";
     private string refPath=folderPath+"Reference.txt";
+    private bool patternStarted = false;
     private Action callback;
 
     
@@ -94,7 +95,7 @@ public class Validator
         // //if valid
         //fileContent = "";
         fileContent +=pattern;
-       
+        patternStarted = true;
         if(GetReference() && !ValidatePartialPattern()){
             Debug.Log("Error committed");
             Debug.Log(fileContent);
@@ -134,6 +135,11 @@ public class Validator
             time=Time.time;
         timeStarted=true;
     }
+    public void StopTimer()
+    {
+        if(!patternStarted)
+            timeStarted = false;
+    }
     public void WriteBack(){
         StreamWriter fs=new StreamWriter(filename,true);
         //fs.AutoFlush=true;
@@ -158,9 +164,11 @@ public class Validator
         timeStarted=false;
         totTime+=(Time.time-time);
         totTries++;
+        patternStarted = false;
         if(totTries>=triesLimit){
             WriteTotal();
         }
+        SceneManager.Instance.ResetRot();
     }
 
     public void WriteTotal(){
