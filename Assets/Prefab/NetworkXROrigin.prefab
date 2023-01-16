@@ -1369,7 +1369,7 @@ MonoBehaviour:
   m_EnableFly: 0
   m_UseGravity: 1
   m_GravityApplicationMode: 0
-  m_ForwardSource: {fileID: 4219124324954558688}
+  m_ForwardSource: {fileID: 3254539800079067794}
   m_LeftHandMoveAction:
     m_UseReference: 1
     m_Action:
