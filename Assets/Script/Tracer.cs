@@ -79,6 +79,7 @@ public class Tracer : MonoBehaviour
         if((pattern.Count-startPointer)<minPattern){   //Too Short
             SceneManager.Instance.ui.SetText("Short Pattern!");
             DiscardPartially();
+            v.StopTimer();
             return;
         }
         
