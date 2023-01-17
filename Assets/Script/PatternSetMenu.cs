@@ -56,9 +56,9 @@ public class PatternSetMenu : MonoBehaviour
         tracer.multiPattern=multiPattern;
         tracer.MultiColor=multiColor;
         if(multiPattern)
-            tracer.minPatternCount=2;
+            tracer.minPatternCount=1;
         else
-            tracer.minPatternCount=4;
+            tracer.minPatternCount=3;
         pyramid.SetActive(shape==Model.Pyramid);
         cube.SetActive(shape==Model.Cube);
 
