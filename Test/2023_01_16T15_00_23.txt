@@ -1,4 +1,0 @@
-SinglePattern
-Error
-Time: 6.543903 s, Pattern: 
-stpth_0.7406906_1.679681_1.943396_s1_4_s1_7_s5_7_s5_4__endpth

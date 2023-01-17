@@ -1,4 +1,0 @@
-Multipattern
-Correct
-Time: 48.67062 s, Pattern: 
-stpth_0.7406906_1.679681_1.943396_s1_4_s1_1_s4_7_s4_4__endpthstpth_0.7406906_1.679681_1.943396_s2_4_s2_7_s5_5_s5_4__endpth

@@ -1,8 +1,0 @@
-Multipattern
-Correct
-Time: 22,71946 s, Pattern: 
-stpth_0,7406906_1,679681_1,943396_s0_7_s5_3__endpthstpth_0,7406906_1,679681_1,943396_s5_8_s1_8_s2_6__endpthstpth_0,7406906_1,679681_1,943396_s5_2_s2_8_s3_6__endpth
-Multipattern
-Correct
-Time: 20,92473 s, Pattern: 
-stpth_0,7406906_1,679681_1,943396_s0_7_s5_3__endpthstpth_0,7406906_1,679681_1,943396_s5_8_s1_8_s2_6__endpthstpth_0,7406906_1,679681_1,943396_s5_2_s2_8_s3_6__endpth

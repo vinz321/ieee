@@ -43,7 +43,7 @@ public class Tracer : MonoBehaviour
     
     void Start()
     {
-        v=new Validator(multiPattern);
+        
         xrri=GetComponent<XRRayInteractor>();
         lv=GetComponent<XRInteractorLineVisual>();
         // InputAction a=GetComponent<ActionBasedController>().selectAction.action;

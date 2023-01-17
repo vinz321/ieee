@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
 public class PatternSetMenu : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -15,6 +15,9 @@ public class PatternSetMenu : MonoBehaviour
     private GameObject pyramid,cube;
     [SerializeField]
     private Tracer tracer;
+
+    [SerializeField]
+    private TextMeshPro patternName;
     
     public void turnOnPath(bool multiPattern){
         this.multiPattern=multiPattern;
@@ -52,8 +55,14 @@ public class PatternSetMenu : MonoBehaviour
         tracer.enabled=true;
         tracer.multiPattern=multiPattern;
         tracer.MultiColor=multiColor;
+        if(multiPattern)
+            tracer.minPatternCount=2;
+        else
+            tracer.minPatternCount=4;
         pyramid.SetActive(shape==Model.Pyramid);
         cube.SetActive(shape==Model.Cube);
+
+        patternName.text=((multiPattern)?"Multi-Pattern ":"Single-Pattern ") + ((multiColor)?"Multi-Color":"Single-Color");
     }
 
     public void SetPyramidShape(){

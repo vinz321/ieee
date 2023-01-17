@@ -1,4 +1,0 @@
-Multipattern
-Error
-Time: 0.5285816 s, Pattern: 
-stpth_0.7406906_1.679681_1.943396_s1_6_s1_7_s1_8_s1_5__endpth

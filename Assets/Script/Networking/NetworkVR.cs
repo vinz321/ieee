@@ -12,6 +12,8 @@ using Unity.Multiplayer.Samples.Utilities.ClientAuthority;
 public class NetworkVR : NetworkBehaviour
 {
     // Start is called before the first frame update
+    [SerializeField]
+    private GameObject body;
     public override void OnNetworkSpawn()
     {   
         if(IsClient && !IsOwner){
@@ -38,6 +40,8 @@ public class NetworkVR : NetworkBehaviour
                 c.enableInputActions=false;
                 c.enableInputTracking=false;
             }
+        }else if(IsClient && IsOwner){
+            body.SetActive(false);
         }
 
     }

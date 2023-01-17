@@ -1,4 +1,0 @@
-SinglePattern
-Correct
-Time: 11.47202 s, Pattern: 
-stpth_2_1.952488_0.7245282_s1_0_s1_3_s1_6_s1_7_s1_8_s1_5_s1_4__endpth

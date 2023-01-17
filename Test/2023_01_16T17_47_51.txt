@@ -1,8 +1,0 @@
-SinglePattern
-Error
-Time: 0.4035597 s, Pattern: 
-stpth_0.7406906_1.679681_1.943396_t0_0_t0_-1_t0_1_t2_1__endpth
-SinglePattern
-Correct
-Time: 4.803572 s, Pattern: 
-stpth_0.7406906_1.679681_1.943396_t0_0_t0_-1_t0_1_t2_1__endpth
