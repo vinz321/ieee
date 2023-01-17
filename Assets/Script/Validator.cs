@@ -64,7 +64,7 @@ public class Validator
                 return false;
             }
         }else{
-            return reference.Equals("") || reference==null;
+            return !(reference==null || reference.Equals("")) ;
         }
             
         return true;
