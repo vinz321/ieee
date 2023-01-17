@@ -27,6 +27,7 @@ public abstract class Facet : MonoBehaviour
     public void SetColor(Color c)
     {
         matColor = c;
+        if(Debug.isDebugBuild)
         Debug.Log(c);
         mr.material.SetColor("_BaseColor", c);
     }

@@ -26,6 +26,7 @@ public class Side : Facet
             if(s.y==y && Mathf.Abs(s.x-x)==2){
                 return true;
             }
+            if(Debug.isDebugBuild)
             Debug.Log("Different Side Different Face");
             return false;
         }
@@ -33,6 +34,7 @@ public class Side : Facet
             Side vSide=(s.sideId>=4)?s:this;
             Side hSide=(s.sideId<4)?s:this;
             if(vSide.sideId==4 && hSide.y==0 || vSide.sideId==5 && hSide.y==2){
+                if(Debug.isDebugBuild)
                 Debug.Log("VSideCheck");
                 switch(hSide.sideId){
                     case 0:   //left
@@ -46,6 +48,7 @@ public class Side : Facet
                 }
             }
         }
+        if(Debug.isDebugBuild)
         Debug.Log("Side problem");
         return false;
     }

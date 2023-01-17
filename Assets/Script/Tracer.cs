@@ -81,12 +81,14 @@ public class Tracer : MonoBehaviour
         patternStarted=false; 
 
         if((pattern.Count-startPointer)<minPattern){   //Too Short
-            Debug.Log((pattern.Count)+" single pattern length");
+            if(Debug.isDebugBuild)
+                Debug.Log((pattern.Count)+" single pattern length");
             MenuManager.Instance.ui.SetText("Short Pattern!");
             DiscardPartially();
             v.StopTimer();
             return;
         }
+        if(Debug.isDebugBuild)
         Debug.Log((pattern.Count)+" single pattern length");
 
         if(v.Validate(Getpattern())){       //Read and if finished input write to file
@@ -176,6 +178,7 @@ public class Tracer : MonoBehaviour
         v.DeleteReference();
         v.Clear();
         Discard();
+        if(Debug.isDebugBuild)
         Debug.Log(pattern.Count);
     }
 

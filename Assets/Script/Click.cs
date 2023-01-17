@@ -39,6 +39,7 @@ public class Click : MonoBehaviour
             float y = Input.GetAxis("Mouse Y");
             t.Rotate(new Vector3(0, -x * 10f, 0), Space.World);
             t.Rotate(new Vector3(y * 10f, 0, 0), Space.World);
+            if(Debug.isDebugBuild)
             Debug.Log(x);
         }
     }

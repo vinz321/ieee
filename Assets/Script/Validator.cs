@@ -46,7 +46,8 @@ public class Validator
         }
         refPath=folderPath+"Reference.txt";
         filename=@"./Test/"+date.ToString("yyyy_MM_ddTHH_mm_ss")+".txt";
-        callback+=()=>{Debug.Log("Callback called");};
+        
+        callback+=()=>{if(Debug.isDebugBuild) Debug.Log("Callback called");};
         if(!finalBuild)
             callback+=()=>MenuManager.Instance.ShowSurvey();
     }
@@ -78,6 +79,7 @@ public class Validator
     public bool CreateReference(){
         if(!File.Exists(refPath) && fileContent != null){ // prevent to set empty pattern
             StreamWriter fs=new StreamWriter(refPath,true);
+            if(Debug.isDebugBuild)
             Debug.Log(fileContent);
             fs.Write(fileContent);
             fs.Close();
@@ -92,6 +94,7 @@ public class Validator
     public void SetRef(string name)
     {
         refPath = folderPath + name;
+        if(Debug.isDebugBuild)
         Debug.Log(refPath);
     }
 
@@ -106,8 +109,9 @@ public class Validator
         fileContent +=pattern;
         patternStarted = true;
         if(GetReference() && !ValidatePartialPattern()){
+            if(Debug.isDebugBuild){
             Debug.Log("Error committed");
-            Debug.Log(fileContent);
+            Debug.Log(fileContent);}
             errors++;
             WriteTry(false);
             fileContent="";
@@ -133,6 +137,7 @@ public class Validator
         if(reference==null || reference=="") return false;
         if (fileContent.Length != reference.Length)
         {
+            if(Debug.isDebugBuild)
             Debug.Log("Reference length is different "+fileContent.Length+" "+fileContent+" "+reference.Length+" "+reference);
         }
            //return false;

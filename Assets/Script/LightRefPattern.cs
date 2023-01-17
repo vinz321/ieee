@@ -36,6 +36,7 @@ public class LightRefPattern
     private Color readColor(string[] pattern_fsplit, int offset)
     {
         string[] components = pattern_fsplit[offset].Split("_");
+        if(Debug.isDebugBuild)
         Debug.Log(components);
 
         return new Color(float.Parse(components[0]), float.Parse(components[1]), float.Parse(components[2]));
