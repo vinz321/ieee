@@ -15,6 +15,7 @@ public class ChangeIP : MonoBehaviour
     public void changeIP(string s){
         
         utp.ConnectionData.Address=s;
+        utp.ConnectionData.ServerListenAddress=s;
     }
 
     public void changePort(string p){

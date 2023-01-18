@@ -46,13 +46,13 @@ public class Manager : MonoBehaviour
 
         
     }
-    public bool StartHost(){
-        return NetworkManager.Singleton.StartHost();
+    public void StartHost(){
+         NetworkManager.Singleton.StartHost();
         
     }
 
-    public bool StartClient(){
-        return NetworkManager.Singleton.StartClient();
+    public void StartClient(){
+         NetworkManager.Singleton.StartClient();
         //startPlayer.SetActive(false);
     }
 
