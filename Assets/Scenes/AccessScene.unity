@@ -5492,6 +5492,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: AccessXROrigin
       objectReference: {fileID: 0}
+    - target: {fileID: 8143474847797852626, guid: 07dad6484fbafed49af77340320af413,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8143474847797852639, guid: 07dad6484fbafed49af77340320af413,
         type: 3}
       propertyPath: m_RootOrder
