@@ -121,7 +121,7 @@ public class Validator
     public bool Validate(string pattern){
         // //if valid
         //fileContent = "";
-        fileContent +=pattern;
+        fileContent +=pattern.Replace(",",".");
         patternStarted = true;
         if(GetReference() && !ValidatePartialPattern()){
             if(Debug.isDebugBuild){

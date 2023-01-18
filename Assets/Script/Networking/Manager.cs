@@ -17,29 +17,43 @@ public class Manager : MonoBehaviour
     [SerializeField]
     private bool StartOnStart=false, isClient=true;
     ChangeIP cip;
+
+    private bool started=false;
     void Start()
     {
         nm=GetComponent<NetworkManager>();
         cip=FindObjectOfType<ChangeIP>();
+        
         if(StartOnStart){
-            if(isClient){
-                StartClient();
-            }else{
-                StartHost();
+                if(isClient){
+                    StartClient();
+                }else{
+                    StartHost();
+                }
             }
-        }
-            
     }
+
 
     // Update is called once per frame
-    public void StartHost(){
-        NetworkManager.Singleton.StartHost();
-        startPlayer.SetActive(false);
+    void Update(){
+        if(!started){
+            
+            if(NetworkManager.Singleton.IsConnectedClient || NetworkManager.Singleton.IsHost){
+                startPlayer.SetActive(false);
+            }
+            started=false;
+        }
+
+        
+    }
+    public bool StartHost(){
+        return NetworkManager.Singleton.StartHost();
+        
     }
 
-    public void StartClient(){
-        NetworkManager.Singleton.StartClient();
-        startPlayer.SetActive(false);
+    public bool StartClient(){
+        return NetworkManager.Singleton.StartClient();
+        //startPlayer.SetActive(false);
     }
 
     public void Stop(){
