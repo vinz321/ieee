@@ -57,6 +57,10 @@ public class Manager : MonoBehaviour
     }
 
     public void Stop(){
-        NetworkManager.Singleton.DisconnectClient(NetworkManager.Singleton.LocalClientId);
+        if(NetworkManager.Singleton.IsClient)
+            NetworkManager.Singleton.DisconnectClient(NetworkManager.Singleton.LocalClientId);
+        else
+            NetworkManager.Singleton.Shutdown();
+        SceneManager.LoadScene(1);
     }
 }

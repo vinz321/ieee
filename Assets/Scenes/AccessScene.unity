@@ -2161,7 +2161,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1457711368}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -11461,7 +11461,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1457711368}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -11998,7 +11998,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1583487450043889770}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -12054,7 +12054,7 @@ GameObject:
   - component: {fileID: 3036131073862801717}
   - component: {fileID: 5756506361291493181}
   - component: {fileID: 5756506361291493180}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: facce cubo.010
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12074,7 +12074,7 @@ GameObject:
   - component: {fileID: 8795107581201505211}
   - component: {fileID: 8795107581201505213}
   - component: {fileID: 8795107581201505212}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: facce cubo.007
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12102,7 +12102,7 @@ GameObject:
   - component: {fileID: 6005297937758591620}
   - component: {fileID: 8936366482241622438}
   - component: {fileID: 8936366482241622437}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: facce cubo.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12116,7 +12116,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1698922754181668347}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -12164,7 +12164,7 @@ GameObject:
   - component: {fileID: 1116387489227152130}
   - component: {fileID: 5892655345674967003}
   - component: {fileID: 5892655345674967002}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: facce cubo.025
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12184,7 +12184,7 @@ GameObject:
   - component: {fileID: 7825889447757462718}
   - component: {fileID: 8852813243175580011}
   - component: {fileID: 8852813243175580010}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: facce cubo.015
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12269,7 +12269,7 @@ GameObject:
   - component: {fileID: 6596860373332282649}
   - component: {fileID: 6739965208468635952}
   - component: {fileID: 6739965208468635951}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: facce cubo.044
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12346,7 +12346,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1298090957759125846}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -12438,7 +12438,7 @@ GameObject:
   - component: {fileID: 3511025272401420060}
   - component: {fileID: 3511025272401420062}
   - component: {fileID: 3511025272401420061}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: facce cubo.019
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12478,7 +12478,7 @@ GameObject:
   - component: {fileID: 2026368529294472360}
   - component: {fileID: 7558100990488300022}
   - component: {fileID: 7558100990488300021}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: facce cubo.005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12511,7 +12511,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7669091942618514759}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -12559,7 +12559,7 @@ GameObject:
   - component: {fileID: 460647927171569536}
   - component: {fileID: 6977701721723811917}
   - component: {fileID: 6977701721723811916}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: facce cubo.029
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12845,7 +12845,7 @@ GameObject:
   - component: {fileID: 546907872619725265}
   - component: {fileID: 7727094527521454583}
   - component: {fileID: 7727094527521454582}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: facce cubo.034
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13006,7 +13006,7 @@ GameObject:
   - component: {fileID: 6049815557998209494}
   - component: {fileID: 6779688381442708128}
   - component: {fileID: 6779688381442708127}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: facce cubo.040
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13148,7 +13148,7 @@ GameObject:
   - component: {fileID: 150398692362837509}
   - component: {fileID: 3944585279256556303}
   - component: {fileID: 3944585279256556302}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: facce cubo.052
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13213,7 +13213,7 @@ GameObject:
   - component: {fileID: 349421226218673233}
   - component: {fileID: 3684175969273098340}
   - component: {fileID: 3684175969273098339}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: facce cubo.046
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13430,7 +13430,7 @@ GameObject:
   - component: {fileID: 8269937357648297484}
   - component: {fileID: 8269937357648297486}
   - component: {fileID: 8269937357648297485}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: facce cubo.049
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13492,7 +13492,7 @@ GameObject:
   - component: {fileID: 4254053735188166569}
   - component: {fileID: 8348450711527661834}
   - component: {fileID: 8348450711527661833}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: facce cubo.038
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13527,7 +13527,7 @@ GameObject:
   - component: {fileID: 3965629853392899442}
   - component: {fileID: 7736944606614885569}
   - component: {fileID: 7736944606614885568}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: facce cubo.045
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13547,7 +13547,7 @@ GameObject:
   - component: {fileID: 6919831657512328038}
   - component: {fileID: 6919831657512328040}
   - component: {fileID: 6919831657512328039}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: facce cubo.053
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13888,7 +13888,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7564994279267451378}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -13930,7 +13930,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 189844897206854505}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -13978,7 +13978,7 @@ GameObject:
   - component: {fileID: 4506098039134070418}
   - component: {fileID: 7531323547481585062}
   - component: {fileID: 7531323547481585061}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: facce cubo.018
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14083,7 +14083,7 @@ GameObject:
   - component: {fileID: 5295063911035254293}
   - component: {fileID: 8094963740220013522}
   - component: {fileID: 8094963740220013521}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: facce cubo.026
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14173,7 +14173,7 @@ GameObject:
   - component: {fileID: 5965257539334586299}
   - component: {fileID: 9120397311043785089}
   - component: {fileID: 9120397311043785088}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: facce cubo.016
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14321,7 +14321,7 @@ GameObject:
   - component: {fileID: 3810480557521999020}
   - component: {fileID: 5396437414720603201}
   - component: {fileID: 5396437414720603200}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: facce cubo.051
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14484,7 +14484,7 @@ GameObject:
   - component: {fileID: 2178365634278605112}
   - component: {fileID: 7307119054374118860}
   - component: {fileID: 7307119054374118859}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: facce cubo.017
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14791,7 +14791,7 @@ GameObject:
   - component: {fileID: 3401205029911579671}
   - component: {fileID: 7082856661522622139}
   - component: {fileID: 7082856661522622138}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: facce cubo.004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14881,7 +14881,7 @@ GameObject:
   - component: {fileID: 4633915513441383656}
   - component: {fileID: 4805746780202719772}
   - component: {fileID: 4805746780202719771}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: facce cubo.039
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14909,7 +14909,7 @@ GameObject:
   - component: {fileID: 7908753804420907011}
   - component: {fileID: 7908753804420907013}
   - component: {fileID: 7908753804420907012}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: facce cubo.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15105,7 +15105,7 @@ GameObject:
   - component: {fileID: 6950539028195489208}
   - component: {fileID: 8431367101159995407}
   - component: {fileID: 8431367101159995406}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: facce cubo.047
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15133,7 +15133,7 @@ GameObject:
   - component: {fileID: 8216048396605125882}
   - component: {fileID: 8216048396605125884}
   - component: {fileID: 8216048396605125883}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: facce cubo.020
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15267,7 +15267,7 @@ GameObject:
   - component: {fileID: 8271870435626087650}
   - component: {fileID: 8271870435626087652}
   - component: {fileID: 8271870435626087651}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: facce cubo.048
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15287,7 +15287,7 @@ GameObject:
   - component: {fileID: 545884121260247009}
   - component: {fileID: 7602220921858367722}
   - component: {fileID: 7602220921858367721}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: facce cubo.035
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15643,7 +15643,7 @@ GameObject:
   - component: {fileID: 5108179550904472919}
   - component: {fileID: 6576868396623576896}
   - component: {fileID: 6576868396623576895}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: facce cubo.030
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15678,7 +15678,7 @@ GameObject:
   - component: {fileID: 6005873147055030400}
   - component: {fileID: 9001869734607629231}
   - component: {fileID: 9001869734607629230}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: facce cubo.024
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15870,7 +15870,7 @@ GameObject:
   - component: {fileID: 5700390489057025760}
   - component: {fileID: 7977445950425126169}
   - component: {fileID: 7977445950425126168}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: facce cubo.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15900,7 +15900,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5591721827860513503}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -15948,7 +15948,7 @@ GameObject:
   - component: {fileID: 3603869707377311260}
   - component: {fileID: 6064544019933356472}
   - component: {fileID: 6064544019933356471}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: facce cubo.009
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15968,7 +15968,7 @@ GameObject:
   - component: {fileID: 6101237653283454788}
   - component: {fileID: 8055910361404570282}
   - component: {fileID: 8055910361404570281}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: facce cubo.023
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16047,7 +16047,7 @@ GameObject:
   - component: {fileID: 2659197820584297299}
   - component: {fileID: 6924350457361303357}
   - component: {fileID: 6924350457361303356}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: facce cubo.022
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16278,7 +16278,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1428738655720115701}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -16362,7 +16362,7 @@ GameObject:
   - component: {fileID: 4984999922015895245}
   - component: {fileID: 7694571106198501569}
   - component: {fileID: 7694571106198501568}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: facce cubo.041
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16448,7 +16448,7 @@ GameObject:
   - component: {fileID: 5311506341456668552}
   - component: {fileID: 6407163666597040127}
   - component: {fileID: 6407163666597040126}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: facce cubo.006
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16596,7 +16596,7 @@ GameObject:
   - component: {fileID: 3879185267182599575}
   - component: {fileID: 6947934066873980533}
   - component: {fileID: 6947934066873980532}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: facce cubo.013
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16694,7 +16694,7 @@ GameObject:
   - component: {fileID: 4285334485019863184}
   - component: {fileID: 7436395776758880610}
   - component: {fileID: 7436395776758880609}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: facce cubo.031
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16786,7 +16786,7 @@ GameObject:
   - component: {fileID: 9168001438998490904}
   - component: {fileID: 9168001438998490906}
   - component: {fileID: 9168001438998490905}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: facce cubo.037
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17065,7 +17065,7 @@ GameObject:
   - component: {fileID: 3518679078955276867}
   - component: {fileID: 7155692160027897384}
   - component: {fileID: 7155692160027897383}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: facce cubo.033
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17164,7 +17164,7 @@ GameObject:
   - component: {fileID: 8415762068759227912}
   - component: {fileID: 8415762068759227914}
   - component: {fileID: 8415762068759227913}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: facce cubo.008
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17184,7 +17184,7 @@ GameObject:
   - component: {fileID: 9126940000368005149}
   - component: {fileID: 9126940000368005151}
   - component: {fileID: 9126940000368005150}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: facce cubo.042
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17198,6 +17198,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 871725998}
     m_Modifications:
+    - target: {fileID: 7205239984842971058, guid: 59d67723de5b42143aa73a94ac73a700,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7205239984842971062, guid: 59d67723de5b42143aa73a94ac73a700,
         type: 3}
       propertyPath: m_RootOrder
@@ -17286,7 +17291,7 @@ GameObject:
   - component: {fileID: 1558267699811688394}
   - component: {fileID: 7670239114940554314}
   - component: {fileID: 7670239114940554313}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: facce cubo.050
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17736,7 +17741,7 @@ GameObject:
   - component: {fileID: 2993191842297727195}
   - component: {fileID: 7564994279267451380}
   - component: {fileID: 7564994279267451379}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: facce cubo.027
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17835,7 +17840,7 @@ GameObject:
   - component: {fileID: 919551977852465721}
   - component: {fileID: 7669091942618514761}
   - component: {fileID: 7669091942618514760}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: facce cubo.021
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18012,7 +18017,7 @@ GameObject:
   - component: {fileID: 7421699549667955077}
   - component: {fileID: 7726181108222601676}
   - component: {fileID: 7726181108222601675}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: facce cubo.014
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18197,7 +18202,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 456711799594561535}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -18315,7 +18320,7 @@ GameObject:
   - component: {fileID: 7669623250662140652}
   - component: {fileID: 7910918378137723895}
   - component: {fileID: 7910918378137723894}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: facce cubo.012
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18406,7 +18411,7 @@ GameObject:
   - component: {fileID: 2578327440377194395}
   - component: {fileID: 7998690248325412324}
   - component: {fileID: 7998690248325412323}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: facce cubo.036
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18788,7 +18793,7 @@ GameObject:
   - component: {fileID: 8625183702481380698}
   - component: {fileID: 8625183702481380700}
   - component: {fileID: 8625183702481380699}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: facce cubo.043
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18991,7 +18996,7 @@ GameObject:
   - component: {fileID: 1282082395189946076}
   - component: {fileID: 8619557866751289833}
   - component: {fileID: 8619557866751289832}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: facce cubo.032
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19238,7 +19243,7 @@ GameObject:
   - component: {fileID: 4469685456725535851}
   - component: {fileID: 8905153492158886429}
   - component: {fileID: 8905153492158886428}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: facce cubo.028
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19414,7 +19419,7 @@ GameObject:
   - component: {fileID: 4236628872545924605}
   - component: {fileID: 8635776576591721371}
   - component: {fileID: 8635776576591721370}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: facce cubo.054
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19837,7 +19842,7 @@ GameObject:
   - component: {fileID: 4134506679386061506}
   - component: {fileID: 9068117896061396539}
   - component: {fileID: 9068117896061396538}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: facce cubo.011
   m_TagString: Untagged
   m_Icon: {fileID: 0}
