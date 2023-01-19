@@ -19,6 +19,7 @@ public class Manager : MonoBehaviour
     ChangeIP cip;
 
     private bool started=false;
+    private bool shutting=false;
     void Start()
     {
         nm=GetComponent<NetworkManager>();
@@ -39,7 +40,8 @@ public class Manager : MonoBehaviour
         if(!started){
             
             if(NetworkManager.Singleton.IsConnectedClient || NetworkManager.Singleton.IsHost){
-                startPlayer.SetActive(false);
+                if(startPlayer!=null)
+                    startPlayer.SetActive(false);
             }
             started=false;
         }
@@ -57,10 +59,17 @@ public class Manager : MonoBehaviour
     }
 
     public void Stop(){
-        if(NetworkManager.Singleton.IsClient)
-            NetworkManager.Singleton.DisconnectClient(NetworkManager.Singleton.LocalClientId);
-        else
+        if(NetworkManager.Singleton.IsServer){
+            shutting=true;
             NetworkManager.Singleton.Shutdown();
+            
+        }
+        else if(NetworkManager.Singleton.IsClient)
+            NetworkManager.Singleton.DisconnectClient(NetworkManager.Singleton.LocalClientId);
+        
+        if(NetworkManager.Singleton!=null)
+                Destroy(NetworkManager.Singleton.gameObject);
         SceneManager.LoadScene(1);
+        
     }
 }
